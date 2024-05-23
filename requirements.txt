@@ -1,5 +1,5 @@
 numpy~=1.19.4
-sentencepiece<0.1.92
+sentencepiece==0.1.99
 dataclasses~=0.7; python_version<'3.7'
 transformers~=4.1.1
 fasttext~=0.9.2
