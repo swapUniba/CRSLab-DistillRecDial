@@ -24,7 +24,6 @@ install_requires = [
     'scikit-learn~=0.24.0',
     'fuzzywuzzy~=0.18.0',
     'tensorboard~=2.4.1',
-    "protobuf~=3.20",
 ]
 
 classifiers = [

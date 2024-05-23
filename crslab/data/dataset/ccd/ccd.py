@@ -52,6 +52,7 @@ class CCDataset(BaseDataset):
         self.special_token_idx = resource['special_token_idx']
         self.unk_token_idx = self.special_token_idx['unk']
         self.format_for_redial = opt.get("format_for_redial", False)
+
         dpath = os.path.join(DATASET_PATH, "ccd", tokenize)
         super().__init__(opt, dpath, resource, restore, save)
 
@@ -97,30 +98,13 @@ class CCDataset(BaseDataset):
         logger.debug(f"[The size of index2token dictionary is {len(self.ind2tok)}]")
 
     def _load_other_data(self):
-        # dbpedia
         self.entity2id = json.load(
             open(os.path.join(self.dpath, 'entity2id.json'), 'r', encoding='utf-8'))  # {entity: entity_id}
         self.id2entity = {idx: entity for entity, idx in self.entity2id.items()}
         self.n_entity = max(self.entity2id.values()) + 1
-        # {head_entity_id: [(relation_id, tail_entity_id)]}
-        # self.entity_kg = json.load(open(os.path.join(self.dpath, 'dbpedia_subkg.json'), 'r', encoding='utf-8'))
-        # logger.debug(
-        #     f"[Load entity dictionary and KG from {os.path.join(self.dpath, 'entity2id.json')} and {os.path.join(self.dpath, 'dbpedia_subkg.json')}]")
 
-        # TODO: do we need kgs? Can we use the same as original Redial?
-        # conceptNet
-        # {concept: concept_id}
-        # self.word2id = json.load(open(os.path.join(self.dpath, 'concept2id.json'), 'r', encoding='utf-8'))
-        # self.n_word = max(self.word2id.values()) + 1
-        # -----
         self.word2id = json.load(open(os.path.join(self.dpath, 'token2id.json'), 'r', encoding='utf-8'))
         self.n_word = max(self.word2id.values()) + 1
-        # -----
-
-        # # {relation\t concept \t concept}
-        # self.word_kg = open(os.path.join(self.dpath, 'conceptnet_subkg.txt'), 'r', encoding='utf-8')
-        # logger.debug(
-        #     f"[Load word dictionary and KG from {os.path.join(self.dpath, 'concept2id.json')} and {os.path.join(self.dpath, 'conceptnet_subkg.txt')}]")
 
     def _data_preprocess(self, train_data, valid_data, test_data):
         processed_train_data = self._raw_data_process(train_data)
@@ -134,71 +118,71 @@ class CCDataset(BaseDataset):
         return processed_train_data, processed_valid_data, processed_test_data, processed_side_data
 
     def _raw_data_process(self, raw_data):
-        # This merges consequtive utterances from the same role into one conversation
-        # augmented_convs = [self._merge_conv_data(conversation["dialog"]) for conversation in tqdm(raw_data)]
+        augmented_convs = [self._convert_tokens_and_words_to_ids(conversation["messages"]) for conversation in tqdm(raw_data)]
         augmented_conv_dicts = []
 
         # This puts it in the correct format
-        for conv in tqdm(raw_data):
+        for conv in tqdm(augmented_convs):
             augmented_conv_dicts.extend(self._augment_and_add(conv))
+
         return augmented_conv_dicts
 
+    def _convert_tokens_and_words_to_ids(self, messages):
+        augmented_messages = []
 
-    # TODO: consider replacing items in the text with ids for redial '@id' (see tgredial.py #201)
+        for utt in messages:
+            if self.format_for_redial:
+                text_tokens_ids, word_ids = utt["annotated_text"], utt["annotated_word"]
+            else:
+                text_tokens_ids, word_ids = utt["text"], utt["word"]
+
+            text_token_ids = [self.tok2ind.get(word, self.unk_token_idx) for word in text_tokens_ids]
+            word_ids = [self.word2id[word] for word in word_ids if word in self.word2id]
+
+            role = "Seeker" if utt["role"] == "user" else "Recommender"
+
+            augmented_messages.append({
+                "role": role,
+                "text": text_token_ids,
+                "item": utt["item_ids"],
+                "entity": utt["entity_ids"],
+                "word": word_ids
+            })
+
+        return augmented_messages
+
     def _augment_and_add(self, raw_conv_dict):
         """Builds conversation history (context) for a single conversation."""
         augmented_conv_dicts = []
-        context_tokens, context_entities, context_words, context_items, contexts = [], [], [], [], []
-        entity_set, word_set = set(), set()
+        context_tokens, context_entities, context_words, context_items = [], [], [], []
 
-        for i, conv in enumerate(raw_conv_dict["messages"]):
-            text_tokens, entity_ids, item_ids, word_ids, content = conv["annotated_text"], conv["entity_ids"], conv["item_ids"], conv["annotated_word"], conv["content"]
-
-            text_token_ids = [self.tok2ind.get(word, self.unk_token_idx) for word in conv["annotated_text"]]
-            word_ids = [self.word2id[word] for word in conv['word'] if word in self.word2id]
-
+        for i, utt in enumerate(raw_conv_dict):
+            text_tokens, entities, items, words = utt["text"], utt["entity"], utt["item"], utt["word"]
 
             if len(context_tokens) > 0:
                 conv_dict = {
-                    "role": "Seeker" if conv["role"] == "user" else "Recommender",
+                    "role": utt["role"],
                     "context_tokens": copy(context_tokens),
-                    "response": text_token_ids,  # text_tokens
+                    "response": text_tokens,
                     "context_entities": copy(context_entities),
                     "context_words": copy(context_words),
                     "context_items": copy(context_items),
-                    "items": item_ids,
-                    # "content": content,  # TODO: does this work? yes, see tgredial
-                    # "context": copy(contexts),
+                    "items": items,
                 }
                 augmented_conv_dicts.append(conv_dict)
 
-            context_tokens.append(text_token_ids)
-            contexts.append(content),
-            context_items += item_ids
-
-            for entity in entity_ids + item_ids:
-                if entity not in entity_set:
-                    entity_set.add(entity)
-                    context_entities.append(entity)
-
-            for word in word_ids:
-                if word not in word_set:
-                    word_set.add(word)
-                    context_words.append(word)
+            context_tokens.append(text_tokens)
+            context_items += items
 
         return augmented_conv_dicts
 
     def _side_data_process(self):
-        # processed_entity_kg = self._entity_kg_process()
-        # logger.debug("[Finish entity KG process]")
-        # processed_word_kg = self._word_kg_process()
-        # logger.debug("[Finish word KG process]")
-        movie_entity_ids = json.load(open(os.path.join(self.dpath, 'item_ids.json'), 'r', encoding='utf-8'))
+        item_entity_ids = json.load(open(os.path.join(self.dpath, 'item_ids.json'), 'r', encoding='utf-8'))
         logger.debug('[Load topic entity ids]')
 
         side_data = {
-            "entity_kg": [], #processed_entity_kg,
-            "word_kg": [], #processed_word_kg,
-            "item_entity_ids": movie_entity_ids,
+            "entity_kg": {},
+            "word_kg": {},
+            "item_entity_ids": item_entity_ids,
         }
         return side_data

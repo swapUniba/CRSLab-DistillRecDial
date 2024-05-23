@@ -3,6 +3,7 @@ dataset: CCD
 tokenize:
   rec: nltk
   conv: nltk
+format_for_redial: True
 # dataloader
 utterance_truncate: 80
 conversation_truncate: 40
@@ -26,7 +27,7 @@ decoder_hidden_size: 256
 decoder_num_layers: 1
 # optim
 rec:
-  epoch: 50
+  epoch: 1 #50
   batch_size: 1024
   optimizer:
     name: Adam
@@ -35,7 +36,7 @@ rec:
   impatience: 3
   stop_mode: min
 conv:
-  epoch: 50
+  epoch: 1 # 50
   batch_size: 128
   optimizer:
     name: Adam
