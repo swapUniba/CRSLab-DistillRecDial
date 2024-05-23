@@ -51,6 +51,7 @@ class CCDataset(BaseDataset):
         resource = resources[tokenize]
         self.special_token_idx = resource['special_token_idx']
         self.unk_token_idx = self.special_token_idx['unk']
+        self.format_for_redial = opt.get("format_for_redial", False)
         dpath = os.path.join(DATASET_PATH, "ccd", tokenize)
         super().__init__(opt, dpath, resource, restore, save)
 
@@ -151,32 +152,36 @@ class CCDataset(BaseDataset):
         entity_set, word_set = set(), set()
 
         for i, conv in enumerate(raw_conv_dict["messages"]):
-            text_tokens, entities, topics, words, content = conv["annotated_text"], conv["entity_ids"], conv["item_ids"], conv["annotated_word"], conv["content"]
+            text_tokens, entity_ids, item_ids, word_ids, content = conv["annotated_text"], conv["entity_ids"], conv["item_ids"], conv["annotated_word"], conv["content"]
+
+            text_token_ids = [self.tok2ind.get(word, self.unk_token_idx) for word in conv["annotated_text"]]
+            word_ids = [self.word2id[word] for word in conv['word'] if word in self.word2id]
+
 
             if len(context_tokens) > 0:
                 conv_dict = {
                     "role": "Seeker" if conv["role"] == "user" else "Recommender",
                     "context_tokens": copy(context_tokens),
-                    "response": text_tokens,
+                    "response": text_token_ids,  # text_tokens
                     "context_entities": copy(context_entities),
                     "context_words": copy(context_words),
                     "context_items": copy(context_items),
-                    "items": topics,
+                    "items": item_ids,
                     # "content": content,  # TODO: does this work? yes, see tgredial
                     # "context": copy(contexts),
                 }
                 augmented_conv_dicts.append(conv_dict)
 
-            context_tokens.append(text_tokens)
+            context_tokens.append(text_token_ids)
             contexts.append(content),
-            context_items += topics
+            context_items += item_ids
 
-            for entity in entities + topics:
+            for entity in entity_ids + item_ids:
                 if entity not in entity_set:
                     entity_set.add(entity)
                     context_entities.append(entity)
 
-            for word in words:
+            for word in word_ids:
                 if word not in word_set:
                     word_set.add(word)
                     context_words.append(word)
