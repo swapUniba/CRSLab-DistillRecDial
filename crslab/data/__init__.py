@@ -29,7 +29,8 @@ dataset_register_table = {
     'GoRecDial': GoRecDialDataset,
     'OpenDialKG': OpenDialKGDataset,
     'Inspired': InspiredDataset,
-    'DuRecDial': DuRecDialDataset
+    'DuRecDial': DuRecDialDataset,
+    "CCD": CCDataset,
 }
 
 dataset_language_map = {
@@ -38,7 +39,8 @@ dataset_language_map = {
     'GoRecDial': 'en',
     'OpenDialKG': 'en',
     'Inspired': 'en',
-    'DuRecDial': 'zh'
+    'DuRecDial': 'zh',
+    "CCD": 'en',
 }
 
 dataloader_register_table = {
