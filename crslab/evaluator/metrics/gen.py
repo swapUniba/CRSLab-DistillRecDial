@@ -16,6 +16,7 @@ from nltk import ngrams
 from nltk.translate.bleu_score import sentence_bleu
 from sklearn.metrics.pairwise import cosine_similarity
 from typing import List, Optional
+from rouge_score import rouge_scorer
 
 from crslab.evaluator.metrics.base import AverageMetric, SumMetric
 
@@ -113,6 +114,31 @@ class DistMetric(SumMetric):
         for token in ngrams(sent.split(), k):
             token_set.add(token)
         return DistMetric(len(token_set))
+
+
+class RougeMetric(AverageMetric):
+    """
+    ROUGE Metric class to compute ROUGE-N and ROUGE-L scores.
+    """
+
+    @staticmethod
+    def compute(pred: str, refs: List[str], rouge_type: str = 'rougeL') -> 'RougeMetric':
+        """
+        Compute the ROUGE score for a set of references.
+
+        :param pred: predicted text
+        :param refs: list of reference texts
+        :param rouge_type: type of ROUGE score to compute ('rouge1', 'rouge2', 'rougeL')
+        :return: ROUGE score
+        """
+        pred = normalize_answer(pred)
+        refs = [normalize_answer(ref) for ref in refs]
+
+        scorer = rouge_scorer.RougeScorer([rouge_type], use_stemmer=True)
+        scores = [scorer.score(ref, pred)[rouge_type].fmeasure for ref in refs]
+        avg_score = sum(scores) / len(scores)
+
+        return RougeMetric(avg_score)
 
 
 class EmbeddingAverage(AverageMetric):

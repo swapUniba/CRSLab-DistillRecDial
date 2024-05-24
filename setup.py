@@ -24,6 +24,7 @@ install_requires = [
     'scikit-learn~=0.24.0',
     'fuzzywuzzy~=0.18.0',
     'tensorboard~=2.4.1',
+    "rouge-score~=0.1.2",
 ]
 
 classifiers = [

@@ -20,6 +20,7 @@ from crslab.evaluator.base import BaseEvaluator
 from crslab.evaluator.utils import nice_report
 from .embeddings import resources
 from .metrics import *
+from .metrics.gen import RougeMetric
 from ..config import EMBEDDING_PATH
 from ..download import build
 
@@ -80,6 +81,10 @@ class StandardEvaluator(BaseEvaluator):
                 for token in ngrams(hyp, k):
                     self.dist_set[f"dist@{k}"].add(token)
             self.dist_cnt += 1
+
+            self.gen_metrics.add("rougeL", RougeMetric.compute(hyp, refs, 'rougeL'))
+            self.gen_metrics.add("rouge1", RougeMetric.compute(hyp, refs, 'rouge1'))
+            self.gen_metrics.add("rouge2", RougeMetric.compute(hyp, refs, 'rouge2'))
 
             hyp_emb = self._get_sent_embedding(hyp)
             ref_embs = [self._get_sent_embedding(ref) for ref in refs]

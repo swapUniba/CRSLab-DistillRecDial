@@ -4,9 +4,9 @@ resources = {
     'nltk': {
         'version': '0.1',
         'file': DownloadableFile(
-            'https://studntnu-my.sharepoint.com/:u:/g/personal/eirsteir_ntnu_no/Ee4P8qsnL5FOhwALDlLAsV8BvRHyBHSuU1yXE-QLhBkEDA?download=1',
+            'https://studntnu-my.sharepoint.com/:u:/g/personal/eirsteir_ntnu_no/EQGwDWpHjbhDj0CaEwzjaHoBw0j6WxYbI8Pxq6U5IEZRRg?download=1',
             'ccd_nltk.zip',
-            'f1c395b21e3c2a389ec71f6cf8977716585aa4e8684a2d9c8f5487f7da233cff',
+            'b08117da91cc686a6450088d5f0508f3e8027a4bdd28d9a93493cfcdf5e5dd7f',
         ),
         'special_token_idx': {
             'pad': 0,
@@ -20,9 +20,9 @@ resources = {
     'bert': {
         'version': '0.1',
         'file': DownloadableFile(
-            'https://studntnu-my.sharepoint.com/:u:/g/personal/eirsteir_ntnu_no/EZ6U5LGfUOxDlUptY-rTVU0BUXlQMw8kRue0egYPPYVRIQ?download=1',
+            'https://studntnu-my.sharepoint.com/:u:/g/personal/eirsteir_ntnu_no/EX409RNUjwJCv7dSHFCQeIkBBTSBPcyrIZz_5W2173nZIA?download=1',
             'ccd_bert.zip',
-            '74c1dea4f7f7beb12f9b655d95694cbe52b1464cf882639e5c8b4a3074c7df9e'
+            '029c3b08b0108905f55d8d1705bc91c5e365106da17d78932a5f277b056e079b'
         ),
         'special_token_idx': {
             'pad': 0,
@@ -38,9 +38,9 @@ resources = {
     'gpt2': {
         'version': '0.1',
         'file': DownloadableFile(
-            'https://studntnu-my.sharepoint.com/:u:/g/personal/eirsteir_ntnu_no/EVWiiK4FC4pBkgV4GgWoaXIBaOKwQfmfdYIrdSeI32z2Yw?download=1',
+            'https://studntnu-my.sharepoint.com/:u:/g/personal/eirsteir_ntnu_no/Eb9AM2f5qBVKhV2gQV3sHccBgEU7afCymeOMX4tALLEP4A?download=1',
             'ccd_gpt2.zip',
-            '5902885c730acb0c5aad749e3c89432582ae0f163b8caca1fdd680c7e9c8e4d3'
+            '45b2002f875bc69b98e9dbdfddddc8e5572ec6e5ee584e633e8053e47f4a271d'
         ),
         'special_token_idx': {
             'pad': 0,
