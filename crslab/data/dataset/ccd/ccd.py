@@ -55,8 +55,6 @@ class CCDataset(BaseDataset):
         self.format_for_redial = opt.get("format_for_redial", False)
         self.keep_text = opt.get("keep_text", False)
 
-        self.format_for_openai_convo_style = tokenize == "none"
-
         dpath = os.path.join(DATASET_PATH, "ccd", tokenize)
         super().__init__(opt, dpath, resource, restore, save)
 

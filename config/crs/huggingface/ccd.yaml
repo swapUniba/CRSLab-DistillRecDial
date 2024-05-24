@@ -1,11 +1,11 @@
 # dataset
 dataset: CCD
-tokenize:
-  rec: nltk
-  conv: nltk
-script_args:
-  model_id: eirsteir/crs-llama-3-8b-instruct
+tokenize: none
 batch_size: 1
+keep_text: True
+model: HuggingfaceModel
+model_id: eirsteir/crs-llama-3-8b-instruct
+bf16: True
 #format_for_redial: True
 ## dataloader
 #utterance_truncate: 80

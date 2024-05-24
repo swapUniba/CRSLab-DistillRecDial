@@ -13,8 +13,6 @@ class CCDDataLoader(BaseDataLoader):
     def __init__(self, opt, dataset, vocab):
         super().__init__(opt, dataset)
 
-        self.hf_dataset = self.dataset.hf_dataset
-
 
     def process_fn(self):
         augment_dataset = []
@@ -59,7 +57,7 @@ class CCDDataLoader(BaseDataLoader):
         for conv_dict in tqdm(self.dataset):
             role = "user" if conv_dict["role"] == "Seeker" else "assistant"
 
-            if conv_dict['role'] == 'Recommender' and len(conv_dict['items']) > 0:
+            if conv_dict['role'] == 'Recommender':
                 augment_conv_dict = {
                     'dialog_id': conv_dict['dialog_id'],
                     'role': role,

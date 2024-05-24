@@ -1,4 +1,5 @@
 import json
+import re
 
 import editdistance
 import torch
@@ -68,11 +69,8 @@ class HuggingfaceModel(BaseModel):
         with open(f"{self.dataset_path}/entity2id.json", 'r', encoding="utf-8") as f:
             self.entity2id = json.load(f)
 
-        script_args = opt["script_args"]
-        self.model_id = script_args["model_id"]
-        self.bf16 = opt["training_args"]["bf16"]
-        self.use_flash_attention2 = script_args["use_flash_attention2"]
-        self.gradient_checkpointing = opt["training_args"]["gradient_checkpointing"]
+        self.model_id = opt["model_id"]
+        self.bf16 = opt["bf16"]
 
         if self.bf16:
             self.torch_dtype = torch.bfloat16
@@ -87,9 +85,6 @@ class HuggingfaceModel(BaseModel):
             temperature=0.6,
             top_p=0.9,
         )
-
-
-    def build_model(self):
 
         self.pipe = pipeline(
             "text-generation",
@@ -107,8 +102,12 @@ class HuggingfaceModel(BaseModel):
                 self.pipe.tokenizer.convert_tokens_to_ids("<|eot_id|>"),
             ]
 
+    def build_model(self):
+        pass
 
-    def recommend(self, batch, mode):
+    def recommend(self, batch, mode="test"):
+        all_predicted_recs = []
+
         for example in batch:
             context = example["context"]
             prompt = PROMPT_TEMPLATE.format(context)
@@ -122,7 +121,9 @@ class HuggingfaceModel(BaseModel):
             pred_labels = match_topics(true_labels=gt_labels, predicted_labels=pred_labels)
             pred_labels = [self.entity2id[label] for label in pred_labels]
 
+            all_predicted_recs.extend(pred_labels)
 
+        return all_predicted_recs
 
 
     def format_prompt_for_chat(self, prompt):
@@ -135,7 +136,7 @@ class HuggingfaceModel(BaseModel):
         return prompt
 
     def converse(self, batch, mode):
-        pass
+        return
 
     def guide(self, batch, mode):
         pass
