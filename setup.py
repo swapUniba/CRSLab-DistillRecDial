@@ -13,7 +13,6 @@ install_requires = [
     'numpy~=1.19.4',
     'sentencepiece==0.1.99',
     "dataclasses~=0.7;python_version<'3.7'",
-    'transformers~=4.1.1',
     'fasttext~=0.9.2',
     'pkuseg~=0.0.25',
     'pyyaml~=5.4',
@@ -25,6 +24,8 @@ install_requires = [
     'fuzzywuzzy~=0.18.0',
     'tensorboard~=2.4.1',
     "rouge-score~=0.1.2",
+    "transformers==4.40.0",
+    "editdistance~=0.8.1",
 ]
 
 classifiers = [

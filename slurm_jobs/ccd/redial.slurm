@@ -1,5 +1,5 @@
 #!/bin/sh
-#SBATCH --partition=GPUQ
+#SBATCH --partition=CPUQ
 #SBATCH --account=ie-idi
 #SBATCH --time=15:00:00
 #SBATCH --nodes=1
@@ -7,15 +7,15 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
 #SBATCH --job-name="CRSLab-ReDial-CCD-v0"
-#SBATCH --output=outputs/redial/CRSLab-ReDial-CCD-v0.out
-#SBATCH --error=outputs/redial/CRSLab-ReDial-CCD-v0.err
+#SBATCH --output=slurm_jobs/outputs/redial/CRSLab-ReDial-CCD-v0.out
+#SBATCH --error=slurm_jobs/outputs/redial/CRSLab-ReDial-CCD-v0.err
 #SBATCH --mail-user=eirsteir@stud.ntnu.no
 #SBATCH --mail-type=ALL
 
 cd ${SLURM_SUBMIT_DIR}
 
 module purge
-module load Python/3.11.5-GCCcore-13.2.0  # TODO: python 3.9?
+module load  Python/3.9.6-GCCcore-11.2.0
 
 python -m pip install --upgrade pip
 

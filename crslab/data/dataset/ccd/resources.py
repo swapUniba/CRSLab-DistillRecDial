@@ -1,6 +1,14 @@
 from crslab.download import DownloadableFile
 
 resources = {
+    "none": {
+        "version": "0.1",
+        "file": DownloadableFile(
+            "https://studntnu-my.sharepoint.com/:u:/g/personal/eirsteir_ntnu_no/Efu9s2gaIY9CkyM6GrJ-QjUBE5WQjBxvJn8UxUMqhLpbMg?download=1",
+            "ccd_none.zip",
+            "c64d1fd818a1f515bb9e22aceace4bd2e7cc017d972fef41c83b65b6bcc3fc46",
+        ),
+    },
     'nltk': {
         'version': '0.1',
         'file': DownloadableFile(

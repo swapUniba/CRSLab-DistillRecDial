@@ -7,6 +7,7 @@ from copy import copy
 
 from loguru import logger
 from tqdm import tqdm
+from datasets import Dataset as HFDataset, DatasetDict
 
 from crslab.config import DATASET_PATH
 from crslab.data.dataset.base import BaseDataset
@@ -52,9 +53,13 @@ class CCDataset(BaseDataset):
         self.special_token_idx = resource['special_token_idx']
         self.unk_token_idx = self.special_token_idx['unk']
         self.format_for_redial = opt.get("format_for_redial", False)
+        self.keep_text = opt.get("keep_text", False)
+
+        self.format_for_openai_convo_style = tokenize == "none"
 
         dpath = os.path.join(DATASET_PATH, "ccd", tokenize)
         super().__init__(opt, dpath, resource, restore, save)
+
 
     def _load_data(self):
         train_data, valid_data, test_data = self._load_raw_data()
@@ -118,13 +123,15 @@ class CCDataset(BaseDataset):
         return processed_train_data, processed_valid_data, processed_test_data, processed_side_data
 
     def _raw_data_process(self, raw_data):
-        augmented_convs = [self._convert_tokens_and_words_to_ids(conversation["messages"]) for conversation in tqdm(raw_data)]
-        augmented_conv_dicts = []
+        return self._raw_data_process_contextual(raw_data)
 
+    def _raw_data_process_contextual(self, raw_data):
+        augmented_convs = [self._convert_tokens_and_words_to_ids(conversation["messages"]) for conversation in
+                           tqdm(raw_data)]
+        augmented_conv_dicts = []
         # This puts it in the correct format
         for conv in tqdm(augmented_convs):
             augmented_conv_dicts.extend(self._augment_and_add(conv))
-
         return augmented_conv_dicts
 
     def _convert_tokens_and_words_to_ids(self, messages):
@@ -136,8 +143,9 @@ class CCDataset(BaseDataset):
             else:
                 text_tokens_ids, word_ids = utt["text"], utt["word"]
 
-            text_token_ids = [self.tok2ind.get(word, self.unk_token_idx) for word in text_tokens_ids]
-            word_ids = [self.word2id[word] for word in word_ids if word in self.word2id]
+            if not self.keep_text:
+                text_token_ids = [self.tok2ind.get(word, self.unk_token_idx) for word in text_tokens_ids]
+                word_ids = [self.word2id[word] for word in word_ids if word in self.word2id]
 
             role = "Seeker" if utt["role"] == "user" else "Recommender"
 
@@ -176,6 +184,7 @@ class CCDataset(BaseDataset):
 
         return augmented_conv_dicts
 
+
     def _side_data_process(self):
         item_entity_ids = json.load(open(os.path.join(self.dpath, 'item_ids.json'), 'r', encoding='utf-8'))
         logger.debug('[Load topic entity ids]')
@@ -186,3 +195,4 @@ class CCDataset(BaseDataset):
             "item_entity_ids": item_entity_ids,
         }
         return side_data
+
