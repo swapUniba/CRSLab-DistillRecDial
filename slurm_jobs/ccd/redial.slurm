@@ -5,8 +5,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=8
-#SBATCH --gres=gpu:a100:1
-#SBATCH --mem=80G
+#SBATCH --mem=64G
 #SBATCH --job-name="CRSLab-ReDial-CCD-v0"
 #SBATCH --output=outputs/redial/CRSLab-ReDial-CCD-v0.out
 #SBATCH --error=outputs/redial/CRSLab-ReDial-CCD-v0.err
@@ -32,6 +31,4 @@ echo "Running Evaluation"
 
 nvidia-smi
 
-export WANDB_API_KEY=60987b14ac8c99991c6df627abbd69199511a8d3
-
-srun python run_crslab.py --config config/crs/redial/ccd.yaml --tensorboard --gpu 0
+srun python run_crslab.py --config config/crs/redial/ccd.yaml --tensorboard
