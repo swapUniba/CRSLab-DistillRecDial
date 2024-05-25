@@ -2,7 +2,7 @@
 dataset: CCD
 tokenize: none
 batch_size: 32
-keep_text: True
+use_tokens: False
 model: Huggingface
 model_id: meta-llama/Meta-Llama-3-8B-Instruct
 max_target_length: 512

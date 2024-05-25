@@ -63,7 +63,6 @@ class InspiredConvModel(BaseModel):
 
         """
         roles, input_ids, context, _ = batch
-
         input_ids_iters = input_ids.unsqueeze(1)
 
         past = None

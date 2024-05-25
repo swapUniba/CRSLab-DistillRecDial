@@ -51,7 +51,7 @@ class CCDataset(BaseDataset):
         self.special_token_idx = resource['special_token_idx']
         self.unk_token_idx = self.special_token_idx['unk']
         self.format_for_redial = opt.get("format_for_redial", False)
-        self.keep_text = opt.get("keep_text", False)
+        self.use_tokens = opt.get("use_tokens", True)
 
         dpath = os.path.join(DATASET_PATH, "ccd", tokenize)
         super().__init__(opt, dpath, resource, restore, save)
@@ -119,9 +119,6 @@ class CCDataset(BaseDataset):
         return processed_train_data, processed_valid_data, processed_test_data, processed_side_data
 
     def _raw_data_process(self, raw_data):
-        return self._raw_data_process_contextual(raw_data)
-
-    def _raw_data_process_contextual(self, raw_data):
         augmented_convs = [self._convert_tokens_and_words_to_ids(conversation) for conversation in
                            tqdm(raw_data)]
         augmented_conv_dicts = []
@@ -139,7 +136,7 @@ class CCDataset(BaseDataset):
             if self.format_for_redial:
                 text_tokens_ids, word_ids = utt["annotated_text"], utt["annotated_word"]
 
-            if not self.keep_text:
+            if self.use_tokens and isinstance(text_tokens_ids, list):
                 text_tokens_ids = [self.tok2ind.get(word, self.unk_token_idx) for word in text_tokens_ids]
                 word_ids = [self.word2id[word] for word in word_ids if word in self.word2id]
 
@@ -161,7 +158,7 @@ class CCDataset(BaseDataset):
         context_messages, context_tokens, context_entities, context_words, context_items = [], [], [], [], []
         entity_set, word_set = set(), set()
 
-        for i, utt in enumerate(raw_conv_dict):
+        for utt in raw_conv_dict:
             text_tokens, entities, items, words = utt["text"], utt["entity"], utt["item"], utt["word"]
 
             if len(context_tokens) > 0:

@@ -200,8 +200,8 @@ class InspiredSystem(BaseSystem):
             self.evaluator.report(mode='test')
 
     def fit(self):
-        if hasattr(self, 'rec_model'):
-            self.train_recommender()
+        # if hasattr(self, 'rec_model'):
+        #     self.train_recommender()
         if hasattr(self, 'conv_model'):
             self.train_conversation()
 
