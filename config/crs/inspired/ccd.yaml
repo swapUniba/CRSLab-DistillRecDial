@@ -14,6 +14,7 @@ rec_model: InspiredRec
 # conv
 conv_model: InspiredConv
 # embedding: word2vec
+# TODO: skal denne vekk?
 embedding_dim: 300
 use_dropout: False
 dropout: 0.3
