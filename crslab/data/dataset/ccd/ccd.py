@@ -139,15 +139,15 @@ class CCDataset(BaseDataset):
             if self.format_for_redial:
                 text_tokens_ids, word_ids = utt["annotated_text"], utt["annotated_word"]
 
-            text_tokens_ids = [self.tok2ind.get(word, self.unk_token_idx) for word in text_tokens_ids]
-            word_ids = [self.word2id[word] for word in word_ids if word in self.word2id]
+            if not self.keep_text:
+                text_tokens_ids = [self.tok2ind.get(word, self.unk_token_idx) for word in text_tokens_ids]
+                word_ids = [self.word2id[word] for word in word_ids if word in self.word2id]
 
             role = "Seeker" if utt["role"] == "user" else "Recommender"
 
             augmented_messages.append({
                 "role": role,
                 "text": text_tokens_ids,
-                "content": utt["content"],
                 "item": utt["item_ids"],
                 "entity": utt["entity_ids"],
                 "word": word_ids
@@ -158,19 +158,18 @@ class CCDataset(BaseDataset):
     def _augment_and_add(self, raw_conv_dict):
         """Builds conversation history (context) for a single conversation."""
         augmented_conv_dicts = []
-        context, context_tokens, context_entities, context_words, context_items = [], [], [], [], []
+        context_messages, context_tokens, context_entities, context_words, context_items = [], [], [], [], []
         entity_set, word_set = set(), set()
 
         for i, utt in enumerate(raw_conv_dict):
-            text_tokens, entities, items, words, content = utt["text"], utt["entity"], utt["item"], utt["word"], utt["content"]
+            text_tokens, entities, items, words = utt["text"], utt["entity"], utt["item"], utt["word"]
 
             if len(context_tokens) > 0:
                 conv_dict = {
                     "role": utt["role"],
                     "context_tokens": copy(context_tokens),
                     "response": text_tokens,
-                    "content": content,
-                    "context": copy(context),
+                    "context_messages": copy(context_messages),
                     "context_entities": copy(context_entities),
                     "context_words": copy(context_words),
                     "context_items": copy(context_items),
@@ -178,7 +177,7 @@ class CCDataset(BaseDataset):
                 }
                 augmented_conv_dicts.append(conv_dict)
 
-            context.append({"role": utt["role"], "content": content})
+            context_messages.append({"role": utt["role"], "content": text_tokens})
             context_tokens.append(text_tokens)
             context_items += items
 

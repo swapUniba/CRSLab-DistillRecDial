@@ -1,14 +1,17 @@
 #!/bin/sh
 #SBATCH --partition=GPUQ
 #SBATCH --account=ie-idi
-#SBATCH --time=15:00:00
+#SBATCH --time=8:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --gres=gpu:a100:1
-#SBATCH --mem=80G
-#SBATCH --job-name="CRSLab-INSPIRED-CCD-v0"
-#SBATCH --output=slurm_jobs/outputs/inspired/CRSLab-INSPIRED-CCD-v0.out
-#SBATCH --error=slurm_jobs/outputs/inspired/CRSLab-INSPIRED-CCD-v0.err
+#SBATCH --mem=60G
+
+JOB_NAME="CRSLab-LLAMA-3-8B-INSTRUCT-CRS-CCD-v0"
+
+#SBATCH --job-name=${JOB_NAME}
+#SBATCH --output=slurm_jobs/outputs/ccd/${JOB_NAME}.out
+#SBATCH --error=slurm_jobs/outputs/ccd/${JOB_NAME}.err
 #SBATCH --mail-user=eirsteir@stud.ntnu.no
 #SBATCH --mail-type=ALL
 

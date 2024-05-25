@@ -22,21 +22,17 @@ class HuggingfaceSystem(BaseSystem):
         if mode != "test":
             return
 
-        # batch = [d.to(self.device) for d in batch]
-
         if stage == "rec":
             rec_predict = self.model.recommend(batch, mode)
-            self.rec_evaluate(rec_predict, batch["item"])  # TODO: double check
-            self.evaluator.report(mode="test")
+            self.rec_evaluate(rec_predict, batch["item"])
 
         elif stage == "conv":
             conv_predict = self.model.converse(batch, mode)
-            self.conv_evaluate(conv_predict, batch["response"])  # TODO: double check
-
+            self.conv_evaluate(conv_predict, batch["response"])
 
     def fit(self):
-        self.train_recommender()
-        self.train_conversation()
+        self.test_recommender()
+        self.test_conversation()
 
     def rec_evaluate(self, rec_predict, item_label):
         logger.info('[Test]')
@@ -50,19 +46,24 @@ class HuggingfaceSystem(BaseSystem):
     def interact(self):
         pass
 
-    def train_recommender(self):
-        logger.info('[Test]')
+    def test_recommender(self):
+        logger.info('[Test Recommendation]')
 
         self.evaluator.reset_metrics()
+
         for batch in self.test_dataloader.get_rec_data(batch_size=self.batch_size, shuffle=False):
             self.step(batch, stage='rec', mode='test')
+
         self.evaluator.report(mode='test')
 
-    def train_conversation(self):
-        logger.info('[Test]')
+    def test_conversation(self):
+        logger.info('[Test Conversation]')
+
         self.evaluator.reset_metrics()
+
         for batch in self.test_dataloader.get_conv_data(batch_size=self.batch_size, shuffle=False):
             self.step(batch, stage='conv', mode='test')
+
         self.evaluator.report(mode='test')
 
 

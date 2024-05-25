@@ -1,8 +1,0 @@
-Defaulting to user installation because normal site-packages is not writeable
-Requirement already satisfied: pip in /cluster/home/eirsteir/.local/lib/python3.11/site-packages (24.0)
-Defaulting to user installation because normal site-packages is not writeable
-Requirement already satisfied: virtualenv in /cluster/home/eirsteir/.local/lib/python3.11/site-packages (20.26.1)
-Requirement already satisfied: distlib<1,>=0.3.7 in /cluster/home/eirsteir/.local/lib/python3.11/site-packages (from virtualenv) (0.3.8)
-Requirement already satisfied: filelock<4,>=3.12.2 in /cluster/home/eirsteir/.local/lib/python3.11/site-packages (from virtualenv) (3.14.0)
-Requirement already satisfied: platformdirs<5,>=3.9.1 in /cluster/home/eirsteir/.local/lib/python3.11/site-packages (from virtualenv) (4.2.1)
-FileExistsError: [Errno 17] File exists: '/cluster/home/eirsteir/CRSLab/env/bin'

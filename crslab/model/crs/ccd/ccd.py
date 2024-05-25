@@ -71,40 +71,26 @@ def match_topics(all_items, predicted_items, threshold=2):
 
 class HuggingfaceModel(BaseModel):
     def __init__(self, opt, device, dpath=None, resource=None):
-        # dataset = opt['dataset']
-        # dpath = os.path.join(MODEL_PATH, "kgsf", dataset)
-        # resource = resources[dataset]
         dataset = opt['dataset'].lower()
         self.dataset_path = os.path.join(DATASET_PATH, dataset, "none")
-
-        super().__init__(opt, device)
 
         with open(f"{self.dataset_path}/entity2id.json", 'r', encoding="utf-8") as f:
             self.entity2id = json.load(f)
 
-        self.entity2id["OOD"] = -1
+        self.entity2id["OOD"] = -1  # TODO: double check this
 
         self.id2entity = {idx: entity for entity, idx in self.entity2id.items()}
         self.all_items = list(self.id2entity.values())
 
         self.model_id = opt["model_id"]
         self.max_target_length = opt["max_target_length"]
-        self.bf16 = opt["bf16"]
-
-        if self.bf16:
-            self.torch_dtype = torch.bfloat16
-        else:
-            self.torch_dtype = torch.float32
+        self.torch_dtype = torch.bfloat16 if opt["bf16"] else torch.float32
 
         print(f"Using {self.torch_dtype=}")
 
-        # self.pipe = pipeline(
-        #     "text-generation",
-        #     model=self.model_id,
-        #     model_kwargs={"torch_dtype": self.torch_dtype},
-        #     device=self.device,
-        # )
+        super().__init__(opt, device)
 
+    def build_model(self):
         self.model = AutoModelForCausalLM.from_pretrained(
             self.model_id,
             attn_implementation="sdpa",
@@ -116,8 +102,6 @@ class HuggingfaceModel(BaseModel):
         self.tokenizer.pad_token = self.tokenizer.eos_token
         self.tokenizer.padding_side = "left"
 
-
-
         self.generation_kwargs = dict(
             pad_token_id=self.tokenizer.eos_token_id,  # Ensure padding is consistent
             max_new_tokens=self.max_target_length,
@@ -125,7 +109,6 @@ class HuggingfaceModel(BaseModel):
             temperature=0.6,
             top_p=0.9,
         )
-
 
         if self.model_id in [
             "meta-llama/Meta-Llama-3-8B-Instruct",
@@ -136,68 +119,41 @@ class HuggingfaceModel(BaseModel):
                 self.tokenizer.convert_tokens_to_ids("<|eot_id|>"),
             ]
 
-    def build_model(self):
-        pass
-
-
     def recommend(self, batch, mode="test"):
-
-        def format_input(context):
-            prompt = PROMPT_TEMPLATE.format(context)
-            prompt = self.format_prompt_for_chat(prompt)
-            return prompt
-
-        print(batch)
-        prompts = [format_input(context) for context in batch["context"]]
-        encodings = self.tokenizer(prompts, return_tensors="pt", padding=True).to(self.device)
+        messages = self._format_context_for_chat_input(batch)
+        model_inputs = self._apply_chat_template_and_tokenize(messages)
+        input_length = model_inputs.shape[1]
 
         with torch.no_grad():
-            outputs = self.model.generate(**encodings, **self.generation_kwargs)
+            generated_ids = self.model.generate(model_inputs, **self.generation_kwargs)
 
-        outputs = [
-            output[len(encodings["input_ids"][i]):]
-            for i, output in enumerate(outputs)
-        ]
+        responses = self.tokenizer.batch_decode(generated_ids[:, input_length:], skip_special_tokens=True)
 
-        texts = self.tokenizer.batch_decode(
-            outputs, skip_special_tokens=True
-        )
-
-        all_predicted_recs = [parse_topics(text) for text in texts]
+        all_predicted_recs = [parse_topics(response) for response in responses]
         all_predicted_recs = [match_topics(all_items=self.all_items, predicted_items=recs) for recs in all_predicted_recs]
-
         all_predicted_recs = [[self.entity2id[rec] for rec in recs] for recs in all_predicted_recs]
 
         return all_predicted_recs
 
+    def _format_context_for_chat_input(self, batch):
+        prompts = [PROMPT_TEMPLATE.format(context) for context in batch["context"]]
+        messages = [[{"role": "user", "content": prompt}] for prompt in prompts]
+        return messages
 
-    def format_prompt_for_chat(self, prompt):
-        messages = [{"role": "user", "content": prompt}]
+    def converse(self, batch, mode="test"):
+        model_inputs = self._apply_chat_template_and_tokenize(batch["context"])
+        input_length = model_inputs.shape[1]
 
-        prompt = self.tokenizer.apply_chat_template(
-            messages, tokenize=False, add_generation_prompt=True
-        )
+        with torch.no_grad():
+            generated_ids = self.model.generate(model_inputs, **self.generation_kwargs)
 
-        return prompt
+        responses = self.tokenizer.batch_decode(generated_ids[:, input_length:], skip_special_tokens=True)
+        return responses
 
-    def converse(self, batch, mode):
-        all_responses = []
-
-        for example in batch:
-            context = example["context"]  # TODO: fix
-
-            conv = self.tokenizer.apply_chat_template(
-                context, add_generation_prompt=True, tokenize=False
-            )
-            outputs = self.pipe(conv, **self.generation_kwargs)
-            response_text = outputs[0]["generated_text"][len(context):]
-
-            all_responses.append({
-                "dialog_id": example["dialog_id"],
-                "response": response_text
-            })
-
-        return all_responses
+    def _apply_chat_template_and_tokenize(self, messages):
+        return self.tokenizer.apply_chat_template(
+            messages, tokenize=True, add_generation_prompt=True, padding=True, return_tensors="pt"
+        ).to(self.device)
 
     def guide(self, batch, mode):
         pass

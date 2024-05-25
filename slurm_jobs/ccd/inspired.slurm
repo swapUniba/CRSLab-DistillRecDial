@@ -18,7 +18,6 @@ module purge
 module load  Python/3.9.6-GCCcore-11.2.0
 
 python -m pip install --upgrade pip
-gi
 pip install virtualenv
 virtualenv env
 source env/bin/activate
