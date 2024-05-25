@@ -18,6 +18,7 @@ module purge
 module load  Python/3.9.6-GCCcore-11.2.0
 
 python -m pip install --upgrade pip
+gi
 pip install virtualenv
 virtualenv env
 source env/bin/activate
@@ -32,4 +33,4 @@ HF_TOKEN=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
 
 nvidia-smi
 
-srun python run_crslab.py --config config/crs/huggingface/ccd.yaml --gpu 0 --tensorboard
+srun python run_crslab.py --config config/crs/ccd/ccd.yaml --tensorboard --gpu 0

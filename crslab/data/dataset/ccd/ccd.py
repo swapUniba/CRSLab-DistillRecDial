@@ -2,12 +2,10 @@
 
 import json
 import os
-from collections import defaultdict
 from copy import copy
 
 from loguru import logger
 from tqdm import tqdm
-from datasets import Dataset as HFDataset, DatasetDict
 
 from crslab.config import DATASET_PATH
 from crslab.data.dataset.base import BaseDataset
@@ -124,7 +122,7 @@ class CCDataset(BaseDataset):
         return self._raw_data_process_contextual(raw_data)
 
     def _raw_data_process_contextual(self, raw_data):
-        augmented_convs = [self._convert_tokens_and_words_to_ids(conversation["messages"]) for conversation in
+        augmented_convs = [self._convert_tokens_and_words_to_ids(conversation) for conversation in
                            tqdm(raw_data)]
         augmented_conv_dicts = []
         # This puts it in the correct format
@@ -132,24 +130,24 @@ class CCDataset(BaseDataset):
             augmented_conv_dicts.extend(self._augment_and_add(conv))
         return augmented_conv_dicts
 
-    def _convert_tokens_and_words_to_ids(self, messages):
+    def _convert_tokens_and_words_to_ids(self, conversation):
         augmented_messages = []
 
-        for utt in messages:
+        for utt in conversation["messages"]:
+            text_tokens_ids, word_ids = utt["text"], utt["word"]
+
             if self.format_for_redial:
                 text_tokens_ids, word_ids = utt["annotated_text"], utt["annotated_word"]
-            else:
-                text_tokens_ids, word_ids = utt["text"], utt["word"]
 
-            if not self.keep_text:
-                text_token_ids = [self.tok2ind.get(word, self.unk_token_idx) for word in text_tokens_ids]
-                word_ids = [self.word2id[word] for word in word_ids if word in self.word2id]
+            text_tokens_ids = [self.tok2ind.get(word, self.unk_token_idx) for word in text_tokens_ids]
+            word_ids = [self.word2id[word] for word in word_ids if word in self.word2id]
 
             role = "Seeker" if utt["role"] == "user" else "Recommender"
 
             augmented_messages.append({
                 "role": role,
-                "text": text_token_ids,
+                "text": text_tokens_ids,
+                "content": utt["content"],
                 "item": utt["item_ids"],
                 "entity": utt["entity_ids"],
                 "word": word_ids
@@ -160,16 +158,19 @@ class CCDataset(BaseDataset):
     def _augment_and_add(self, raw_conv_dict):
         """Builds conversation history (context) for a single conversation."""
         augmented_conv_dicts = []
-        context_tokens, context_entities, context_words, context_items = [], [], [], []
+        context, context_tokens, context_entities, context_words, context_items = [], [], [], [], []
+        entity_set, word_set = set(), set()
 
         for i, utt in enumerate(raw_conv_dict):
-            text_tokens, entities, items, words = utt["text"], utt["entity"], utt["item"], utt["word"]
+            text_tokens, entities, items, words, content = utt["text"], utt["entity"], utt["item"], utt["word"], utt["content"]
 
             if len(context_tokens) > 0:
                 conv_dict = {
                     "role": utt["role"],
                     "context_tokens": copy(context_tokens),
                     "response": text_tokens,
+                    "content": content,
+                    "context": copy(context),
                     "context_entities": copy(context_entities),
                     "context_words": copy(context_words),
                     "context_items": copy(context_items),
@@ -177,8 +178,18 @@ class CCDataset(BaseDataset):
                 }
                 augmented_conv_dicts.append(conv_dict)
 
+            context.append({"role": utt["role"], "content": content})
             context_tokens.append(text_tokens)
             context_items += items
+
+            for entity in entities + items:
+                if entity not in entity_set:
+                    entity_set.add(entity)
+                    context_entities.append(entity)
+            for word in words:
+                if word not in word_set:
+                    word_set.add(word)
+                    context_words.append(word)
 
         return augmented_conv_dicts
 

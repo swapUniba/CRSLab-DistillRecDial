@@ -28,7 +28,7 @@ decoder_num_layers: 1
 # optim
 rec:
   epoch: 50
-  batch_size: 1024
+  batch_size: 1 #1024
   optimizer:
     name: Adam
     lr: !!float 1e-3

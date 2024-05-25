@@ -1,11 +1,11 @@
 #!/bin/sh
-#SBATCH --partition=GPUQ
+#SBATCH --partition=CPUQ
 #SBATCH --account=ie-idi
 #SBATCH --time=15:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --gres=gpu:a100:1
-#SBATCH --mem=80G
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=64G
 #SBATCH --job-name="CRSLab-INSPIRED-CCD-v0"
 #SBATCH --output=slurm_jobs/outputs/inspired/CRSLab-INSPIRED-CCD-v0.out
 #SBATCH --error=slurm_jobs/outputs/inspired/CRSLab-INSPIRED-CCD-v0.err
@@ -18,6 +18,7 @@ module purge
 module load  Python/3.9.6-GCCcore-11.2.0
 
 python -m pip install --upgrade pip
+gi
 pip install virtualenv
 virtualenv env
 source env/bin/activate
@@ -28,8 +29,6 @@ pip install -e .
 
 echo "Running Evaluation"
 
-HF_TOKEN=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
-
 nvidia-smi
 
-srun python run_crslab.py --config config/crs/huggingface/ccd.yaml --gpu 0 --tensorboard
+srun python run_crslab.py --config config/crs/inspired/ccd.yaml --tensorboard

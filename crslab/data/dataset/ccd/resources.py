@@ -8,6 +8,14 @@ resources = {
             "ccd_none.zip",
             "c64d1fd818a1f515bb9e22aceace4bd2e7cc017d972fef41c83b65b6bcc3fc46",
         ),
+        "special_token_idx": {
+            "pad": 0,
+            "start": 1,
+            "end": 2,
+            "unk": 3,
+            "pad_entity": 0,
+            "pad_word": 0,
+        },
     },
     'nltk': {
         'version': '0.1',

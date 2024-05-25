@@ -22,12 +22,11 @@ class HuggingfaceSystem(BaseSystem):
         if mode != "test":
             return
 
-        # batch = [d.to(self.device) for d in batch]
+        batch = [d.to(self.device) for d in batch]
 
         if stage == "rec":
             rec_predict = self.model.recommend(batch, mode)
             self.rec_evaluate(rec_predict, batch["item"])  # TODO: double check
-            self.evaluator.report(mode="test")
 
         elif stage == "conv":
             conv_predict = self.model.converse(batch, mode)
@@ -54,14 +53,14 @@ class HuggingfaceSystem(BaseSystem):
         logger.info('[Test]')
 
         self.evaluator.reset_metrics()
-        for batch in self.test_dataloader.get_rec_data(batch_size=self.batch_size, shuffle=False):
+        for batch in self.test_dataloader['rec'].get_rec_data(batch_size=self.batch_size, shuffle=False):
             self.step(batch, stage='rec', mode='test')
         self.evaluator.report(mode='test')
 
     def train_conversation(self):
         logger.info('[Test]')
         self.evaluator.reset_metrics()
-        for batch in self.test_dataloader.get_conv_data(batch_size=self.batch_size, shuffle=False):
+        for batch in self.test_dataloader['conv'].get_conv_data(batch_size=self.batch_size, shuffle=False):
             self.step(batch, stage='conv', mode='test')
         self.evaluator.report(mode='test')
 

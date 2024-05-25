@@ -10,7 +10,7 @@ except Exception:
 setup_requires = []
 
 install_requires = [
-    'numpy~=1.19.4',
+    'numpy==1.23.4',
     'sentencepiece==0.1.99',
     "dataclasses~=0.7;python_version<'3.7'",
     'fasttext~=0.9.2',
@@ -26,6 +26,7 @@ install_requires = [
     "rouge-score~=0.1.2",
     "transformers==4.40.0",
     "editdistance~=0.8.1",
+    "peft==0.10.0"
 ]
 
 classifiers = [

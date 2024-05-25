@@ -1,0 +1,1016 @@
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pip in /cluster/home/eirsteir/.local/lib/python3.9/site-packages (24.0)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: virtualenv in /cluster/apps/eb/software/Python/3.9.6-GCCcore-11.2.0/lib/python3.9/site-packages (20.7.0)
+Requirement already satisfied: backports.entry-points-selectable>=1.0.4 in /cluster/apps/eb/software/Python/3.9.6-GCCcore-11.2.0/lib/python3.9/site-packages (from virtualenv) (1.1.0)
+Requirement already satisfied: distlib<1,>=0.3.1 in /cluster/apps/eb/software/Python/3.9.6-GCCcore-11.2.0/lib/python3.9/site-packages (from virtualenv) (0.3.2)
+Requirement already satisfied: filelock<4,>=3.0.0 in /cluster/apps/eb/software/Python/3.9.6-GCCcore-11.2.0/lib/python3.9/site-packages (from virtualenv) (3.0.12)
+Requirement already satisfied: platformdirs<3,>=2 in /cluster/home/eirsteir/.local/lib/python3.9/site-packages (from virtualenv) (2.6.2)
+Requirement already satisfied: six<2,>=1.9.0 in /cluster/apps/eb/software/Python/3.9.6-GCCcore-11.2.0/lib/python3.9/site-packages (from virtualenv) (1.16.0)
+created virtual environment CPython3.9.6.final.0-64 in 3702ms
+  creator CPython3Posix(dest=/cluster/home/eirsteir/CRSLab/env, clear=False, no_vcs_ignore=False, global=False)
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/cluster/home/eirsteir/.local/share/virtualenv)
+    added seed packages: Cython==3.0.10, Markdown==3.6, MarkupSafe==2.1.5, PyYAML==5.4.1, absl_py==2.1.0, accelerate==0.30.1, aiohttp==3.9.5, aiosignal==1.3.1, async_timeout==4.0.3, attrs==23.2.0, cachetools==4.2.4, certifi==2024.2.2, chardet==4.0.0, charset_normalizer==3.3.2, click==8.1.7, datasets==2.18.0, dill==0.3.8, editdistance==0.8.1, fasttext==0.9.2, filelock==3.14.0, frozenlist==1.4.1, fsspec==2024.2.0, fuzzywuzzy==0.18.0, google_auth==1.35.0, google_auth_oauthlib==0.4.6, grpcio==1.64.0, huggingface_hub==0.23.1, idna==2.10, importlib_metadata==7.1.0, jinja2==3.1.4, joblib==1.4.2, loguru==0.5.3, mpmath==1.3.0, multidict==6.0.5, multiprocess==0.70.16, networkx==3.2.1, nltk==3.4.5, numpy==1.23.4, nvidia_cublas_cu12==12.1.3.1, nvidia_cuda_cupti_cu12==12.1.105, nvidia_cuda_nvrtc_cu12==12.1.105, nvidia_cuda_runtime_cu12==12.1.105, nvidia_cudnn_cu12==8.9.2.26, nvidia_cufft_cu12==11.0.2.54, nvidia_curand_cu12==10.3.2.106, nvidia_cusolver_cu12==11.4.5.107, nvidia_cusparse_cu12==12.1.0.106, nvidia_nccl_cu12==2.20.5, nvidia_nvjitlink_cu12==12.5.40, nvidia_nvtx_cu12==12.1.105, oauthlib==3.2.2, packaging==24.0, pandas==2.2.2, peft==0.10.0, pillow==10.3.0, pip==22.0.4, pip==24.0, pkuseg==0.0.25, protobuf==3.20.3, psutil==5.9.8, pyarrow==16.1.0, pyarrow_hotfix==0.6, pyasn1==0.6.0, pyasn1_modules==0.4.0, pybind11==2.12.0, pyparsing==3.1.2, python_dateutil==2.9.0.post0, pytz==2024.1, regex==2024.5.15, requests==2.25.1, requests_oauthlib==2.0.0, rouge_score==0.1.2, rsa==4.9, sacremoses==0.1.1, safetensors==0.4.3, scikit_learn==0.24.2, scipy==1.10.1, sentencepiece==0.1.99, setuptools==62.2.0, setuptools==69.5.1, six==1.16.0, sympy==1.12, tensorboard==2.4.1, tensorboard_plugin_wit==1.8.1, threadpoolctl==3.5.0, tokenizers==0.19.1, torch==2.3.0, torch_geometric==2.5.3, torchaudio==2.3.0, torchvision==0.18.0, tqdm==4.55.2, transformers==4.40.0, triton==2.3.0, typing_extensions==4.12.0, tzdata==2024.1, urllib3==1.26.18, werkzeug==3.0.3, wheel==0.37.1, wheel==0.43.0, xxhash==3.4.1, yarl==1.9.4, zipp==3.18.2
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator
+Requirement already satisfied: torch in ./env/lib/python3.9/site-packages (2.3.0)
+Requirement already satisfied: torchvision in ./env/lib/python3.9/site-packages (0.18.0)
+Requirement already satisfied: torchaudio in ./env/lib/python3.9/site-packages (2.3.0)
+Requirement already satisfied: torch_geometric in ./env/lib/python3.9/site-packages (2.5.3)
+Requirement already satisfied: protobuf~=3.20 in ./env/lib/python3.9/site-packages (3.20.3)
+Requirement already satisfied: filelock in ./env/lib/python3.9/site-packages (from torch) (3.14.0)
+Requirement already satisfied: typing-extensions>=4.8.0 in ./env/lib/python3.9/site-packages (from torch) (4.12.0)
+Requirement already satisfied: sympy in ./env/lib/python3.9/site-packages (from torch) (1.12)
+Requirement already satisfied: networkx in ./env/lib/python3.9/site-packages (from torch) (3.2.1)
+Requirement already satisfied: jinja2 in ./env/lib/python3.9/site-packages (from torch) (3.1.4)
+Requirement already satisfied: fsspec in ./env/lib/python3.9/site-packages (from torch) (2024.2.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.1.105 in ./env/lib/python3.9/site-packages (from torch) (12.1.105)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.1.105 in ./env/lib/python3.9/site-packages (from torch) (12.1.105)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.1.105 in ./env/lib/python3.9/site-packages (from torch) (12.1.105)
+Requirement already satisfied: nvidia-cudnn-cu12==8.9.2.26 in ./env/lib/python3.9/site-packages (from torch) (8.9.2.26)
+Requirement already satisfied: nvidia-cublas-cu12==12.1.3.1 in ./env/lib/python3.9/site-packages (from torch) (12.1.3.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.0.2.54 in ./env/lib/python3.9/site-packages (from torch) (11.0.2.54)
+Requirement already satisfied: nvidia-curand-cu12==10.3.2.106 in ./env/lib/python3.9/site-packages (from torch) (10.3.2.106)
+Requirement already satisfied: nvidia-cusolver-cu12==11.4.5.107 in ./env/lib/python3.9/site-packages (from torch) (11.4.5.107)
+Requirement already satisfied: nvidia-cusparse-cu12==12.1.0.106 in ./env/lib/python3.9/site-packages (from torch) (12.1.0.106)
+Requirement already satisfied: nvidia-nccl-cu12==2.20.5 in ./env/lib/python3.9/site-packages (from torch) (2.20.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.1.105 in ./env/lib/python3.9/site-packages (from torch) (12.1.105)
+Requirement already satisfied: triton==2.3.0 in ./env/lib/python3.9/site-packages (from torch) (2.3.0)
+Requirement already satisfied: nvidia-nvjitlink-cu12 in ./env/lib/python3.9/site-packages (from nvidia-cusolver-cu12==11.4.5.107->torch) (12.5.40)
+Requirement already satisfied: numpy in ./env/lib/python3.9/site-packages (from torchvision) (1.23.4)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in ./env/lib/python3.9/site-packages (from torchvision) (10.3.0)
+Requirement already satisfied: tqdm in ./env/lib/python3.9/site-packages (from torch_geometric) (4.55.2)
+Requirement already satisfied: scipy in ./env/lib/python3.9/site-packages (from torch_geometric) (1.10.1)
+Requirement already satisfied: aiohttp in ./env/lib/python3.9/site-packages (from torch_geometric) (3.9.5)
+Requirement already satisfied: requests in ./env/lib/python3.9/site-packages (from torch_geometric) (2.25.1)
+Requirement already satisfied: pyparsing in ./env/lib/python3.9/site-packages (from torch_geometric) (3.1.2)
+Requirement already satisfied: scikit-learn in ./env/lib/python3.9/site-packages (from torch_geometric) (0.24.2)
+Requirement already satisfied: psutil>=5.8.0 in ./env/lib/python3.9/site-packages (from torch_geometric) (5.9.8)
+Requirement already satisfied: aiosignal>=1.1.2 in ./env/lib/python3.9/site-packages (from aiohttp->torch_geometric) (1.3.1)
+Requirement already satisfied: attrs>=17.3.0 in ./env/lib/python3.9/site-packages (from aiohttp->torch_geometric) (23.2.0)
+Requirement already satisfied: frozenlist>=1.1.1 in ./env/lib/python3.9/site-packages (from aiohttp->torch_geometric) (1.4.1)
+Requirement already satisfied: multidict<7.0,>=4.5 in ./env/lib/python3.9/site-packages (from aiohttp->torch_geometric) (6.0.5)
+Requirement already satisfied: yarl<2.0,>=1.0 in ./env/lib/python3.9/site-packages (from aiohttp->torch_geometric) (1.9.4)
+Requirement already satisfied: async-timeout<5.0,>=4.0 in ./env/lib/python3.9/site-packages (from aiohttp->torch_geometric) (4.0.3)
+Requirement already satisfied: MarkupSafe>=2.0 in ./env/lib/python3.9/site-packages (from jinja2->torch) (2.1.5)
+Requirement already satisfied: chardet<5,>=3.0.2 in ./env/lib/python3.9/site-packages (from requests->torch_geometric) (4.0.0)
+Requirement already satisfied: idna<3,>=2.5 in ./env/lib/python3.9/site-packages (from requests->torch_geometric) (2.10)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in ./env/lib/python3.9/site-packages (from requests->torch_geometric) (1.26.18)
+Requirement already satisfied: certifi>=2017.4.17 in ./env/lib/python3.9/site-packages (from requests->torch_geometric) (2024.2.2)
+Requirement already satisfied: joblib>=0.11 in ./env/lib/python3.9/site-packages (from scikit-learn->torch_geometric) (1.4.2)
+Requirement already satisfied: threadpoolctl>=2.0.0 in ./env/lib/python3.9/site-packages (from scikit-learn->torch_geometric) (3.5.0)
+Requirement already satisfied: mpmath>=0.19 in ./env/lib/python3.9/site-packages (from sympy->torch) (1.3.0)
+Obtaining file:///cluster/home/eirsteir/CRSLab
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: numpy==1.23.4 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (1.23.4)
+Requirement already satisfied: sentencepiece==0.1.99 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.1.99)
+Requirement already satisfied: fasttext~=0.9.2 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.9.2)
+Requirement already satisfied: pkuseg~=0.0.25 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.0.25)
+Requirement already satisfied: pyyaml~=5.4 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (5.4.1)
+Requirement already satisfied: tqdm~=4.55.0 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (4.55.2)
+Requirement already satisfied: loguru~=0.5.3 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.5.3)
+Requirement already satisfied: nltk~=3.4.4 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (3.4.5)
+Requirement already satisfied: requests~=2.25.1 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (2.25.1)
+Requirement already satisfied: scikit-learn~=0.24.0 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.24.2)
+Requirement already satisfied: fuzzywuzzy~=0.18.0 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.18.0)
+Requirement already satisfied: tensorboard~=2.4.1 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (2.4.1)
+Requirement already satisfied: rouge-score~=0.1.2 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.1.2)
+Requirement already satisfied: transformers==4.40.0 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (4.40.0)
+Requirement already satisfied: editdistance~=0.8.1 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.8.1)
+Requirement already satisfied: peft==0.10.0 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.10.0)
+Requirement already satisfied: packaging>=20.0 in ./env/lib/python3.9/site-packages (from peft==0.10.0->crslab==0.1.1) (24.0)
+Requirement already satisfied: psutil in ./env/lib/python3.9/site-packages (from peft==0.10.0->crslab==0.1.1) (5.9.8)
+Requirement already satisfied: torch>=1.13.0 in ./env/lib/python3.9/site-packages (from peft==0.10.0->crslab==0.1.1) (2.3.0)
+Requirement already satisfied: accelerate>=0.21.0 in ./env/lib/python3.9/site-packages (from peft==0.10.0->crslab==0.1.1) (0.30.1)
+Requirement already satisfied: safetensors in ./env/lib/python3.9/site-packages (from peft==0.10.0->crslab==0.1.1) (0.4.3)
+Requirement already satisfied: huggingface-hub>=0.17.0 in ./env/lib/python3.9/site-packages (from peft==0.10.0->crslab==0.1.1) (0.23.1)
+Requirement already satisfied: filelock in ./env/lib/python3.9/site-packages (from transformers==4.40.0->crslab==0.1.1) (3.14.0)
+Requirement already satisfied: regex!=2019.12.17 in ./env/lib/python3.9/site-packages (from transformers==4.40.0->crslab==0.1.1) (2024.5.15)
+Requirement already satisfied: tokenizers<0.20,>=0.19 in ./env/lib/python3.9/site-packages (from transformers==4.40.0->crslab==0.1.1) (0.19.1)
+Requirement already satisfied: pybind11>=2.2 in ./env/lib/python3.9/site-packages (from fasttext~=0.9.2->crslab==0.1.1) (2.12.0)
+Requirement already satisfied: setuptools>=0.7.0 in ./env/lib/python3.9/site-packages (from fasttext~=0.9.2->crslab==0.1.1) (62.2.0)
+Requirement already satisfied: six in ./env/lib/python3.9/site-packages (from nltk~=3.4.4->crslab==0.1.1) (1.16.0)
+Requirement already satisfied: cython in ./env/lib/python3.9/site-packages (from pkuseg~=0.0.25->crslab==0.1.1) (3.0.10)
+Requirement already satisfied: chardet<5,>=3.0.2 in ./env/lib/python3.9/site-packages (from requests~=2.25.1->crslab==0.1.1) (4.0.0)
+Requirement already satisfied: idna<3,>=2.5 in ./env/lib/python3.9/site-packages (from requests~=2.25.1->crslab==0.1.1) (2.10)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in ./env/lib/python3.9/site-packages (from requests~=2.25.1->crslab==0.1.1) (1.26.18)
+Requirement already satisfied: certifi>=2017.4.17 in ./env/lib/python3.9/site-packages (from requests~=2.25.1->crslab==0.1.1) (2024.2.2)
+Requirement already satisfied: absl-py in ./env/lib/python3.9/site-packages (from rouge-score~=0.1.2->crslab==0.1.1) (2.1.0)
+Requirement already satisfied: scipy>=0.19.1 in ./env/lib/python3.9/site-packages (from scikit-learn~=0.24.0->crslab==0.1.1) (1.10.1)
+Requirement already satisfied: joblib>=0.11 in ./env/lib/python3.9/site-packages (from scikit-learn~=0.24.0->crslab==0.1.1) (1.4.2)
+Requirement already satisfied: threadpoolctl>=2.0.0 in ./env/lib/python3.9/site-packages (from scikit-learn~=0.24.0->crslab==0.1.1) (3.5.0)
+Requirement already satisfied: grpcio>=1.24.3 in ./env/lib/python3.9/site-packages (from tensorboard~=2.4.1->crslab==0.1.1) (1.64.0)
+Requirement already satisfied: google-auth<2,>=1.6.3 in ./env/lib/python3.9/site-packages (from tensorboard~=2.4.1->crslab==0.1.1) (1.35.0)
+Requirement already satisfied: google-auth-oauthlib<0.5,>=0.4.1 in ./env/lib/python3.9/site-packages (from tensorboard~=2.4.1->crslab==0.1.1) (0.4.6)
+Requirement already satisfied: markdown>=2.6.8 in ./env/lib/python3.9/site-packages (from tensorboard~=2.4.1->crslab==0.1.1) (3.6)
+Requirement already satisfied: protobuf>=3.6.0 in ./env/lib/python3.9/site-packages (from tensorboard~=2.4.1->crslab==0.1.1) (3.20.3)
+Requirement already satisfied: tensorboard-plugin-wit>=1.6.0 in ./env/lib/python3.9/site-packages (from tensorboard~=2.4.1->crslab==0.1.1) (1.8.1)
+Requirement already satisfied: werkzeug>=0.11.15 in ./env/lib/python3.9/site-packages (from tensorboard~=2.4.1->crslab==0.1.1) (3.0.3)
+Requirement already satisfied: wheel>=0.26 in ./env/lib/python3.9/site-packages (from tensorboard~=2.4.1->crslab==0.1.1) (0.37.1)
+Requirement already satisfied: cachetools<5.0,>=2.0.0 in ./env/lib/python3.9/site-packages (from google-auth<2,>=1.6.3->tensorboard~=2.4.1->crslab==0.1.1) (4.2.4)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in ./env/lib/python3.9/site-packages (from google-auth<2,>=1.6.3->tensorboard~=2.4.1->crslab==0.1.1) (0.4.0)
+Requirement already satisfied: rsa<5,>=3.1.4 in ./env/lib/python3.9/site-packages (from google-auth<2,>=1.6.3->tensorboard~=2.4.1->crslab==0.1.1) (4.9)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in ./env/lib/python3.9/site-packages (from google-auth-oauthlib<0.5,>=0.4.1->tensorboard~=2.4.1->crslab==0.1.1) (2.0.0)
+Requirement already satisfied: fsspec>=2023.5.0 in ./env/lib/python3.9/site-packages (from huggingface-hub>=0.17.0->peft==0.10.0->crslab==0.1.1) (2024.2.0)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in ./env/lib/python3.9/site-packages (from huggingface-hub>=0.17.0->peft==0.10.0->crslab==0.1.1) (4.12.0)
+Requirement already satisfied: importlib-metadata>=4.4 in ./env/lib/python3.9/site-packages (from markdown>=2.6.8->tensorboard~=2.4.1->crslab==0.1.1) (7.1.0)
+Requirement already satisfied: sympy in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (1.12)
+Requirement already satisfied: networkx in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (3.2.1)
+Requirement already satisfied: jinja2 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (3.1.4)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.1.105 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (12.1.105)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.1.105 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (12.1.105)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.1.105 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (12.1.105)
+Requirement already satisfied: nvidia-cudnn-cu12==8.9.2.26 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (8.9.2.26)
+Requirement already satisfied: nvidia-cublas-cu12==12.1.3.1 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (12.1.3.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.0.2.54 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (11.0.2.54)
+Requirement already satisfied: nvidia-curand-cu12==10.3.2.106 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (10.3.2.106)
+Requirement already satisfied: nvidia-cusolver-cu12==11.4.5.107 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (11.4.5.107)
+Requirement already satisfied: nvidia-cusparse-cu12==12.1.0.106 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (12.1.0.106)
+Requirement already satisfied: nvidia-nccl-cu12==2.20.5 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (2.20.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.1.105 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (12.1.105)
+Requirement already satisfied: triton==2.3.0 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (2.3.0)
+Requirement already satisfied: nvidia-nvjitlink-cu12 in ./env/lib/python3.9/site-packages (from nvidia-cusolver-cu12==11.4.5.107->torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (12.5.40)
+Requirement already satisfied: MarkupSafe>=2.1.1 in ./env/lib/python3.9/site-packages (from werkzeug>=0.11.15->tensorboard~=2.4.1->crslab==0.1.1) (2.1.5)
+Requirement already satisfied: zipp>=0.5 in ./env/lib/python3.9/site-packages (from importlib-metadata>=4.4->markdown>=2.6.8->tensorboard~=2.4.1->crslab==0.1.1) (3.18.2)
+Requirement already satisfied: pyasn1<0.7.0,>=0.4.6 in ./env/lib/python3.9/site-packages (from pyasn1-modules>=0.2.1->google-auth<2,>=1.6.3->tensorboard~=2.4.1->crslab==0.1.1) (0.6.0)
+Requirement already satisfied: oauthlib>=3.0.0 in ./env/lib/python3.9/site-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<0.5,>=0.4.1->tensorboard~=2.4.1->crslab==0.1.1) (3.2.2)
+Requirement already satisfied: mpmath>=0.19 in ./env/lib/python3.9/site-packages (from sympy->torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (1.3.0)
+Installing collected packages: crslab
+  Attempting uninstall: crslab
+    Found existing installation: crslab 0.1.1
+    Uninstalling crslab-0.1.1:
+      Successfully uninstalled crslab-0.1.1
+  Running setup.py develop for crslab
+Successfully installed crslab-0.1.1
+Running Evaluation
+[32m2024-05-24 22:32:16.944[0m | [1mINFO    [0m | [36mcrslab.config.config[0m:[36m__init__[0m:[36m79[0m - [1m[Dataset: CCD tokenized in nltk, nltk][0m
+[32m2024-05-24 22:32:16.946[0m | [1mINFO    [0m | [36mcrslab.config.config[0m:[36m__init__[0m:[36m83[0m - [1m[Recommendation Model: ReDialRec][0m
+[32m2024-05-24 22:32:16.946[0m | [1mINFO    [0m | [36mcrslab.config.config[0m:[36m__init__[0m:[36m85[0m - [1m[Conversation Model: ReDialConv][0m
+[32m2024-05-24 22:32:16.946[0m | [1mINFO    [0m | [36mcrslab.config.config[0m:[36m__init__[0m:[36m88[0m - [1m[Config]
+{
+    "dataset": "CCD",
+    "tokenize": {
+        "rec": "nltk",
+        "conv": "nltk"
+    },
+    "format_for_redial": true,
+    "utterance_truncate": 80,
+    "conversation_truncate": 40,
+    "scale": 1,
+    "rec_model": "ReDialRec",
+    "autorec_layer_sizes": [
+        1000
+    ],
+    "autorec_f": "sigmoid",
+    "autorec_g": "sigmoid",
+    "conv_model": "ReDialConv",
+    "embedding_dim": 300,
+    "utterance_encoder_hidden_size": 256,
+    "dialog_encoder_hidden_size": 256,
+    "dialog_encoder_num_layers": 1,
+    "use_dropout": false,
+    "dropout": 0.3,
+    "decoder_hidden_size": 256,
+    "decoder_num_layers": 1,
+    "rec": {
+        "epoch": 50,
+        "batch_size": 1024,
+        "optimizer": {
+            "name": "Adam",
+            "lr": 0.001
+        },
+        "early_stop": true,
+        "impatience": 3,
+        "stop_mode": "min"
+    },
+    "conv": {
+        "epoch": 50,
+        "batch_size": 128,
+        "optimizer": {
+            "name": "Adam",
+            "lr": 0.001
+        },
+        "early_stop": true,
+        "impatience": 3,
+        "stop_mode": "min"
+    },
+    "gpu": [
+        -1
+    ],
+    "model_name": "ReDialRec_ReDialConv"
+}[0m
+[32m2024-05-24 22:32:58.254[0m | [1mINFO    [0m | [36mcrslab.data.dataset.base[0m:[36m__init__[0m:[36m49[0m - [1m[Finish data load][0m
+[32m2024-05-24 22:32:58.706[0m | [1mINFO    [0m | [36mcrslab.data.dataset.base[0m:[36m__init__[0m:[36m57[0m - [1m[Finish data preprocess][0m
+[32m2024-05-24 22:32:59.073[0m | [1mINFO    [0m | [36mcrslab.model[0m:[36mget_model[0m:[36m52[0m - [1m[Build model ReDialRec][0m
+[32m2024-05-24 22:32:59.302[0m | [1mINFO    [0m | [36mcrslab.model[0m:[36mget_model[0m:[36m52[0m - [1m[Build model ReDialConv][0m
+[32m2024-05-24 22:33:01.613[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36m_load_embedding[0m:[36m63[0m - [1m[Load /cluster/home/eirsteir/CRSLab/data/embedding/en/cc.en.300.bin for embedding metric[0m
+[32m2024-05-24 22:33:01.616[0m | [1mINFO    [0m | [36mcrslab.evaluator[0m:[36mget_evaluator[0m:[36m32[0m - [1m[Build evaluator standard][0m
+[32m2024-05-24 22:33:01.616[0m | [1mINFO    [0m | [36mcrslab.system[0m:[36mget_system[0m:[36m59[0m - [1m[Build system ReDialRec_ReDialConv][0m
+[32m2024-05-24 22:33:01.616[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mbuild_optimizer[0m:[36m142[0m - [1m[Build optimizer: Adam][0m
+[32m2024-05-24 22:33:01.617[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m107[0m - [1m[Recommendation epoch 0][0m
+[32m2024-05-24 22:33:01.617[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m108[0m - [1m[Train][0m
+[32m2024-05-24 22:33:01.626[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:33:04.891[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        .9578     8.913[0m
+[32m2024-05-24 22:33:04.891[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m113[0m - [1m[Valid][0m
+[32m2024-05-24 22:33:04.893[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:33:05.142[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .001996  .01796  .07784 .001996 .005211  .00758 .001996  .008095   .02064     8.873[0m
+[32m2024-05-24 22:33:05.142[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:33:05.142[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m107[0m - [1m[Recommendation epoch 1][0m
+[32m2024-05-24 22:33:05.142[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m108[0m - [1m[Train][0m
+[32m2024-05-24 22:33:05.148[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:33:06.230[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        .6372     8.686[0m
+[32m2024-05-24 22:33:06.230[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m113[0m - [1m[Valid][0m
+[32m2024-05-24 22:33:06.231[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:33:06.377[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .000998  .01397  .08882 .000998 .004119 .007057 .000998  .006399   .02202     8.846[0m
+[32m2024-05-24 22:33:06.378[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:33:06.378[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m107[0m - [1m[Recommendation epoch 2][0m
+[32m2024-05-24 22:33:06.378[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m108[0m - [1m[Train][0m
+[32m2024-05-24 22:33:06.382[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:33:07.458[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        .5331      8.65[0m
+[32m2024-05-24 22:33:07.458[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m113[0m - [1m[Valid][0m
+[32m2024-05-24 22:33:07.459[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:33:07.604[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .000998  .01497  .09281 .000998 .004191 .007107 .000998  .006668   .02269     8.838[0m
+[32m2024-05-24 22:33:07.605[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:33:07.605[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m107[0m - [1m[Recommendation epoch 3][0m
+[32m2024-05-24 22:33:07.605[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m108[0m - [1m[Train][0m
+[32m2024-05-24 22:33:07.609[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:33:08.676[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        .4521     8.636[0m
+[32m2024-05-24 22:33:08.676[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m113[0m - [1m[Valid][0m
+[32m2024-05-24 22:33:08.677[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:33:08.823[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .000998  .01497  .09082 .000998 .004259 .007125 .000998   .00673   .02238     8.835[0m
+[32m2024-05-24 22:33:08.823[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:33:08.823[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m107[0m - [1m[Recommendation epoch 4][0m
+[32m2024-05-24 22:33:08.824[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m108[0m - [1m[Train][0m
+[32m2024-05-24 22:33:08.827[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:33:09.901[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        .4023     8.629[0m
+[32m2024-05-24 22:33:09.901[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m113[0m - [1m[Valid][0m
+[32m2024-05-24 22:33:09.902[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:33:10.048[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .000998  .01497  .09082 .000998 .004219 .007133 .000998  .006688   .02241     8.835[0m
+[32m2024-05-24 22:33:10.048[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:33:10.048[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m107[0m - [1m[Recommendation epoch 5][0m
+[32m2024-05-24 22:33:10.048[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m108[0m - [1m[Train][0m
+[32m2024-05-24 22:33:10.052[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:33:11.121[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        .3663     8.628[0m
+[32m2024-05-24 22:33:11.122[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m113[0m - [1m[Valid][0m
+[32m2024-05-24 22:33:11.122[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:33:11.268[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .000998  .01497  .08882 .000998 .004219 .007076 .000998  .006688   .02203     8.837[0m
+[32m2024-05-24 22:33:11.269[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m107[0m - [1m[Recommendation epoch 6][0m
+[32m2024-05-24 22:33:11.269[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m108[0m - [1m[Train][0m
+[32m2024-05-24 22:33:11.272[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:33:12.345[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        .3519     8.624[0m
+[32m2024-05-24 22:33:12.345[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m113[0m - [1m[Valid][0m
+[32m2024-05-24 22:33:12.346[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:33:12.497[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .000998  .01497  .08782 .000998 .004177 .007006 .000998  .006645    .0218      8.84[0m
+[32m2024-05-24 22:33:12.497[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m107[0m - [1m[Recommendation epoch 7][0m
+[32m2024-05-24 22:33:12.497[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m108[0m - [1m[Train][0m
+[32m2024-05-24 22:33:12.501[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:33:13.577[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        .3505     8.627[0m
+[32m2024-05-24 22:33:13.577[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m113[0m - [1m[Valid][0m
+[32m2024-05-24 22:33:13.578[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:33:13.724[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .000998  .01497  .08882 .000998 .004177 .007043 .000998  .006645   .02201      8.84[0m
+[32m2024-05-24 22:33:13.724[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m258[0m - [1m[Early stop][0m
+[32m2024-05-24 22:33:13.725[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_recommender[0m:[36m124[0m - [1m[Test][0m
+[32m2024-05-24 22:33:13.726[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:33:13.931[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .001934  .01741  .08704 .001934 .005347 .008343 .001934  .008121   .02308     8.912[0m
+[32m2024-05-24 22:33:13.932[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mbuild_optimizer[0m:[36m142[0m - [1m[Build optimizer: Adam][0m
+[32m2024-05-24 22:33:13.932[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 0][0m
+[32m2024-05-24 22:33:13.932[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 22:33:13.959[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:34:49.718[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       6.174      8.076 480.1[0m
+[32m2024-05-24 22:34:49.718[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 22:34:49.722[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:34:57.659[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8626   .3265   .1910  .05763  .03211  .02294  .02752  .02752  .02752    .3291   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3287     5.544   .6925 255.8   .3316   .2264   .3314[0m
+[32m2024-05-24 22:34:57.659[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:34:57.660[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 1][0m
+[32m2024-05-24 22:34:57.660[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 22:34:57.688[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:36:33.011[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       5.432      1.633 228.5[0m
+[32m2024-05-24 22:36:33.012[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 22:36:33.015[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:36:40.736[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8662   .3365   .1977  .06232  .03467  .03517  .07492  .08563  .09174    .4484   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3388      5.41   .7195 223.6   .3395   .2311   .3380[0m
+[32m2024-05-24 22:36:40.736[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:36:40.736[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 2][0m
+[32m2024-05-24 22:36:40.736[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 22:36:40.764[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:38:17.132[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm  ppl
+       5.303      1.411  201[0m
+[32m2024-05-24 22:38:17.132[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 22:38:17.136[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:38:24.824[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8697   .3486   .2074  .07122  .03884   .0367   .1147   .1529   .1743    .4904   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3512     5.304   .7342 201.2   .3492   .2400   .3462[0m
+[32m2024-05-24 22:38:24.825[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:38:24.825[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 3][0m
+[32m2024-05-24 22:38:24.825[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 22:38:25.022[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:40:00.433[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       5.209      1.375 182.9[0m
+[32m2024-05-24 22:40:00.434[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 22:40:00.437[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:40:08.133[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8710   .3528   .2120  .07437  .04144   .0367   .1254   .1789   .2125    .5073   
+      f1  gen_loss  greedy  ppl  rouge1  rouge2  rougeL  
+   .3555     5.231   .7371  187   .3527   .2438   .3504[0m
+[32m2024-05-24 22:40:08.134[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:40:08.134[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 4][0m
+[32m2024-05-24 22:40:08.134[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 22:40:08.161[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:41:43.455[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       5.137      1.364 170.2[0m
+[32m2024-05-24 22:41:43.456[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 22:41:43.459[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:41:51.136[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8723   .3558   .2142  .07653  .04402   .0367   .1284   .2003   .2523    .5181   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3587     5.172   .7390 176.3   .3540   .2447   .3515[0m
+[32m2024-05-24 22:41:51.136[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:41:51.136[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 5][0m
+[32m2024-05-24 22:41:51.136[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 22:41:51.164[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:43:25.912[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       5.079      1.327 160.7[0m
+[32m2024-05-24 22:43:25.913[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 22:43:25.916[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:43:33.578[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8721   .3576   .2177  .08202  .04819   .0367   .1284   .1942   .2401    .5195   
+      f1  gen_loss  greedy  ppl  rouge1  rouge2  rougeL  
+   .3606     5.124   .7415  168   .3543   .2449   .3520[0m
+[32m2024-05-24 22:43:33.578[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:43:33.579[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 6][0m
+[32m2024-05-24 22:43:33.579[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 22:43:33.606[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:45:08.379[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       5.031      1.297 153.2[0m
+[32m2024-05-24 22:45:08.379[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 22:45:08.383[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:45:17.072[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8636   .2855   .2073  .08382  .05056  .03823   .1483   .2446   .3073    .5207   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .2885     5.078   .6667 160.5   .2773   .2185   .2750[0m
+[32m2024-05-24 22:45:17.072[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:45:17.073[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 7][0m
+[32m2024-05-24 22:45:17.073[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 22:45:17.100[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:46:52.177[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.986      1.267 146.4[0m
+[32m2024-05-24 22:46:52.178[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 22:46:52.181[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:47:01.114[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8691   .2884   .2110  .08706  .05282  .03823   .1621   .2722   .3440    .5331   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .2915     5.036   .6560 153.8   .2792   .2218   .2759[0m
+[32m2024-05-24 22:47:01.114[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:47:01.114[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 8][0m
+[32m2024-05-24 22:47:01.114[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 22:47:01.142[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:48:36.404[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.938      1.262 139.4[0m
+[32m2024-05-24 22:48:36.405[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 22:48:36.408[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:48:45.353[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8695   .2905   .2138  .08992  .05501  .03823   .1636   .2783   .3517    .5350   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .2936     4.996   .6592 147.8   .2806   .2236   .2774[0m
+[32m2024-05-24 22:48:45.353[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:48:45.353[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 9][0m
+[32m2024-05-24 22:48:45.353[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 22:48:45.380[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:50:20.444[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.897      1.259 133.9[0m
+[32m2024-05-24 22:50:20.445[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 22:50:20.448[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:50:29.380[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8699   .2911   .2144  .09108  .05588  .03823   .1728   .2936   .3731    .5314   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .2943     4.958   .6566 142.3   .2810   .2241   .2779[0m
+[32m2024-05-24 22:50:29.380[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:50:29.380[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 10][0m
+[32m2024-05-24 22:50:29.380[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 22:50:29.564[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:52:05.049[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm  ppl
+       4.852      1.281  128[0m
+[32m2024-05-24 22:52:05.049[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 22:52:05.053[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:52:13.803[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8668   .2928   .2141  .08935  .05372  .03976   .1789   .3226   .4144    .5357   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .2961     4.921   .6662 137.1   .2815   .2228   .2784[0m
+[32m2024-05-24 22:52:13.803[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:52:13.803[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 11][0m
+[32m2024-05-24 22:52:13.803[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 22:52:13.832[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:53:49.014[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.808      1.252 122.5[0m
+[32m2024-05-24 22:53:49.015[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 22:53:49.018[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:53:58.038[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8712   .2924   .2153  .09106  .05509  .03976   .1758   .3043   .3976    .5398   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .2956     4.883   .6573 132.1   .2813   .2234   .2783[0m
+[32m2024-05-24 22:53:58.038[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:53:58.038[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 12][0m
+[32m2024-05-24 22:53:58.038[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 22:53:58.066[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:55:32.926[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.766      1.234 117.4[0m
+[32m2024-05-24 22:55:32.926[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 22:55:32.930[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:55:41.966[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8718   .2931   .2157  .09196  .05646  .03976   .1758   .3073   .3991    .5351   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .2964     4.847   .6476 127.4   .2819   .2237   .2785[0m
+[32m2024-05-24 22:55:41.967[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:55:41.967[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 13][0m
+[32m2024-05-24 22:55:41.967[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 22:55:41.996[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:57:16.950[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+        4.73      1.223 113.3[0m
+[32m2024-05-24 22:57:16.950[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 22:57:16.954[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:57:25.848[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8674   .2923   .2141  .09066  .05548  .04128   .1758   .3242   .4388    .5422   
+      f1  gen_loss  greedy  ppl  rouge1  rouge2  rougeL  
+   .2956     4.812   .6547  123   .2820   .2229   .2792[0m
+[32m2024-05-24 22:57:25.848[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:57:25.849[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 14][0m
+[32m2024-05-24 22:57:25.849[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 22:57:25.876[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:59:01.489[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.692      1.223 109.1[0m
+[32m2024-05-24 22:59:01.490[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 22:59:01.493[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 22:59:10.488[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8670   .2926   .2160  .09492  .05985  .04128   .1865   .3563   .4786    .5396   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .2959     4.777   .6467 118.7   .2813   .2228   .2785[0m
+[32m2024-05-24 22:59:10.488[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 22:59:10.488[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 15][0m
+[32m2024-05-24 22:59:10.488[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 22:59:10.516[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:00:45.591[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+        4.65      1.223 104.5[0m
+[32m2024-05-24 23:00:45.592[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:00:45.595[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:00:54.602[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8679   .2934   .2156   .0949  .05967  .04128   .1835   .3563   .4771    .5467   
+      f1  gen_loss  greedy  ppl  rouge1  rouge2  rougeL  
+   .2968     4.745   .6442  115   .2817   .2225   .2788[0m
+[32m2024-05-24 23:00:54.602[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:00:54.602[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 16][0m
+[32m2024-05-24 23:00:54.603[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:00:54.784[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:02:29.459[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.614      1.229 100.9[0m
+[32m2024-05-24 23:02:29.459[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:02:29.463[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:02:38.433[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8681   .2942   .2175  .09764  .06186  .04128   .1896   .3777   .5168    .5585   
+      f1  gen_loss  greedy  ppl  rouge1  rouge2  rougeL  
+   .2975     4.709   .6455  111   .2819   .2235   .2795[0m
+[32m2024-05-24 23:02:38.433[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:02:38.433[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 17][0m
+[32m2024-05-24 23:02:38.434[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:02:38.461[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:04:13.427[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+        4.57      1.193 96.58[0m
+[32m2024-05-24 23:04:13.428[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:04:13.431[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:04:22.391[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8687   .2957   .2194  .09933  .06355  .04128   .1988   .3945   .5352    .5620   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .2992     4.676   .6473 107.3   .2833   .2261   .2808[0m
+[32m2024-05-24 23:04:22.391[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:04:22.391[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 18][0m
+[32m2024-05-24 23:04:22.391[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:04:22.419[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:05:57.452[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.543      1.191 93.94[0m
+[32m2024-05-24 23:05:57.452[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:05:57.455[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:06:06.506[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8680   .2956   .2198   .0999  .06356  .04128   .1988   .4205   .6086    .5404   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .2991     4.646   .6457 104.1   .2832   .2259   .2811[0m
+[32m2024-05-24 23:06:06.506[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:06:06.506[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 19][0m
+[32m2024-05-24 23:06:06.506[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:06:06.534[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:07:41.413[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.498      1.202 89.87[0m
+[32m2024-05-24 23:07:41.413[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:07:41.417[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:07:50.433[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8693   .2963   .2200   .1001  .06394  .04128   .2034   .4327   .6147    .5563   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .2998     4.614   .6459 100.9   .2837   .2263   .2813[0m
+[32m2024-05-24 23:07:50.434[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:07:50.434[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 20][0m
+[32m2024-05-24 23:07:50.434[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:07:50.461[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:09:25.400[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.465        1.2 86.93[0m
+[32m2024-05-24 23:09:25.400[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:09:25.404[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:09:34.413[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8708   .2975   .2226   .1038  .06654  .04281   .2034   .4312   .6131    .5510   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3010     4.581   .6438 97.61   .2832   .2270   .2813[0m
+[32m2024-05-24 23:09:34.414[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:09:34.414[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 21][0m
+[32m2024-05-24 23:09:34.414[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:09:34.441[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:11:09.585[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.431      1.208 83.99[0m
+[32m2024-05-24 23:11:09.586[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:11:09.589[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:11:18.637[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8724   .2985   .2229   .1046  .06726  .04434   .2095   .4511   .6453    .5685   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3021     4.553   .6442 94.93   .2841   .2274   .2816[0m
+[32m2024-05-24 23:11:18.637[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:11:18.637[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 22][0m
+[32m2024-05-24 23:11:18.638[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:11:18.665[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:12:53.438[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.395      1.191 81.01[0m
+[32m2024-05-24 23:12:53.439[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:12:53.598[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:13:02.573[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8477   .3012   .2266   .1074  .06795  .04128   .2064   .4343   .6193    .5759   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3049     4.522   .6744 92.01   .2866   .2301   .2829[0m
+[32m2024-05-24 23:13:02.573[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:13:02.574[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 23][0m
+[32m2024-05-24 23:13:02.574[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:13:02.600[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:14:37.984[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.361      1.176 78.35[0m
+[32m2024-05-24 23:14:37.984[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:14:37.988[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:14:47.053[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8477   .3018   .2268   .1076  .06835  .04281   .2125   .4694   .6697    .5753   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3055     4.492   .6737 89.32   .2869   .2300   .2826[0m
+[32m2024-05-24 23:14:47.053[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:14:47.054[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 24][0m
+[32m2024-05-24 23:14:47.054[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:14:47.082[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:16:22.495[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.327      1.181 75.71[0m
+[32m2024-05-24 23:16:22.496[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:16:22.499[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:16:31.541[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8474   .3019   .2259   .1066  .06743  .04128   .2095   .4679   .6988    .5725   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3060     4.463   .6731 86.77   .2875   .2302   .2835[0m
+[32m2024-05-24 23:16:31.541[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:16:31.541[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 25][0m
+[32m2024-05-24 23:16:31.542[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:16:31.570[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:18:07.008[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.295      1.189 73.36[0m
+[32m2024-05-24 23:18:07.009[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:18:07.012[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:18:16.091[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8490   .3013   .2263   .1085  .06893  .04281   .2034   .4465   .6422    .5867   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3049     4.438   .6713 84.61   .2866   .2298   .2823[0m
+[32m2024-05-24 23:18:16.092[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:18:16.092[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 26][0m
+[32m2024-05-24 23:18:16.092[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:18:16.120[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:19:51.524[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+        4.26      1.177 70.78[0m
+[32m2024-05-24 23:19:51.524[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:19:51.528[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:20:00.586[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8510   .3022   .2270   .1080  .06829  .04281   .2171   .4817   .6988    .5839   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3060      4.41   .6701 82.26   .2871   .2302   .2831[0m
+[32m2024-05-24 23:20:00.586[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:20:00.586[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 27][0m
+[32m2024-05-24 23:20:00.586[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:20:00.614[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:21:36.100[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.226      1.182 68.41[0m
+[32m2024-05-24 23:21:36.100[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:21:36.104[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:21:45.219[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8495   .3022   .2269   .1093  .06956  .04281   .2217   .4908   .7080    .5857   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3060      4.38   .6722 79.81   .2876   .2310   .2833[0m
+[32m2024-05-24 23:21:45.219[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:21:45.220[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 28][0m
+[32m2024-05-24 23:21:45.220[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:21:45.404[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:23:20.409[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.193       1.15 66.19[0m
+[32m2024-05-24 23:23:20.410[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:23:20.413[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:23:28.298[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .7055   .3130   .2328   .1152   .0723  .04128   .2202   .5061   .7599    .6356   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3171     4.355   .7168 77.83   .2965   .2347   .2862[0m
+[32m2024-05-24 23:23:28.298[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:23:28.298[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 29][0m
+[32m2024-05-24 23:23:28.298[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:23:28.326[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:25:03.759[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+        4.16      1.141 64.05[0m
+[32m2024-05-24 23:25:03.759[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:25:03.763[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:25:11.613[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .7044   .3129   .2328   .1146  .07145  .04434   .2385   .5459   .8028    .6477   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3174     4.325   .7159 75.58   .2967   .2349   .2866[0m
+[32m2024-05-24 23:25:11.614[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:25:11.614[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 30][0m
+[32m2024-05-24 23:25:11.614[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:25:11.642[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:26:47.006[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm  ppl
+       4.126      1.176 61.9[0m
+[32m2024-05-24 23:26:47.007[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:26:47.010[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:26:54.847[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .7040   .3132   .2341   .1180  .07465  .04434   .2431   .5703   .8471    .6333   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3180       4.3   .7157 73.67   .2969   .2353   .2863[0m
+[32m2024-05-24 23:26:54.848[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:26:54.849[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 31][0m
+[32m2024-05-24 23:26:54.849[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:26:54.876[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:28:30.648[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.094       1.12 59.97[0m
+[32m2024-05-24 23:28:30.648[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:28:30.652[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:28:38.526[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .7071   .3118   .2330   .1153  .07245  .04434   .2416   .5352   .7936    .6321   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3170     4.277   .7168 71.99   .2964   .2350   .2862[0m
+[32m2024-05-24 23:28:38.526[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:28:38.526[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 32][0m
+[32m2024-05-24 23:28:38.526[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:28:38.554[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:30:13.335[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.065       1.14 58.26[0m
+[32m2024-05-24 23:30:13.336[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:30:13.339[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:30:21.193[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .7052   .3157   .2366   .1204   .0760  .04281   .2278   .5581   .8456    .6475   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3207     4.254   .7169 70.37   .2983   .2370   .2878[0m
+[32m2024-05-24 23:30:21.193[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:30:21.194[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 33][0m
+[32m2024-05-24 23:30:21.194[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:30:21.221[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:31:56.198[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       4.023      1.095 55.87[0m
+[32m2024-05-24 23:31:56.199[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:31:56.202[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:32:03.217[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .7253   .3146   .2350   .1180  .07463  .04281   .2324   .5749   .8777    .6086   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3193     4.224   .7247 68.33   .3916   .3227   .3885[0m
+[32m2024-05-24 23:32:03.217[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:32:03.217[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 34][0m
+[32m2024-05-24 23:32:03.217[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:32:03.245[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:33:38.373[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       3.999      1.156 54.52[0m
+[32m2024-05-24 23:33:38.374[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:33:38.377[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:33:45.382[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .7226   .3158   .2362   .1184  .07479  .04128   .2477   .6055   .9006    .6036   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3215     4.198   .7219 66.56   .3940   .3254   .3906[0m
+[32m2024-05-24 23:33:45.382[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:33:45.383[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 35][0m
+[32m2024-05-24 23:33:45.383[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:33:45.567[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:35:20.606[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       3.964      1.133 52.68[0m
+[32m2024-05-24 23:35:20.606[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:35:20.610[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:35:27.616[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .7251   .3170   .2382   .1228  .07846  .04281   .2538   .6284   .9480    .6077   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3226     4.176   .7256 65.12   .3934   .3245   .3897[0m
+[32m2024-05-24 23:35:27.617[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:35:27.617[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 36][0m
+[32m2024-05-24 23:35:27.617[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:35:27.645[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:37:02.402[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       3.936      1.131 51.21[0m
+[32m2024-05-24 23:37:02.402[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:37:02.406[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:37:09.372[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .7180   .3179   .2386   .1221  .07765  .04434   .2416   .6101   .9327    .6173   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3250     4.151   .7219 63.52   .3970   .3283   .3933[0m
+[32m2024-05-24 23:37:09.372[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:37:09.372[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 37][0m
+[32m2024-05-24 23:37:09.372[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:37:09.400[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:38:46.750[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       3.903      1.117 49.54[0m
+[32m2024-05-24 23:38:46.751[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:38:46.755[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:38:53.893[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .7176   .3183   .2384   .1229  .07775  .04434   .2615   .6544   1.015    .6166   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3239     4.124   .7216 61.81   .3960   .3263   .3920[0m
+[32m2024-05-24 23:38:53.893[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:38:53.893[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 38][0m
+[32m2024-05-24 23:38:53.893[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:38:53.921[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:40:29.190[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       3.872      1.139 48.06[0m
+[32m2024-05-24 23:40:29.190[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:40:29.194[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:40:36.137[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .7195   .3176   .2387   .1221  .07862  .04281   .2523   .6361   .9832    .6102   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3223     4.101   .7193 60.43   .3953   .3266   .3917[0m
+[32m2024-05-24 23:40:36.137[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:40:36.137[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 39][0m
+[32m2024-05-24 23:40:36.137[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:40:36.165[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:42:10.946[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm  ppl
+        3.84      1.118 46.5[0m
+[32m2024-05-24 23:42:10.946[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:42:10.950[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:42:17.854[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .7179   .3197   .2397   .1222  .07758  .04281   .2691   .6667   1.037    .6134   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3281     4.079   .7215 59.08   .3988   .3290   .3952[0m
+[32m2024-05-24 23:42:17.854[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:42:17.854[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 40][0m
+[32m2024-05-24 23:42:17.854[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:42:17.882[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:43:52.639[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       3.807      1.114 45.04[0m
+[32m2024-05-24 23:43:52.639[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:43:52.643[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:43:59.586[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .7171   .3202   .2408   .1229  .07827  .04281   .2783   .7110   1.073    .6162   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3273     4.058   .7220 57.87   .3986   .3293   .3948[0m
+[32m2024-05-24 23:43:59.586[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:43:59.587[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 41][0m
+[32m2024-05-24 23:43:59.587[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:43:59.614[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:45:35.012[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       3.777      1.084 43.68[0m
+[32m2024-05-24 23:45:35.012[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:45:35.016[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:45:42.793[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .7188   .3208   .2421   .1259  .08135  .04587   .2752   .6927    1.08    .6184   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3289     4.032   .7227 56.35   .3998   .3309   .3955[0m
+[32m2024-05-24 23:45:42.794[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:45:42.794[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 42][0m
+[32m2024-05-24 23:45:42.794[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:45:42.822[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:47:17.705[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       3.747      1.098 42.37[0m
+[32m2024-05-24 23:47:17.705[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:47:17.709[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:47:24.622[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .7119   .3208   .2421   .1250  .07988  .04281   .2798   .7202   1.125    .6211   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3268     4.011   .7184 55.19   .4007   .3323   .3966[0m
+[32m2024-05-24 23:47:24.622[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:47:24.623[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 43][0m
+[32m2024-05-24 23:47:24.623[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:47:24.651[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:48:59.999[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm  ppl
+       3.721      1.083 41.3[0m
+[32m2024-05-24 23:48:59.999[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:49:00.003[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:49:06.878[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .7156   .3188   .2399   .1239  .07895  .04434   .2875   .7569   1.183    .6151   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3270      3.99   .7214 54.03   .3984   .3292   .3944[0m
+[32m2024-05-24 23:49:06.878[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:49:06.878[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 44][0m
+[32m2024-05-24 23:49:06.879[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:49:06.907[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:50:41.917[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       3.689      1.058 39.99[0m
+[32m2024-05-24 23:50:41.917[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:50:41.920[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:50:49.691[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8569   .3290   .2436   .1261  .07979  .04281   .2936   .7661   1.206    .6257   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3358     3.973   .7337 53.14   .3122   .2451   .2967[0m
+[32m2024-05-24 23:50:49.692[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:50:49.692[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 45][0m
+[32m2024-05-24 23:50:49.692[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:50:49.720[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:52:24.528[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       3.659      1.069 38.83[0m
+[32m2024-05-24 23:52:24.529[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:52:24.532[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:52:32.295[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8583   .3278   .2428   .1268  .08037   .0474   .3043   .8028   1.248    .6291   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3358      3.95   .7338 51.96   .3130   .2459   .2977[0m
+[32m2024-05-24 23:52:32.295[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:52:32.295[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 46][0m
+[32m2024-05-24 23:52:32.295[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:52:32.324[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:54:07.411[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm  ppl
+       3.627      1.101 37.6[0m
+[32m2024-05-24 23:54:07.412[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:54:07.415[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:54:15.432[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8565   .3289   .2429   .1272  .08017  .04893   .3180   .8593   1.365    .6276   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3359     3.935   .7323 51.16   .3118   .2440   .2957[0m
+[32m2024-05-24 23:54:15.432[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:54:15.433[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 47][0m
+[32m2024-05-24 23:54:15.433[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:54:15.623[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:55:50.969[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       3.596      1.094 36.45[0m
+[32m2024-05-24 23:55:50.969[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:55:50.973[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:55:58.736[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8580   .3260   .2404   .1242  .07752   .0474   .3257   .8410   1.313    .6291   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3337     3.916   .7321 50.19   .3109   .2430   .2955[0m
+[32m2024-05-24 23:55:58.736[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:55:58.736[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 48][0m
+[32m2024-05-24 23:55:58.736[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:55:58.764[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:57:33.663[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm  ppl
+       3.572      1.109 35.6[0m
+[32m2024-05-24 23:57:33.664[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:57:33.667[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:57:41.439[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8556   .3298   .2455   .1312  .08415  .04587   .3028   .8257   1.317    .6427   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3374     3.885   .7335 48.68   .3127   .2456   .2971[0m
+[32m2024-05-24 23:57:41.439[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:57:41.440[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m136[0m - [1m[Conversation epoch 49][0m
+[32m2024-05-24 23:57:41.440[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m137[0m - [1m[Train][0m
+[32m2024-05-24 23:57:41.467[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:59:16.211[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm   ppl
+       3.536      1.057 34.32[0m
+[32m2024-05-24 23:59:16.211[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m142[0m - [1m[Valid][0m
+[32m2024-05-24 23:59:16.214[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:59:23.985[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8560   .3293   .2439   .1292  .08237  .04893   .3486   .9434   1.502    .6351   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3377     3.872   .7334 48.03   .3134   .2455   .2977[0m
+[32m2024-05-24 23:59:23.985[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-24 23:59:23.985[0m | [1mINFO    [0m | [36mcrslab.system.redial[0m:[36mtrain_conversation[0m:[36m153[0m - [1m[Test][0m
+[32m2024-05-24 23:59:23.989[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-24 23:59:31.911[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8489   .3263   .2432   .1322  .08629  .04641   .3278   .9296    1.49    .6386   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .3378     3.894   .7290 49.11   .3108   .2428   .2952[0m

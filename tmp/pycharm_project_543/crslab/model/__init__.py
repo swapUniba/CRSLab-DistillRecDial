@@ -42,7 +42,7 @@ Model_register_table = {
     'Popularity': PopularityModel,
     'TextCNN': TextCNNModel,
     'NTRD': NTRDModel,
-    "Huggingface": HuggingfaceModel,
+    "HuggingFace": HuggingfaceModel,
 }
 
 

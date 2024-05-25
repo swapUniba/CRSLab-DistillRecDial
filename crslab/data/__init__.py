@@ -68,7 +68,8 @@ dataloader_register_table = {
     'ProfileBERT': TGReDialDataLoader,
     'MGCG': TGReDialDataLoader,
     'PMI': TGReDialDataLoader,
-    'NTRD': NTRDDataLoader
+    'NTRD': NTRDDataLoader,
+    "Huggingface": HugggingfaceDataLoader,
 }
 
 

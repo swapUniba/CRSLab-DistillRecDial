@@ -1,0 +1,78 @@
+  error: subprocess-exited-with-error
+  
+  × Getting requirements to build wheel did not run successfully.
+  │ exit code: 1
+  ╰─> [54 lines of output]
+      running egg_info
+      writing lib3/PyYAML.egg-info/PKG-INFO
+      writing dependency_links to lib3/PyYAML.egg-info/dependency_links.txt
+      writing top-level names to lib3/PyYAML.egg-info/top_level.txt
+      Traceback (most recent call last):
+        File "/cluster/home/eirsteir/CRSLab/env/lib/python3.11/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 353, in <module>
+          main()
+        File "/cluster/home/eirsteir/CRSLab/env/lib/python3.11/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 335, in main
+          json_out['return_val'] = hook(**hook_input['kwargs'])
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/cluster/home/eirsteir/CRSLab/env/lib/python3.11/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 118, in get_requires_for_build_wheel
+          return hook(config_settings)
+                 ^^^^^^^^^^^^^^^^^^^^^
+        File "/tmp/pip-build-env-igrc9k6w/overlay/lib/python3.11/site-packages/setuptools/build_meta.py", line 325, in get_requires_for_build_wheel
+          return self._get_build_requires(config_settings, requirements=['wheel'])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/tmp/pip-build-env-igrc9k6w/overlay/lib/python3.11/site-packages/setuptools/build_meta.py", line 295, in _get_build_requires
+          self.run_setup()
+        File "/tmp/pip-build-env-igrc9k6w/overlay/lib/python3.11/site-packages/setuptools/build_meta.py", line 311, in run_setup
+          exec(code, locals())
+        File "<string>", line 271, in <module>
+        File "/tmp/pip-build-env-igrc9k6w/overlay/lib/python3.11/site-packages/setuptools/__init__.py", line 103, in setup
+          return distutils.core.setup(**attrs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/tmp/pip-build-env-igrc9k6w/overlay/lib/python3.11/site-packages/setuptools/_distutils/core.py", line 184, in setup
+          return run_commands(dist)
+                 ^^^^^^^^^^^^^^^^^^
+        File "/tmp/pip-build-env-igrc9k6w/overlay/lib/python3.11/site-packages/setuptools/_distutils/core.py", line 200, in run_commands
+          dist.run_commands()
+        File "/tmp/pip-build-env-igrc9k6w/overlay/lib/python3.11/site-packages/setuptools/_distutils/dist.py", line 969, in run_commands
+          self.run_command(cmd)
+        File "/tmp/pip-build-env-igrc9k6w/overlay/lib/python3.11/site-packages/setuptools/dist.py", line 968, in run_command
+          super().run_command(command)
+        File "/tmp/pip-build-env-igrc9k6w/overlay/lib/python3.11/site-packages/setuptools/_distutils/dist.py", line 988, in run_command
+          cmd_obj.run()
+        File "/tmp/pip-build-env-igrc9k6w/overlay/lib/python3.11/site-packages/setuptools/command/egg_info.py", line 321, in run
+          self.find_sources()
+        File "/tmp/pip-build-env-igrc9k6w/overlay/lib/python3.11/site-packages/setuptools/command/egg_info.py", line 329, in find_sources
+          mm.run()
+        File "/tmp/pip-build-env-igrc9k6w/overlay/lib/python3.11/site-packages/setuptools/command/egg_info.py", line 550, in run
+          self.add_defaults()
+        File "/tmp/pip-build-env-igrc9k6w/overlay/lib/python3.11/site-packages/setuptools/command/egg_info.py", line 588, in add_defaults
+          sdist.add_defaults(self)
+        File "/tmp/pip-build-env-igrc9k6w/overlay/lib/python3.11/site-packages/setuptools/command/sdist.py", line 102, in add_defaults
+          super().add_defaults()
+        File "/tmp/pip-build-env-igrc9k6w/overlay/lib/python3.11/site-packages/setuptools/_distutils/command/sdist.py", line 250, in add_defaults
+          self._add_defaults_ext()
+        File "/tmp/pip-build-env-igrc9k6w/overlay/lib/python3.11/site-packages/setuptools/_distutils/command/sdist.py", line 335, in _add_defaults_ext
+          self.filelist.extend(build_ext.get_source_files())
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "<string>", line 201, in get_source_files
+        File "/tmp/pip-build-env-igrc9k6w/overlay/lib/python3.11/site-packages/setuptools/_distutils/cmd.py", line 107, in __getattr__
+          raise AttributeError(attr)
+      AttributeError: cython_sources
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+× Getting requirements to build wheel did not run successfully.
+│ exit code: 1
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
+Traceback (most recent call last):
+  File "/cluster/home/eirsteir/CRSLab/run_crslab.py", line 13, in <module>
+srun: error: idun-05-08: task 0: Exited with exit code 1
+    from crslab.config import Config
+  File "/cluster/home/eirsteir/CRSLab/crslab/config/__init__.py", line 24, in <module>
+    from .config import Config
+  File "/cluster/home/eirsteir/CRSLab/crslab/config/config.py", line 15, in <module>
+    import yaml
+ModuleNotFoundError: No module named 'yaml'
