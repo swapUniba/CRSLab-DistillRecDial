@@ -1,0 +1,44 @@
+
+[notice] A new release of pip is available: 22.0.4 -> 24.0
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 22.0.4 -> 24.0
+[notice] To update, run: pip install --upgrade pip
+  0%|          | 0/606 [00:00<?, ?it/s]100%|██████████| 606/606 [00:00<00:00, 33007.15it/s]
+  0%|          | 0/606 [00:00<?, ?it/s] 17%|█▋        | 105/606 [00:00<00:00, 501.19it/s] 84%|████████▍ | 509/606 [00:00<00:00, 1935.35it/s]100%|██████████| 606/606 [00:00<00:00, 1812.19it/s]
+  0%|          | 0/75 [00:00<?, ?it/s]100%|██████████| 75/75 [00:00<00:00, 35828.34it/s]
+  0%|          | 0/75 [00:00<?, ?it/s]100%|██████████| 75/75 [00:00<00:00, 3891.16it/s]
+  0%|          | 0/77 [00:00<?, ?it/s]100%|██████████| 77/77 [00:00<00:00, 37518.75it/s]
+  0%|          | 0/77 [00:00<?, ?it/s]100%|██████████| 77/77 [00:00<00:00, 4229.01it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:10<00:30, 10.19s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:24<00:25, 12.84s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:35<00:11, 12.00s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:37<00:00,  8.04s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:37<00:00,  9.46s/it]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+  0%|          | 0/1270 [00:00<?, ?it/s]100%|██████████| 1270/1270 [00:00<00:00, 13721.25it/s]
+  0%|          | 0/29 [00:00<?, ?it/s]                                        0%|          | 0/29 [01:39<?, ?it/s]  3%|▎         | 1/29 [01:39<46:35, 99.84s/it]                                                3%|▎         | 1/29 [03:10<46:35, 99.84s/it]  7%|▋         | 2/29 [03:10<42:28, 94.39s/it]                                                7%|▋         | 2/29 [04:39<42:28, 94.39s/it] 10%|█         | 3/29 [04:39<39:47, 91.82s/it]                                               10%|█         | 3/29 [06:10<39:47, 91.82s/it] 14%|█▍        | 4/29 [06:10<38:07, 91.48s/it] 14%|█▍        | 4/29 [06:13<38:55, 93.43s/it]
+Traceback (most recent call last):
+  File "/cluster/home/eirsteir/CRSLab/run_crslab.py", line 43, in <module>
+    run_crslab(config, args.save_data, args.restore_data, args.save_system, args.restore_system, args.interact,
+  File "/cluster/home/eirsteir/CRSLab/crslab/quick_start/quick_start.py", line 73, in run_crslab
+    CRS.fit()
+  File "/cluster/home/eirsteir/CRSLab/crslab/system/ccd.py", line 34, in fit
+    self.test_recommender()
+  File "/cluster/home/eirsteir/CRSLab/crslab/system/ccd.py", line 55, in test_recommender
+    self.step(batch, stage='rec', mode='test')
+  File "/cluster/home/eirsteir/CRSLab/crslab/system/ccd.py", line 26, in step
+    rec_predict = self.model.recommend(batch, mode)
+  File "/cluster/home/eirsteir/CRSLab/crslab/model/crs/ccd/ccd.py", line 124, in recommend
+    generated_ids = self.model.generate(model_inputs, **self.generation_kwargs)
+  File "/cluster/home/eirsteir/CRSLab/env/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/cluster/home/eirsteir/CRSLab/env/lib/python3.9/site-packages/transformers/generation/utils.py", line 1622, in generate
+    result = self._sample(
+  File "/cluster/home/eirsteir/CRSLab/env/lib/python3.9/site-packages/transformers/generation/utils.py", line 2791, in _sample
+    outputs = self(
+  File "/cluster/home/eirsteir/CRSLab/env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/cluster/home/eirsteir/CRSLab/env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/cluster/home/eirsteir/CRSLab/env/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 1228, in forward
+    logits = logits.float()
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 14.66 GiB. GPU 
+srun: error: idun-06-18: task 0: Exited with exit code 1

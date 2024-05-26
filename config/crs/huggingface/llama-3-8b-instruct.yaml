@@ -1,7 +1,7 @@
 # dataset
 dataset: CCD
 tokenize: none
-batch_size: 32
+batch_size: 16
 use_tokens: False
 model: Huggingface
 model_id: meta-llama/Meta-Llama-3-8B-Instruct

@@ -4,9 +4,11 @@ import re
 
 import editdistance
 import torch
+from tqdm import tqdm
 from transformers import (
     pipeline, AutoModelForCausalLM, AutoTokenizer,
 )
+from torch.nn import CrossEntropyLoss
 
 from crslab.config import DATASET_PATH
 from crslab.model.base import BaseModel
@@ -124,7 +126,6 @@ class HuggingfaceModel(BaseModel):
             generated_ids = self.model.generate(model_inputs, **self.generation_kwargs)
 
         responses = self.tokenizer.batch_decode(generated_ids[:, input_length:], skip_special_tokens=True)
-        print(responses[0])
 
         all_predicted_recs = [parse_topics(response) for response in responses]
         all_predicted_recs = [match_topics(all_items=self.all_items, predicted_items=recs) for recs in all_predicted_recs]
@@ -145,12 +146,46 @@ class HuggingfaceModel(BaseModel):
             generated_ids = self.model.generate(model_inputs, **self.generation_kwargs)
 
         responses = self.tokenizer.batch_decode(generated_ids[:, input_length:], skip_special_tokens=True)
-        return responses
+
+        loss = self.compute_loss(responses)
+
+        return loss, responses
 
     def _apply_chat_template_and_tokenize(self, messages):
+        # TODO: do i need to add return_attention_mask=True?
         return self.tokenizer.apply_chat_template(
             messages, tokenize=True, add_generation_prompt=True, padding=True, return_tensors="pt"
         ).to(self.device)
+
+
+    def compute_loss(self, predictions):
+        encodings = self.tokenizer(
+            predictions,
+            add_special_tokens=False,
+            padding=True,
+            return_tensors="pt",
+            return_attention_mask=True,
+        ).to(self.device)
+
+        encoded_texts = encodings["input_ids"]
+        attn_masks = encodings["attention_mask"]
+
+        loss_fct = CrossEntropyLoss(reduction="none")
+        labels = encoded_texts
+
+        with torch.no_grad():
+            out_logits = self.model(encoded_texts, attention_mask=attn_masks).logits
+
+        shift_logits = out_logits[..., :-1, :].contiguous()
+        shift_labels = labels[..., 1:].contiguous()
+        shift_attention_mask_batch = attn_masks[..., 1:].contiguous()
+
+        loss = loss_fct(shift_logits.transpose(1, 2), shift_labels) * shift_attention_mask_batch
+        loss = loss.sum() / shift_attention_mask_batch.sum()
+
+        return loss.item()
+
+
 
     def guide(self, batch, mode):
         pass

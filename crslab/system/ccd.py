@@ -5,6 +5,7 @@ from transformers import (
 )
 from loguru import logger
 
+from crslab.evaluator.metrics.gen import PPLMetric
 from crslab.system.base import BaseSystem
 
 
@@ -17,7 +18,6 @@ class HuggingfaceSystem(BaseSystem):
 
         self.batch_size = opt["batch_size"]
 
-
     def step(self, batch, stage, mode):
         if mode != "test":
             return
@@ -27,15 +27,15 @@ class HuggingfaceSystem(BaseSystem):
             self.rec_evaluate(rec_predict, batch["item"])
 
         elif stage == "conv":
-            conv_predict = self.model.converse(batch, mode)
+            loss, conv_predict = self.model.converse(batch, mode)
             self.conv_evaluate(conv_predict, batch["response"])
+            self.evaluator.gen_metrics.add('ppl', PPLMetric(loss))
 
     def fit(self):
         self.test_recommender()
         self.test_conversation()
 
     def rec_evaluate(self, rec_predict, item_label):
-        logger.info('[Test]')
         for pred, label in zip(rec_predict, item_label):
             self.evaluator.rec_evaluate(pred, label)
 

@@ -68,35 +68,35 @@ class InspiredConvModel(BaseModel):
         past = None
         lm_logits_all = []
 
-        if mode != 'test':
-            for turn, iter in enumerate(input_ids_iters):
-                if (roles[turn] == 0):
-                    # considering that gpt2 only supports up to 1024 tokens
-                    if past is not None and past[0].shape[3] + iter.shape[1] > 1024:
-                        past = None
-                    outputs = self.model_sk(iter, past_key_values=past)
-                    lm_logits, past = outputs.logits, outputs.past_key_values
-                    lm_logits_all.append(lm_logits)
-                else:
-                    if past is not None and past[0].shape[3] + iter.shape[1] > 1024:
-                        past = None
-                    outputs = self.model_rm(iter, past_key_values=past)
-                    lm_logits, past = outputs.logits, outputs.past_key_values
-                    lm_logits_all.append(lm_logits)
+        # if mode != 'test':
+        for turn, iter in enumerate(input_ids_iters):
+            if (roles[turn] == 0):
+                # considering that gpt2 only supports up to 1024 tokens
+                if past is not None and past[0].shape[3] + iter.shape[1] > 1024:
+                    past = None
+                outputs = self.model_sk(iter, past_key_values=past)
+                lm_logits, past = outputs.logits, outputs.past_key_values
+                lm_logits_all.append(lm_logits)
+            else:
+                if past is not None and past[0].shape[3] + iter.shape[1] > 1024:
+                    past = None
+                outputs = self.model_rm(iter, past_key_values=past)
+                lm_logits, past = outputs.logits, outputs.past_key_values
+                lm_logits_all.append(lm_logits)
 
-            lm_logits_all = torch.cat(lm_logits_all, dim=0)  # (b_s, seq_len, vocab_size)
+        lm_logits_all = torch.cat(lm_logits_all, dim=0)  # (b_s, seq_len, vocab_size)
 
-            # index from 1 to self.reponse_truncate is valid response
-            loss = self.calculate_loss(
-                lm_logits_all[:, -self.response_truncate:-1, :],
-                input_ids[:, -self.response_truncate + 1:])
+        # index from 1 to self.reponse_truncate is valid response
+        loss = self.calculate_loss(
+            lm_logits_all[:, -self.response_truncate:-1, :],
+            input_ids[:, -self.response_truncate + 1:])
 
-            pred = torch.max(lm_logits_all, dim=2)[1]  # (b_s, seq_len)
-            pred = pred[:, -self.response_truncate:]
+        pred = torch.max(lm_logits_all, dim=2)[1]  # (b_s, seq_len)
+        pred = pred[:, -self.response_truncate:]
 
-            return loss, pred
-        else:
-            return self.generate(roles, context)
+        return loss, pred
+        # else:
+        #     return self.generate(roles, context)
 
     def generate(self, roles, context):
         """

@@ -170,7 +170,7 @@ class TGReDialSystem(BaseSystem):
             if os.environ["CUDA_VISIBLE_DEVICES"] == '-1':
                 bert_param = list(self.rec_model.bert.named_parameters())
             else:
-                bert_param = list(self.rec_model.module.bert.named_parameters())
+                bert_param = list(self.rec_model.bert.named_parameters())
             bert_param_name = ['bert.' + n for n, p in bert_param]
         else:
             bert_param = []
@@ -183,14 +183,17 @@ class TGReDialSystem(BaseSystem):
                   {'params': [p for n, p in other_param]}]
         self.init_optim(self.rec_optim_opt, params)
 
+        logger.info('[Train]')
         for epoch in range(self.rec_epoch):
             self.evaluator.reset_metrics()
             logger.info(f'[Recommendation epoch {str(epoch)}]')
+
             for batch in self.train_dataloader['rec'].get_rec_data(self.rec_batch_size,
                                                                    shuffle=True):
                 self.step(batch, stage='rec', mode='train')
             self.evaluator.report(epoch=epoch, mode='train')
             # val
+            logger.info('[Valid]')
             with torch.no_grad():
                 self.evaluator.reset_metrics()
                 for batch in self.valid_dataloader['rec'].get_rec_data(
@@ -202,6 +205,7 @@ class TGReDialSystem(BaseSystem):
                 if self.early_stop(metric):
                     break
         # test
+        logger.info('[Test]')
         with torch.no_grad():
             self.evaluator.reset_metrics()
             for batch in self.test_dataloader['rec'].get_rec_data(self.rec_batch_size,
@@ -212,14 +216,17 @@ class TGReDialSystem(BaseSystem):
     def train_conversation(self):
         self.init_optim(self.conv_optim_opt, self.conv_model.parameters())
 
+        logger.info('[Train]')
         for epoch in range(self.conv_epoch):
             self.evaluator.reset_metrics()
             logger.info(f'[Conversation epoch {str(epoch)}]')
+
             for batch in self.train_dataloader['conv'].get_conv_data(
                     batch_size=self.conv_batch_size, shuffle=True):
                 self.step(batch, stage='conv', mode='train')
             self.evaluator.report(epoch=epoch, mode='train')
             # val
+            logger.info('[Valid]')
             with torch.no_grad():
                 self.evaluator.reset_metrics()
                 for batch in self.valid_dataloader['conv'].get_conv_data(
@@ -231,6 +238,7 @@ class TGReDialSystem(BaseSystem):
                 if self.early_stop(metric):
                     break
         # test
+        logger.info('[Test]')
         with torch.no_grad():
             self.evaluator.reset_metrics()
             for batch in self.test_dataloader['conv'].get_conv_data(

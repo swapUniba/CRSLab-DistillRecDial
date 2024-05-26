@@ -6,9 +6,9 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
-#SBATCH --job-name="CRSLab-INSPIRED-CCD-v0"
-#SBATCH --output=slurm_jobs/outputs/inspired/CRSLab-INSPIRED-CCD-v0.out
-#SBATCH --error=slurm_jobs/outputs/inspired/CRSLab-INSPIRED-CCD-v0.err
+#SBATCH --job-name="CRSLab-TG-ReDial-CCD-v0"
+#SBATCH --output=slurm_jobs/outputs/redial/CRSLab-TG-ReDial-CCD-v0.out
+#SBATCH --error=slurm_jobs/outputs/redial/CRSLab-TG-ReDial-CCD-v0.err
 #SBATCH --mail-user=eirsteir@stud.ntnu.no
 #SBATCH --mail-type=ALL
 
@@ -18,6 +18,7 @@ module purge
 module load  Python/3.9.6-GCCcore-11.2.0
 
 python -m pip install --upgrade pip
+
 pip install virtualenv
 virtualenv env
 source env/bin/activate
@@ -30,4 +31,4 @@ echo "Running Evaluation"
 
 nvidia-smi
 
-srun python run_crslab.py --config config/crs/inspired/ccd.yaml --gpu 0 --tensorboard
+srun python run_crslab.py --config config/crs/tgredial/ccd.yaml --tensorboard
