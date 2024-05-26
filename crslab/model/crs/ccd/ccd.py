@@ -14,7 +14,8 @@ from crslab.model.base import BaseModel
 PROMPT_TEMPLATE = (
             "Pretend you are a course curriculum recommender system. "
             "I will give you a conversation between a user and you (a recommender system). "
-            "Based on the conversation, you reply me with 50 topic recommendations without extra sentences."
+            "Based on the conversation, you reply me with 50 topic recommendations without extra sentences or description."
+            "The list should only have the topic names."
             "\n\nHere is the conversation: \n'{}' "
             "\n\nList of 50 recommendations: "
 )
@@ -86,7 +87,8 @@ class HuggingfaceModel(BaseModel):
         self.max_target_length = opt["max_target_length"]
         self.torch_dtype = torch.bfloat16 if opt["bf16"] else torch.float32
 
-        print(f"Using {self.torch_dtype=}")
+        # Generation
+        self.generation_kwargs = opt["generation_config"]
 
         super().__init__(opt, device)
 
@@ -102,13 +104,7 @@ class HuggingfaceModel(BaseModel):
         self.tokenizer.pad_token = self.tokenizer.eos_token
         self.tokenizer.padding_side = "left"
 
-        self.generation_kwargs = dict(
-            pad_token_id=self.tokenizer.eos_token_id,  # Ensure padding is consistent
-            max_new_tokens=self.max_target_length,
-            do_sample=True,
-            temperature=0.6,
-            top_p=0.9,
-        )
+        self.generation_kwargs["pad_token_id"] = self.tokenizer.eos_token_id
 
         if self.model_id in [
             "meta-llama/Meta-Llama-3-8B-Instruct",
@@ -128,6 +124,7 @@ class HuggingfaceModel(BaseModel):
             generated_ids = self.model.generate(model_inputs, **self.generation_kwargs)
 
         responses = self.tokenizer.batch_decode(generated_ids[:, input_length:], skip_special_tokens=True)
+        print(responses[0])
 
         all_predicted_recs = [parse_topics(response) for response in responses]
         all_predicted_recs = [match_topics(all_items=self.all_items, predicted_items=recs) for recs in all_predicted_recs]

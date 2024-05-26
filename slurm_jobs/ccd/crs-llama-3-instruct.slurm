@@ -6,12 +6,9 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --gres=gpu:a100:1
 #SBATCH --mem=60G
-
-JOB_NAME="CRSLab-CRS-LLAMA-3-8B-INSTRUCT-CCD-v0"
-
-#SBATCH --job-name=${JOB_NAME}
-#SBATCH --output=slurm_jobs/outputs/ccd/${JOB_NAME}.out
-#SBATCH --error=slurm_jobs/outputs/ccd/${JOB_NAME}.err
+#SBATCH --job-name=CRSLab-CRS-LLAMA-3-8B-INSTRUCT-CCD-v0
+#SBATCH --output=slurm_jobs/outputs/ccd/CRSLab-CRS-LLAMA-3-8B-INSTRUCT-CCD-v0.out
+#SBATCH --error=slurm_jobs/outputs/ccd/CRSLab-CRS-LLAMA-3-8B-INSTRUCT-CCD-v0.err
 #SBATCH --mail-user=eirsteir@stud.ntnu.no
 #SBATCH --mail-type=ALL
 

@@ -1,0 +1,97 @@
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pip in /cluster/home/eirsteir/.local/lib/python3.9/site-packages (24.0)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: virtualenv in /cluster/apps/eb/software/Python/3.9.6-GCCcore-11.2.0/lib/python3.9/site-packages (20.7.0)
+Requirement already satisfied: backports.entry-points-selectable>=1.0.4 in /cluster/apps/eb/software/Python/3.9.6-GCCcore-11.2.0/lib/python3.9/site-packages (from virtualenv) (1.1.0)
+Requirement already satisfied: distlib<1,>=0.3.1 in /cluster/apps/eb/software/Python/3.9.6-GCCcore-11.2.0/lib/python3.9/site-packages (from virtualenv) (0.3.2)
+Requirement already satisfied: filelock<4,>=3.0.0 in /cluster/apps/eb/software/Python/3.9.6-GCCcore-11.2.0/lib/python3.9/site-packages (from virtualenv) (3.0.12)
+Requirement already satisfied: platformdirs<3,>=2 in /cluster/home/eirsteir/.local/lib/python3.9/site-packages (from virtualenv) (2.6.2)
+Requirement already satisfied: six<2,>=1.9.0 in /cluster/apps/eb/software/Python/3.9.6-GCCcore-11.2.0/lib/python3.9/site-packages (from virtualenv) (1.16.0)
+FileExistsError: [Errno 17] File exists: '/cluster/apps/eb/software/Python/3.9.6-GCCcore-11.2.0/bin/python' -> '/cluster/home/eirsteir/CRSLab/env/bin/python'
+Running Evaluation
+[32m2024-05-26 03:06:24.329[0m | [1mINFO    [0m | [36mcrslab.config.config[0m:[36m__init__[0m:[36m79[0m - [1m[Dataset: CCD tokenized in bert, gpt2][0m
+[32m2024-05-26 03:06:24.332[0m | [1mINFO    [0m | [36mcrslab.config.config[0m:[36m__init__[0m:[36m83[0m - [1m[Recommendation Model: InspiredRec][0m
+[32m2024-05-26 03:06:24.332[0m | [1mINFO    [0m | [36mcrslab.config.config[0m:[36m__init__[0m:[36m85[0m - [1m[Conversation Model: InspiredConv][0m
+[32m2024-05-26 03:06:24.332[0m | [1mINFO    [0m | [36mcrslab.config.config[0m:[36m__init__[0m:[36m88[0m - [1m[Config]
+{
+    "dataset": "CCD",
+    "tokenize": {
+        "rec": "bert",
+        "conv": "gpt2"
+    },
+    "context_truncate": 256,
+    "response_truncate": 30,
+    "item_truncate": 100,
+    "scale": 1,
+    "rec_model": "InspiredRec",
+    "conv_model": "InspiredConv",
+    "embedding_dim": 300,
+    "use_dropout": false,
+    "dropout": 0.3,
+    "decoder_hidden_size": 256,
+    "decoder_num_layers": 1,
+    "rec": {
+        "epoch": 1,
+        "batch_size": 8,
+        "optimizer": {
+            "name": "AdamW",
+            "lr": 0.001,
+            "weight_decay": 0.0
+        },
+        "early_stop": true,
+        "stop_mode": "max",
+        "impatience": 3,
+        "lr_bert": 1e-05
+    },
+    "conv": {
+        "epoch": 1,
+        "batch_size": 1,
+        "optimizer": {
+            "name": "AdamW",
+            "lr": 3e-05,
+            "eps": 1e-06,
+            "weight_decay": 0.01
+        },
+        "lr_scheduler": {
+            "name": "TransformersLinearLR",
+            "warmup_steps": 100
+        },
+        "early_stop": true,
+        "impatience": 3,
+        "stop_mode": "min"
+    },
+    "gpu": [
+        -1
+    ],
+    "model_name": "InspiredRec_InspiredConv"
+}[0m
+[32m2024-05-26 03:07:36.835[0m | [1mINFO    [0m | [36mcrslab.data.dataset.base[0m:[36m__init__[0m:[36m49[0m - [1m[Finish data load][0m
+[32m2024-05-26 03:07:37.366[0m | [1mINFO    [0m | [36mcrslab.data.dataset.base[0m:[36m__init__[0m:[36m57[0m - [1m[Finish data preprocess][0m
+[32m2024-05-26 03:07:38.395[0m | [1mINFO    [0m | [36mcrslab.data.dataset.base[0m:[36m__init__[0m:[36m49[0m - [1m[Finish data load][0m
+[32m2024-05-26 03:07:38.871[0m | [1mINFO    [0m | [36mcrslab.data.dataset.base[0m:[36m__init__[0m:[36m57[0m - [1m[Finish data preprocess][0m
+[32m2024-05-26 03:07:40.392[0m | [1mINFO    [0m | [36mcrslab.model[0m:[36mget_model[0m:[36m52[0m - [1m[Build model InspiredRec][0m
+[32m2024-05-26 03:07:42.572[0m | [1mINFO    [0m | [36mcrslab.model[0m:[36mget_model[0m:[36m52[0m - [1m[Build model InspiredConv][0m
+[32m2024-05-26 03:07:44.559[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36m_load_embedding[0m:[36m63[0m - [1m[Load /cluster/home/eirsteir/CRSLab/data/embedding/en/cc.en.300.bin for embedding metric[0m
+[32m2024-05-26 03:07:44.562[0m | [1mINFO    [0m | [36mcrslab.evaluator[0m:[36mget_evaluator[0m:[36m32[0m - [1m[Build evaluator standard][0m
+[32m2024-05-26 03:07:44.563[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 03:07:45.387[0m | [1mINFO    [0m | [36mcrslab.system[0m:[36mget_system[0m:[36m59[0m - [1m[Build system InspiredRec_InspiredConv][0m
+[32m2024-05-26 03:07:45.390[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mbuild_optimizer[0m:[36m142[0m - [1m[Build optimizer: AdamW][0m
+[32m2024-05-26 03:07:45.391[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mbuild_lr_scheduler[0m:[36m159[0m - [1m[Build scheduler TransformersLinearLR][0m
+[32m2024-05-26 03:07:45.391[0m | [1mINFO    [0m | [36mcrslab.system.inspired[0m:[36mtrain_conversation[0m:[36m178[0m - [1m[Conversation epoch 0][0m
+[32m2024-05-26 03:07:45.391[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 04:29:46.299[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    gen_loss  grad norm  ppl
+       2.879      92.44 17.8[0m
+[32m2024-05-26 04:29:46.310[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 04:32:14.265[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .8973   .6164   .4621   .3784   .3199  .04163   .3661   1.656   3.485    .7457   
+      f1  gen_loss  greedy   ppl  rouge1  rouge2  rougeL  
+   .6619     2.147   .1743 8.555   .6593   .4872   .6346[0m
+[32m2024-05-26 04:32:14.265[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-26 04:32:14.266[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 04:40:50.213[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    average  bleu@1  bleu@2  bleu@3  bleu@4  dist@1  dist@2  dist@3  dist@4  extreme  \
+      .4868  .09086   .0342  .01978  .01361   .1754   1.483    3.82   5.905    .2403   
+      f1  greedy  rouge1  rouge2  rougeL  
+   .1379   .1151   .1289  .04182   .1151[0m
