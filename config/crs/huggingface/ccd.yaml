@@ -1,9 +1,0 @@
-# dataset
-dataset: CCD
-tokenize: none
-batch_size: 32
-keep_text: True
-model: Huggingface
-model_id: eirsteir/crs-llama-3-8b-instruct
-max_target_length: 512
-bf16: True

@@ -1,0 +1,16 @@
+# dataset
+dataset: CCD
+tokenize: none
+batch_size: 8
+use_tokens: False
+model: Huggingface
+model_id: mistralai/Mistral-7B-Instruct-v0.2
+max_target_length: 512
+bf16: True
+# Generation parameters
+generation_config:
+  max_new_tokens: 512  # TODO: can probably be lower
+  temperature: 0.6
+  top_p: 0.9
+  do_sample: True
+#  top_k: 0
