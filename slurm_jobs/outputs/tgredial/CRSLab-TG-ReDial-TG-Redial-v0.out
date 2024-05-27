@@ -1,0 +1,517 @@
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pip in /cluster/home/eirsteir/.local/lib/python3.9/site-packages (24.0)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: virtualenv in /cluster/apps/eb/software/Python/3.9.6-GCCcore-11.2.0/lib/python3.9/site-packages (20.7.0)
+Requirement already satisfied: backports.entry-points-selectable>=1.0.4 in /cluster/apps/eb/software/Python/3.9.6-GCCcore-11.2.0/lib/python3.9/site-packages (from virtualenv) (1.1.0)
+Requirement already satisfied: distlib<1,>=0.3.1 in /cluster/apps/eb/software/Python/3.9.6-GCCcore-11.2.0/lib/python3.9/site-packages (from virtualenv) (0.3.2)
+Requirement already satisfied: filelock<4,>=3.0.0 in /cluster/apps/eb/software/Python/3.9.6-GCCcore-11.2.0/lib/python3.9/site-packages (from virtualenv) (3.0.12)
+Requirement already satisfied: platformdirs<3,>=2 in /cluster/home/eirsteir/.local/lib/python3.9/site-packages (from virtualenv) (2.6.2)
+Requirement already satisfied: six<2,>=1.9.0 in /cluster/apps/eb/software/Python/3.9.6-GCCcore-11.2.0/lib/python3.9/site-packages (from virtualenv) (1.16.0)
+created virtual environment CPython3.9.6.final.0-64 in 3841ms
+  creator CPython3Posix(dest=/cluster/home/eirsteir/CRSLab/env, clear=False, no_vcs_ignore=False, global=False)
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/cluster/home/eirsteir/.local/share/virtualenv)
+    added seed packages: Cython==3.0.10, Markdown==3.6, MarkupSafe==2.1.5, PyYAML==5.4.1, absl_py==2.1.0, accelerate==0.30.1, aiohttp==3.9.5, aiosignal==1.3.1, async_timeout==4.0.3, attrs==23.2.0, cachetools==4.2.4, certifi==2024.2.2, chardet==4.0.0, charset_normalizer==3.3.2, click==8.1.7, datasets==2.18.0, dill==0.3.8, editdistance==0.8.1, fasttext==0.9.2, filelock==3.14.0, frozenlist==1.4.1, fsspec==2024.2.0, fuzzywuzzy==0.18.0, google_auth==1.35.0, google_auth_oauthlib==0.4.6, grpcio==1.64.0, huggingface_hub==0.23.1, idna==2.10, importlib_metadata==7.1.0, jinja2==3.1.4, joblib==1.4.2, loguru==0.5.3, mpmath==1.3.0, multidict==6.0.5, multiprocess==0.70.16, networkx==3.2.1, nltk==3.4.5, numpy==1.23.4, nvidia_cublas_cu12==12.1.3.1, nvidia_cuda_cupti_cu12==12.1.105, nvidia_cuda_nvrtc_cu12==12.1.105, nvidia_cuda_runtime_cu12==12.1.105, nvidia_cudnn_cu12==8.9.2.26, nvidia_cufft_cu12==11.0.2.54, nvidia_curand_cu12==10.3.2.106, nvidia_cusolver_cu12==11.4.5.107, nvidia_cusparse_cu12==12.1.0.106, nvidia_nccl_cu12==2.20.5, nvidia_nvjitlink_cu12==12.5.40, nvidia_nvtx_cu12==12.1.105, oauthlib==3.2.2, packaging==24.0, pandas==2.2.2, peft==0.10.0, pillow==10.3.0, pip==22.0.4, pip==24.0, pkuseg==0.0.25, protobuf==3.20.3, psutil==5.9.8, pyarrow==16.1.0, pyarrow_hotfix==0.6, pyasn1==0.6.0, pyasn1_modules==0.4.0, pybind11==2.12.0, pyparsing==3.1.2, python_dateutil==2.9.0.post0, pytz==2024.1, regex==2024.5.15, requests==2.25.1, requests_oauthlib==2.0.0, rouge_score==0.1.2, rsa==4.9, sacremoses==0.1.1, safetensors==0.4.3, scikit_learn==0.24.2, scipy==1.10.1, sentencepiece==0.1.99, setuptools==62.2.0, setuptools==69.5.1, six==1.16.0, sympy==1.12, tensorboard==2.4.1, tensorboard_plugin_wit==1.8.1, threadpoolctl==3.5.0, tokenizers==0.19.1, torch==2.3.0, torch_geometric==2.5.3, torchaudio==2.3.0, torchvision==0.18.0, tqdm==4.55.2, transformers==4.40.0, triton==2.3.0, typing_extensions==4.12.0, tzdata==2024.1, urllib3==1.26.18, werkzeug==3.0.3, wheel==0.37.1, wheel==0.43.0, xxhash==3.4.1, yarl==1.9.4, zipp==3.18.2
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator
+Requirement already satisfied: torch in ./env/lib/python3.9/site-packages (2.3.0)
+Requirement already satisfied: torchvision in ./env/lib/python3.9/site-packages (0.18.0)
+Requirement already satisfied: torchaudio in ./env/lib/python3.9/site-packages (2.3.0)
+Requirement already satisfied: torch_geometric in ./env/lib/python3.9/site-packages (2.5.3)
+Requirement already satisfied: protobuf~=3.20 in ./env/lib/python3.9/site-packages (3.20.3)
+Requirement already satisfied: filelock in ./env/lib/python3.9/site-packages (from torch) (3.14.0)
+Requirement already satisfied: typing-extensions>=4.8.0 in ./env/lib/python3.9/site-packages (from torch) (4.12.0)
+Requirement already satisfied: sympy in ./env/lib/python3.9/site-packages (from torch) (1.12)
+Requirement already satisfied: networkx in ./env/lib/python3.9/site-packages (from torch) (3.2.1)
+Requirement already satisfied: jinja2 in ./env/lib/python3.9/site-packages (from torch) (3.1.4)
+Requirement already satisfied: fsspec in ./env/lib/python3.9/site-packages (from torch) (2024.2.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.1.105 in ./env/lib/python3.9/site-packages (from torch) (12.1.105)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.1.105 in ./env/lib/python3.9/site-packages (from torch) (12.1.105)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.1.105 in ./env/lib/python3.9/site-packages (from torch) (12.1.105)
+Requirement already satisfied: nvidia-cudnn-cu12==8.9.2.26 in ./env/lib/python3.9/site-packages (from torch) (8.9.2.26)
+Requirement already satisfied: nvidia-cublas-cu12==12.1.3.1 in ./env/lib/python3.9/site-packages (from torch) (12.1.3.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.0.2.54 in ./env/lib/python3.9/site-packages (from torch) (11.0.2.54)
+Requirement already satisfied: nvidia-curand-cu12==10.3.2.106 in ./env/lib/python3.9/site-packages (from torch) (10.3.2.106)
+Requirement already satisfied: nvidia-cusolver-cu12==11.4.5.107 in ./env/lib/python3.9/site-packages (from torch) (11.4.5.107)
+Requirement already satisfied: nvidia-cusparse-cu12==12.1.0.106 in ./env/lib/python3.9/site-packages (from torch) (12.1.0.106)
+Requirement already satisfied: nvidia-nccl-cu12==2.20.5 in ./env/lib/python3.9/site-packages (from torch) (2.20.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.1.105 in ./env/lib/python3.9/site-packages (from torch) (12.1.105)
+Requirement already satisfied: triton==2.3.0 in ./env/lib/python3.9/site-packages (from torch) (2.3.0)
+Requirement already satisfied: nvidia-nvjitlink-cu12 in ./env/lib/python3.9/site-packages (from nvidia-cusolver-cu12==11.4.5.107->torch) (12.5.40)
+Requirement already satisfied: numpy in ./env/lib/python3.9/site-packages (from torchvision) (1.23.4)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in ./env/lib/python3.9/site-packages (from torchvision) (10.3.0)
+Requirement already satisfied: tqdm in ./env/lib/python3.9/site-packages (from torch_geometric) (4.55.2)
+Requirement already satisfied: scipy in ./env/lib/python3.9/site-packages (from torch_geometric) (1.10.1)
+Requirement already satisfied: aiohttp in ./env/lib/python3.9/site-packages (from torch_geometric) (3.9.5)
+Requirement already satisfied: requests in ./env/lib/python3.9/site-packages (from torch_geometric) (2.25.1)
+Requirement already satisfied: pyparsing in ./env/lib/python3.9/site-packages (from torch_geometric) (3.1.2)
+Requirement already satisfied: scikit-learn in ./env/lib/python3.9/site-packages (from torch_geometric) (0.24.2)
+Requirement already satisfied: psutil>=5.8.0 in ./env/lib/python3.9/site-packages (from torch_geometric) (5.9.8)
+Requirement already satisfied: aiosignal>=1.1.2 in ./env/lib/python3.9/site-packages (from aiohttp->torch_geometric) (1.3.1)
+Requirement already satisfied: attrs>=17.3.0 in ./env/lib/python3.9/site-packages (from aiohttp->torch_geometric) (23.2.0)
+Requirement already satisfied: frozenlist>=1.1.1 in ./env/lib/python3.9/site-packages (from aiohttp->torch_geometric) (1.4.1)
+Requirement already satisfied: multidict<7.0,>=4.5 in ./env/lib/python3.9/site-packages (from aiohttp->torch_geometric) (6.0.5)
+Requirement already satisfied: yarl<2.0,>=1.0 in ./env/lib/python3.9/site-packages (from aiohttp->torch_geometric) (1.9.4)
+Requirement already satisfied: async-timeout<5.0,>=4.0 in ./env/lib/python3.9/site-packages (from aiohttp->torch_geometric) (4.0.3)
+Requirement already satisfied: MarkupSafe>=2.0 in ./env/lib/python3.9/site-packages (from jinja2->torch) (2.1.5)
+Requirement already satisfied: chardet<5,>=3.0.2 in ./env/lib/python3.9/site-packages (from requests->torch_geometric) (4.0.0)
+Requirement already satisfied: idna<3,>=2.5 in ./env/lib/python3.9/site-packages (from requests->torch_geometric) (2.10)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in ./env/lib/python3.9/site-packages (from requests->torch_geometric) (1.26.18)
+Requirement already satisfied: certifi>=2017.4.17 in ./env/lib/python3.9/site-packages (from requests->torch_geometric) (2024.2.2)
+Requirement already satisfied: joblib>=0.11 in ./env/lib/python3.9/site-packages (from scikit-learn->torch_geometric) (1.4.2)
+Requirement already satisfied: threadpoolctl>=2.0.0 in ./env/lib/python3.9/site-packages (from scikit-learn->torch_geometric) (3.5.0)
+Requirement already satisfied: mpmath>=0.19 in ./env/lib/python3.9/site-packages (from sympy->torch) (1.3.0)
+Obtaining file:///cluster/home/eirsteir/CRSLab
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): still running...
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: numpy==1.23.4 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (1.23.4)
+Requirement already satisfied: sentencepiece==0.1.99 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.1.99)
+Requirement already satisfied: fasttext~=0.9.2 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.9.2)
+Requirement already satisfied: pkuseg~=0.0.25 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.0.25)
+Requirement already satisfied: pyyaml~=5.4 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (5.4.1)
+Requirement already satisfied: tqdm~=4.55.0 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (4.55.2)
+Requirement already satisfied: loguru~=0.5.3 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.5.3)
+Requirement already satisfied: nltk~=3.4.4 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (3.4.5)
+Requirement already satisfied: requests~=2.25.1 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (2.25.1)
+Requirement already satisfied: scikit-learn~=0.24.0 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.24.2)
+Requirement already satisfied: fuzzywuzzy~=0.18.0 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.18.0)
+Requirement already satisfied: tensorboard~=2.4.1 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (2.4.1)
+Requirement already satisfied: rouge-score~=0.1.2 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.1.2)
+Requirement already satisfied: transformers==4.40.0 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (4.40.0)
+Requirement already satisfied: editdistance~=0.8.1 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.8.1)
+Requirement already satisfied: peft==0.10.0 in ./env/lib/python3.9/site-packages (from crslab==0.1.1) (0.10.0)
+Requirement already satisfied: packaging>=20.0 in ./env/lib/python3.9/site-packages (from peft==0.10.0->crslab==0.1.1) (24.0)
+Requirement already satisfied: psutil in ./env/lib/python3.9/site-packages (from peft==0.10.0->crslab==0.1.1) (5.9.8)
+Requirement already satisfied: torch>=1.13.0 in ./env/lib/python3.9/site-packages (from peft==0.10.0->crslab==0.1.1) (2.3.0)
+Requirement already satisfied: accelerate>=0.21.0 in ./env/lib/python3.9/site-packages (from peft==0.10.0->crslab==0.1.1) (0.30.1)
+Requirement already satisfied: safetensors in ./env/lib/python3.9/site-packages (from peft==0.10.0->crslab==0.1.1) (0.4.3)
+Requirement already satisfied: huggingface-hub>=0.17.0 in ./env/lib/python3.9/site-packages (from peft==0.10.0->crslab==0.1.1) (0.23.1)
+Requirement already satisfied: filelock in ./env/lib/python3.9/site-packages (from transformers==4.40.0->crslab==0.1.1) (3.14.0)
+Requirement already satisfied: regex!=2019.12.17 in ./env/lib/python3.9/site-packages (from transformers==4.40.0->crslab==0.1.1) (2024.5.15)
+Requirement already satisfied: tokenizers<0.20,>=0.19 in ./env/lib/python3.9/site-packages (from transformers==4.40.0->crslab==0.1.1) (0.19.1)
+Requirement already satisfied: pybind11>=2.2 in ./env/lib/python3.9/site-packages (from fasttext~=0.9.2->crslab==0.1.1) (2.12.0)
+Requirement already satisfied: setuptools>=0.7.0 in ./env/lib/python3.9/site-packages (from fasttext~=0.9.2->crslab==0.1.1) (62.2.0)
+Requirement already satisfied: six in ./env/lib/python3.9/site-packages (from nltk~=3.4.4->crslab==0.1.1) (1.16.0)
+Requirement already satisfied: cython in ./env/lib/python3.9/site-packages (from pkuseg~=0.0.25->crslab==0.1.1) (3.0.10)
+Requirement already satisfied: chardet<5,>=3.0.2 in ./env/lib/python3.9/site-packages (from requests~=2.25.1->crslab==0.1.1) (4.0.0)
+Requirement already satisfied: idna<3,>=2.5 in ./env/lib/python3.9/site-packages (from requests~=2.25.1->crslab==0.1.1) (2.10)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in ./env/lib/python3.9/site-packages (from requests~=2.25.1->crslab==0.1.1) (1.26.18)
+Requirement already satisfied: certifi>=2017.4.17 in ./env/lib/python3.9/site-packages (from requests~=2.25.1->crslab==0.1.1) (2024.2.2)
+Requirement already satisfied: absl-py in ./env/lib/python3.9/site-packages (from rouge-score~=0.1.2->crslab==0.1.1) (2.1.0)
+Requirement already satisfied: scipy>=0.19.1 in ./env/lib/python3.9/site-packages (from scikit-learn~=0.24.0->crslab==0.1.1) (1.10.1)
+Requirement already satisfied: joblib>=0.11 in ./env/lib/python3.9/site-packages (from scikit-learn~=0.24.0->crslab==0.1.1) (1.4.2)
+Requirement already satisfied: threadpoolctl>=2.0.0 in ./env/lib/python3.9/site-packages (from scikit-learn~=0.24.0->crslab==0.1.1) (3.5.0)
+Requirement already satisfied: grpcio>=1.24.3 in ./env/lib/python3.9/site-packages (from tensorboard~=2.4.1->crslab==0.1.1) (1.64.0)
+Requirement already satisfied: google-auth<2,>=1.6.3 in ./env/lib/python3.9/site-packages (from tensorboard~=2.4.1->crslab==0.1.1) (1.35.0)
+Requirement already satisfied: google-auth-oauthlib<0.5,>=0.4.1 in ./env/lib/python3.9/site-packages (from tensorboard~=2.4.1->crslab==0.1.1) (0.4.6)
+Requirement already satisfied: markdown>=2.6.8 in ./env/lib/python3.9/site-packages (from tensorboard~=2.4.1->crslab==0.1.1) (3.6)
+Requirement already satisfied: protobuf>=3.6.0 in ./env/lib/python3.9/site-packages (from tensorboard~=2.4.1->crslab==0.1.1) (3.20.3)
+Requirement already satisfied: tensorboard-plugin-wit>=1.6.0 in ./env/lib/python3.9/site-packages (from tensorboard~=2.4.1->crslab==0.1.1) (1.8.1)
+Requirement already satisfied: werkzeug>=0.11.15 in ./env/lib/python3.9/site-packages (from tensorboard~=2.4.1->crslab==0.1.1) (3.0.3)
+Requirement already satisfied: wheel>=0.26 in ./env/lib/python3.9/site-packages (from tensorboard~=2.4.1->crslab==0.1.1) (0.37.1)
+Requirement already satisfied: cachetools<5.0,>=2.0.0 in ./env/lib/python3.9/site-packages (from google-auth<2,>=1.6.3->tensorboard~=2.4.1->crslab==0.1.1) (4.2.4)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in ./env/lib/python3.9/site-packages (from google-auth<2,>=1.6.3->tensorboard~=2.4.1->crslab==0.1.1) (0.4.0)
+Requirement already satisfied: rsa<5,>=3.1.4 in ./env/lib/python3.9/site-packages (from google-auth<2,>=1.6.3->tensorboard~=2.4.1->crslab==0.1.1) (4.9)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in ./env/lib/python3.9/site-packages (from google-auth-oauthlib<0.5,>=0.4.1->tensorboard~=2.4.1->crslab==0.1.1) (2.0.0)
+Requirement already satisfied: fsspec>=2023.5.0 in ./env/lib/python3.9/site-packages (from huggingface-hub>=0.17.0->peft==0.10.0->crslab==0.1.1) (2024.2.0)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in ./env/lib/python3.9/site-packages (from huggingface-hub>=0.17.0->peft==0.10.0->crslab==0.1.1) (4.12.0)
+Requirement already satisfied: importlib-metadata>=4.4 in ./env/lib/python3.9/site-packages (from markdown>=2.6.8->tensorboard~=2.4.1->crslab==0.1.1) (7.1.0)
+Requirement already satisfied: sympy in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (1.12)
+Requirement already satisfied: networkx in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (3.2.1)
+Requirement already satisfied: jinja2 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (3.1.4)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.1.105 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (12.1.105)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.1.105 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (12.1.105)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.1.105 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (12.1.105)
+Requirement already satisfied: nvidia-cudnn-cu12==8.9.2.26 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (8.9.2.26)
+Requirement already satisfied: nvidia-cublas-cu12==12.1.3.1 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (12.1.3.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.0.2.54 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (11.0.2.54)
+Requirement already satisfied: nvidia-curand-cu12==10.3.2.106 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (10.3.2.106)
+Requirement already satisfied: nvidia-cusolver-cu12==11.4.5.107 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (11.4.5.107)
+Requirement already satisfied: nvidia-cusparse-cu12==12.1.0.106 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (12.1.0.106)
+Requirement already satisfied: nvidia-nccl-cu12==2.20.5 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (2.20.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.1.105 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (12.1.105)
+Requirement already satisfied: triton==2.3.0 in ./env/lib/python3.9/site-packages (from torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (2.3.0)
+Requirement already satisfied: nvidia-nvjitlink-cu12 in ./env/lib/python3.9/site-packages (from nvidia-cusolver-cu12==11.4.5.107->torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (12.5.40)
+Requirement already satisfied: MarkupSafe>=2.1.1 in ./env/lib/python3.9/site-packages (from werkzeug>=0.11.15->tensorboard~=2.4.1->crslab==0.1.1) (2.1.5)
+Requirement already satisfied: zipp>=0.5 in ./env/lib/python3.9/site-packages (from importlib-metadata>=4.4->markdown>=2.6.8->tensorboard~=2.4.1->crslab==0.1.1) (3.18.2)
+Requirement already satisfied: pyasn1<0.7.0,>=0.4.6 in ./env/lib/python3.9/site-packages (from pyasn1-modules>=0.2.1->google-auth<2,>=1.6.3->tensorboard~=2.4.1->crslab==0.1.1) (0.6.0)
+Requirement already satisfied: oauthlib>=3.0.0 in ./env/lib/python3.9/site-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<0.5,>=0.4.1->tensorboard~=2.4.1->crslab==0.1.1) (3.2.2)
+Requirement already satisfied: mpmath>=0.19 in ./env/lib/python3.9/site-packages (from sympy->torch>=1.13.0->peft==0.10.0->crslab==0.1.1) (1.3.0)
+Installing collected packages: crslab
+  Attempting uninstall: crslab
+    Found existing installation: crslab 0.1.1
+    Uninstalling crslab-0.1.1:
+      Successfully uninstalled crslab-0.1.1
+  Running setup.py develop for crslab
+Successfully installed crslab-0.1.1
+Running Evaluation
+Sun May 26 21:48:35 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 545.23.06              Driver Version: 545.23.06    CUDA Version: 12.3     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A100-PCIE-40GB          On  | 00000000:49:00.0 Off |                    0 |
+| N/A   30C    P0              33W / 250W |      4MiB / 40960MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+[32m2024-05-26 21:48:38.278[0m | [1mINFO    [0m | [36mcrslab.config.config[0m:[36m__init__[0m:[36m79[0m - [1m[Dataset: TGReDial tokenized in bert, gpt2, bert][0m
+[32m2024-05-26 21:48:38.281[0m | [1mINFO    [0m | [36mcrslab.config.config[0m:[36m__init__[0m:[36m83[0m - [1m[Recommendation Model: TGRec][0m
+[32m2024-05-26 21:48:38.281[0m | [1mINFO    [0m | [36mcrslab.config.config[0m:[36m__init__[0m:[36m85[0m - [1m[Conversation Model: TGConv][0m
+[32m2024-05-26 21:48:38.281[0m | [1mINFO    [0m | [36mcrslab.config.config[0m:[36m__init__[0m:[36m87[0m - [1m[Policy Model: TGPolicy][0m
+[32m2024-05-26 21:48:38.282[0m | [1mINFO    [0m | [36mcrslab.config.config[0m:[36m__init__[0m:[36m88[0m - [1m[Config]
+{
+    "dataset": "TGReDial",
+    "tokenize": {
+        "rec": "bert",
+        "conv": "gpt2",
+        "policy": "bert"
+    },
+    "context_truncate": 256,
+    "response_truncate": 30,
+    "item_truncate": 100,
+    "scale": 1,
+    "rec_model": "TGRec",
+    "conv_model": "TGConv",
+    "policy_model": "TGPolicy",
+    "hidden_dropout_prob": 0.2,
+    "initializer_range": 0.02,
+    "hidden_size": 50,
+    "max_history_items": 100,
+    "num_attention_heads": 1,
+    "attention_probs_dropout_prob": 0.2,
+    "hidden_act": "gelu",
+    "num_hidden_layers": 2,
+    "rec": {
+        "epoch": 50,
+        "batch_size": 8,
+        "optimizer": {
+            "name": "AdamW",
+            "lr": 0.001,
+            "weight_decay": 0.0
+        },
+        "lr_bert": 1e-05,
+        "early_stop": true,
+        "impatience": 3,
+        "stop_mode": "max"
+    },
+    "conv": {
+        "epoch": 50,
+        "batch_size": 8,
+        "gradient_clip": 1.0,
+        "update_freq": 1,
+        "optimizer": {
+            "name": "AdamW",
+            "lr": 0.00015
+        },
+        "lr_scheduler": {
+            "name": "TransformersLinearLR",
+            "warmup_steps": 2000
+        },
+        "early_stop": true,
+        "impatience": 3,
+        "stop_mode": "min"
+    },
+    "policy": {
+        "epoch": 50,
+        "batch_size": 8,
+        "weight_decay": 0.01,
+        "optimizer": {
+            "name": "AdamW",
+            "lr": 1e-05
+        },
+        "early_stop": true,
+        "stop_mode": "max",
+        "impatience": 3
+    },
+    "gpu": [
+        0
+    ],
+    "model_name": "TGRec_TGConv_TGPolicy"
+}[0m
+[32m2024-05-26 21:49:33.576[0m | [1mINFO    [0m | [36mcrslab.data.dataset.base[0m:[36m__init__[0m:[36m49[0m - [1m[Finish data load][0m
+[32m2024-05-26 21:49:45.891[0m | [1mINFO    [0m | [36mcrslab.data.dataset.base[0m:[36m__init__[0m:[36m57[0m - [1m[Finish data preprocess][0m
+[32m2024-05-26 21:49:51.832[0m | [1mINFO    [0m | [36mcrslab.data.dataset.base[0m:[36m__init__[0m:[36m49[0m - [1m[Finish data load][0m
+[32m2024-05-26 21:50:04.569[0m | [1mINFO    [0m | [36mcrslab.data.dataset.base[0m:[36m__init__[0m:[36m57[0m - [1m[Finish data preprocess][0m
+[32m2024-05-26 21:50:07.015[0m | [1mINFO    [0m | [36mcrslab.model[0m:[36mget_model[0m:[36m52[0m - [1m[Build model TGRec][0m
+[32m2024-05-26 21:50:09.191[0m | [1mINFO    [0m | [36mcrslab.model[0m:[36mget_model[0m:[36m52[0m - [1m[Build model TGConv][0m
+[32m2024-05-26 21:50:10.650[0m | [1mINFO    [0m | [36mcrslab.model[0m:[36mget_model[0m:[36m52[0m - [1m[Build model TGPolicy][0m
+[32m2024-05-26 21:50:22.801[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36m_load_embedding[0m:[36m63[0m - [1m[Load /cluster/home/eirsteir/CRSLab/data/embedding/zh/cc.zh.300.bin for embedding metric[0m
+[32m2024-05-26 21:50:22.804[0m | [1mINFO    [0m | [36mcrslab.evaluator[0m:[36mget_evaluator[0m:[36m32[0m - [1m[Build evaluator standard][0m
+[32m2024-05-26 21:50:22.805[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 21:50:34.856[0m | [1mINFO    [0m | [36mcrslab.system[0m:[36mget_system[0m:[36m59[0m - [1m[Build system TGRec_TGConv_TGPolicy][0m
+[32m2024-05-26 21:50:34.861[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mbuild_optimizer[0m:[36m142[0m - [1m[Build optimizer: AdamW][0m
+[32m2024-05-26 21:50:34.861[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m188[0m - [1m[Train][0m
+[32m2024-05-26 21:50:34.861[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m191[0m - [1m[Recommendation epoch 0][0m
+[32m2024-05-26 21:50:46.723[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 21:57:21.037[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        226.4     10.53[0m
+[32m2024-05-26 21:57:21.038[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m198[0m - [1m[Valid][0m
+[32m2024-05-26 21:57:21.682[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 21:57:34.679[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+      hit@1  hit@10  hit@50    mrr@1  mrr@10  mrr@50   ndcg@1  ndcg@10  ndcg@50  \
+   .0004403 .003523  .01321 .0004403 .001206  .00161 .0004403  .001739    .0038   
+    rec_loss  
+       10.06[0m
+[32m2024-05-26 21:57:34.679[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-26 21:57:34.680[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m191[0m - [1m[Recommendation epoch 1][0m
+[32m2024-05-26 21:57:45.086[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:04:15.069[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        221.2     9.398[0m
+[32m2024-05-26 22:04:15.069[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m198[0m - [1m[Valid][0m
+[32m2024-05-26 22:04:15.719[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:04:28.399[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+      hit@1  hit@10  hit@50    mrr@1   mrr@10  mrr@50   ndcg@1  ndcg@10  ndcg@50  \
+   .0004403 .003523  .01541 .0004403 .0009888 .001494 .0004403  .001548  .004085   
+    rec_loss  
+        10.2[0m
+[32m2024-05-26 22:04:28.399[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-26 22:04:28.399[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m191[0m - [1m[Recommendation epoch 2][0m
+[32m2024-05-26 22:04:39.006[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:11:09.291[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        221.8     9.172[0m
+[32m2024-05-26 22:11:09.291[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m198[0m - [1m[Valid][0m
+[32m2024-05-26 22:11:09.946[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:11:22.681[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+      hit@1  hit@10  hit@50    mrr@1   mrr@10  mrr@50   ndcg@1  ndcg@10  ndcg@50  \
+   .0004403 .003523  .01629 .0004403 .0009876 .001408 .0004403  .001559  .004106   
+    rec_loss  
+       10.48[0m
+[32m2024-05-26 22:11:22.682[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-26 22:11:22.683[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m191[0m - [1m[Recommendation epoch 3][0m
+[32m2024-05-26 22:11:33.525[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:18:02.923[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        212.1     8.417[0m
+[32m2024-05-26 22:18:02.924[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m198[0m - [1m[Valid][0m
+[32m2024-05-26 22:18:03.573[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:18:16.238[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .003082 .007486   .0229 .003082 .004188   .0049 .003082  .004958  .008341     10.81[0m
+[32m2024-05-26 22:18:16.239[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-26 22:18:16.239[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m191[0m - [1m[Recommendation epoch 4][0m
+[32m2024-05-26 22:18:27.107[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:24:56.967[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        185.7     6.945[0m
+[32m2024-05-26 22:24:56.968[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m198[0m - [1m[Valid][0m
+[32m2024-05-26 22:24:57.622[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:25:10.297[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .005284  .01497  .03038 .005284 .007613 .008242 .005284  .009315   .01258     11.95[0m
+[32m2024-05-26 22:25:10.298[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-26 22:25:10.298[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m191[0m - [1m[Recommendation epoch 5][0m
+[32m2024-05-26 22:25:17.843[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:31:47.545[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        148.9      5.12[0m
+[32m2024-05-26 22:31:47.545[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m198[0m - [1m[Valid][0m
+[32m2024-05-26 22:31:51.129[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:32:03.867[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .006165  .01541  .03214 .006165 .009083 .009748 .006165    .0106   .01411      12.9[0m
+[32m2024-05-26 22:32:03.867[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-26 22:32:03.867[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m191[0m - [1m[Recommendation epoch 6][0m
+[32m2024-05-26 22:32:11.385[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:38:42.096[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        114.3     3.629[0m
+[32m2024-05-26 22:38:42.097[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m198[0m - [1m[Valid][0m
+[32m2024-05-26 22:38:42.750[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:38:55.502[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .006165  .01541  .03919 .006165 .009054  .01015 .006165   .01059    .0158     13.79[0m
+[32m2024-05-26 22:38:55.502[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-26 22:38:55.502[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m191[0m - [1m[Recommendation epoch 7][0m
+[32m2024-05-26 22:39:05.833[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:45:36.393[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+         86.2     2.628[0m
+[32m2024-05-26 22:45:36.393[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m198[0m - [1m[Valid][0m
+[32m2024-05-26 22:45:37.037[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:45:49.749[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .008807  .02202  .05328 .008807   .0124  .01362 .008807   .01468   .02119     14.15[0m
+[32m2024-05-26 22:45:49.749[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-26 22:45:49.750[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m191[0m - [1m[Recommendation epoch 8][0m
+[32m2024-05-26 22:45:59.923[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:52:30.752[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        65.86     1.952[0m
+[32m2024-05-26 22:52:30.752[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m198[0m - [1m[Valid][0m
+[32m2024-05-26 22:52:31.404[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:52:44.111[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .009687  .02598  .06253 .009687  .01307  .01471 .009687   .01604   .02397     14.27[0m
+[32m2024-05-26 22:52:44.111[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-26 22:52:44.111[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m191[0m - [1m[Recommendation epoch 9][0m
+[32m2024-05-26 22:52:54.510[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:59:25.750[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        51.68     1.508[0m
+[32m2024-05-26 22:59:25.752[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m198[0m - [1m[Valid][0m
+[32m2024-05-26 22:59:26.400[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 22:59:39.166[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    hit@1  hit@10  hit@50  mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .01057  .03214   .0731 .01057  .01624  .01796  .01057   .01994   .02865     14.68[0m
+[32m2024-05-26 22:59:39.167[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-26 22:59:39.167[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m191[0m - [1m[Recommendation epoch 10][0m
+[32m2024-05-26 22:59:51.039[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 23:06:25.860[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        40.77     1.177[0m
+[32m2024-05-26 23:06:25.861[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m198[0m - [1m[Valid][0m
+[32m2024-05-26 23:06:26.514[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 23:06:39.689[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .008366  .04007  .07882 .008366  .01632  .01802 .008366   .02189   .03024     14.79[0m
+[32m2024-05-26 23:06:39.689[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-26 23:06:39.690[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m191[0m - [1m[Recommendation epoch 11][0m
+[32m2024-05-26 23:06:50.334[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 23:13:20.376[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        34.48     .9417[0m
+[32m2024-05-26 23:13:20.377[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m198[0m - [1m[Valid][0m
+[32m2024-05-26 23:13:21.033[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 23:13:33.761[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    hit@1  hit@10  hit@50  mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .01277  .04007  .08322 .01277  .02013  .02211  .01277   .02484   .03427     14.97[0m
+[32m2024-05-26 23:13:33.762[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-26 23:13:33.762[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m191[0m - [1m[Recommendation epoch 12][0m
+[32m2024-05-26 23:13:44.591[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 23:20:15.430[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        29.73     .7798[0m
+[32m2024-05-26 23:20:15.431[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m198[0m - [1m[Valid][0m
+[32m2024-05-26 23:20:16.082[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 23:20:28.748[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    hit@1  hit@10  hit@50  mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .01057  .03567   .0775 .01057  .01746  .01935  .01057   .02177   .03088     15.11[0m
+[32m2024-05-26 23:20:28.749[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m191[0m - [1m[Recommendation epoch 13][0m
+[32m2024-05-26 23:20:39.578[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 23:27:10.784[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        23.32     .6395[0m
+[32m2024-05-26 23:27:10.785[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m198[0m - [1m[Valid][0m
+[32m2024-05-26 23:27:11.444[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 23:27:24.223[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .008366  .03655   .0797 .008366  .01584  .01774 .008366    .0207   .03001     15.13[0m
+[32m2024-05-26 23:27:24.223[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m191[0m - [1m[Recommendation epoch 14][0m
+[32m2024-05-26 23:27:31.698[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 23:34:02.063[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  rec_loss
+        18.99     .5473[0m
+[32m2024-05-26 23:34:02.064[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m198[0m - [1m[Valid][0m
+[32m2024-05-26 23:34:02.710[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 23:34:15.414[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    hit@1  hit@10  hit@50  mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .01057  .03963  .07618 .01057  .01773  .01929  .01057   .02282   .03062     15.36[0m
+[32m2024-05-26 23:34:15.415[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m258[0m - [1m[Early stop][0m
+[32m2024-05-26 23:34:15.415[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_recommender[0m:[36m210[0m - [1m[Test][0m
+[32m2024-05-26 23:34:16.077[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-26 23:34:29.043[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+     hit@1  hit@10  hit@50   mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  rec_loss
+   .004456  .02718  .05927 .004456  .01041  .01195 .004456    .0143    .0214     15.66[0m
+[32m2024-05-26 23:34:29.060[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mbuild_optimizer[0m:[36m142[0m - [1m[Build optimizer: AdamW][0m
+[32m2024-05-26 23:34:29.060[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_policy[0m:[36m271[0m - [1m[Policy epoch 0][0m
+[32m2024-05-26 23:34:57.388[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-27 00:16:06.151[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  policy_loss
+        56.22        3.442[0m
+[32m2024-05-27 00:16:07.839[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-27 00:17:04.518[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    hit@1  hit@10  hit@50  mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  \
+    .5652   .7552   .8232  .5652   .6383   .6416   .5652    .6672    .6822   
+    policy_loss  
+          2.742[0m
+[32m2024-05-27 00:17:04.519[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-27 00:17:04.519[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_policy[0m:[36m271[0m - [1m[Policy epoch 1][0m
+[32m2024-05-27 00:17:31.433[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-27 00:58:42.999[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  policy_loss
+        38.28        2.508[0m
+[32m2024-05-27 00:58:44.653[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-27 00:59:41.394[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    hit@1  hit@10  hit@50  mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  \
+    .5919   .7836   .8508  .5919   .6657   .6690   .5919    .6948    .7097   
+    policy_loss  
+          2.435[0m
+[32m2024-05-27 00:59:41.395[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-27 00:59:41.395[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_policy[0m:[36m271[0m - [1m[Policy epoch 2][0m
+[32m2024-05-27 01:00:03.209[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-27 01:41:16.253[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  policy_loss
+        32.44        2.234[0m
+[32m2024-05-27 01:41:17.900[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-27 01:42:14.621[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    hit@1  hit@10  hit@50  mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  \
+    .5989   .7988   .8656  .5989   .6764   .6797   .5989    .7067    .7215   
+    policy_loss  
+          2.306[0m
+[32m2024-05-27 01:42:14.622[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-27 01:42:14.622[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_policy[0m:[36m271[0m - [1m[Policy epoch 3][0m
+[32m2024-05-27 01:42:41.795[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-27 02:23:52.593[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  policy_loss
+        29.36        2.067[0m
+[32m2024-05-27 02:23:54.238[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-27 02:24:50.999[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    hit@1  hit@10  hit@50  mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  \
+    .6019   .8069   .8714  .6019   .6815   .6848   .6019    .7125    .7270   
+    policy_loss  
+          2.249[0m
+[32m2024-05-27 02:24:51.000[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-27 02:24:51.000[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_policy[0m:[36m271[0m - [1m[Policy epoch 4][0m
+[32m2024-05-27 02:25:16.494[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-27 03:06:30.892[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  policy_loss
+        27.22         1.94[0m
+[32m2024-05-27 03:06:36.714[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-27 03:07:33.538[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    hit@1  hit@10  hit@50  mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  \
+    .6042   .8147   .8812  .6042   .6854   .6887   .6042    .7173    .7322   
+    policy_loss  
+          2.157[0m
+[32m2024-05-27 03:07:33.539[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-27 03:07:33.539[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_policy[0m:[36m271[0m - [1m[Policy epoch 5][0m
+[32m2024-05-27 03:07:59.378[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-27 03:49:14.848[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  policy_loss
+        25.57        1.833[0m
+[32m2024-05-27 03:49:16.474[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-27 03:50:13.175[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    hit@1  hit@10  hit@50  mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  \
+    .6077   .8222   .8813  .6077   .6916   .6946   .6077    .7239    .7372   
+    policy_loss  
+          2.117[0m
+[32m2024-05-27 03:50:13.176[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-27 03:50:13.176[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_policy[0m:[36m271[0m - [1m[Policy epoch 6][0m
+[32m2024-05-27 03:50:37.959[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-27 04:32:01.434[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  policy_loss
+         24.3        1.744[0m
+[32m2024-05-27 04:32:03.078[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-27 04:32:59.884[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    hit@1  hit@10  hit@50  mrr@1  mrr@10  mrr@50  ndcg@1  ndcg@10  ndcg@50  \
+    .6089   .8272   .8861  .6089   .6954   .6984   .6089    .7281    .7414   
+    policy_loss  
+          2.061[0m
+[32m2024-05-27 04:32:59.885[0m | [1mINFO    [0m | [36mcrslab.system.base[0m:[36mearly_stop[0m:[36m253[0m - [1m[Get new best model][0m
+[32m2024-05-27 04:32:59.885[0m | [1mINFO    [0m | [36mcrslab.system.tgredial[0m:[36mtrain_policy[0m:[36m271[0m - [1m[Policy epoch 7][0m
+[32m2024-05-27 04:33:25.457[0m | [1mINFO    [0m | [36mcrslab.data.dataloader.base[0m:[36mget_data[0m:[36m54[0m - [1m[Finish dataset process before batchify][0m
+[32m2024-05-27 05:14:38.219[0m | [1mINFO    [0m | [36mcrslab.evaluator.standard[0m:[36mreport[0m:[36m103[0m - [1m
+    grad norm  policy_loss
+        23.03        1.656[0m

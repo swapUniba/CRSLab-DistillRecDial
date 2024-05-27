@@ -96,7 +96,7 @@ class InspiredConvModel(BaseModel):
 
         return loss, pred
         # else:
-        #     return self.generate(roles, context)
+        #     return self.generate(roles, context)  # TODO: valid?
 
     def generate(self, roles, context):
         """

@@ -15,7 +15,7 @@
 cd ${SLURM_SUBMIT_DIR}
 
 module purge
-module load  Python/3.9.6-GCCcore-11.2.0
+module load Python/3.9.6-GCCcore-11.2.0
 
 python -m pip install --upgrade pip
 pip install virtualenv

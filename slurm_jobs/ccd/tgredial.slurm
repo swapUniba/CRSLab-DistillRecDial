@@ -1,11 +1,11 @@
 #!/bin/sh
-#SBATCH --partition=CPUQ
+#SBATCH --partition=GPUQ
 #SBATCH --account=ie-idi
 #SBATCH --time=15:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=64G
+#SBATCH --gres=gpu:a100:1
+#SBATCH --mem=50G
 #SBATCH --job-name="CRSLab-TG-ReDial-CCD-v0"
 #SBATCH --output=slurm_jobs/outputs/redial/CRSLab-TG-ReDial-CCD-v0.out
 #SBATCH --error=slurm_jobs/outputs/redial/CRSLab-TG-ReDial-CCD-v0.err
@@ -31,4 +31,4 @@ echo "Running Evaluation"
 
 nvidia-smi
 
-srun python run_crslab.py --config config/crs/tgredial/ccd.yaml --tensorboard
+srun python run_crslab.py --config config/crs/tgredial/ccd.yaml --gpu 0 --tensorboard

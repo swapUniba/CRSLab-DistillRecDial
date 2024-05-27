@@ -1,11 +1,11 @@
 #!/bin/sh
-#SBATCH --partition=CPUQ
+#SBATCH --partition=GPUQ
 #SBATCH --account=ie-idi
 #SBATCH --time=15:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=64G
+#SBATCH --gres=gpu:a100:1
+#SBATCH --mem=50G
 #SBATCH --job-name="CRSLab-INSPIRED-CCD-v0"
 #SBATCH --output=slurm_jobs/outputs/inspired/CRSLab-INSPIRED-CCD-v0.out
 #SBATCH --error=slurm_jobs/outputs/inspired/CRSLab-INSPIRED-CCD-v0.err
