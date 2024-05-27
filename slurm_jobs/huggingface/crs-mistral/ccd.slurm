@@ -5,17 +5,17 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --gres=gpu:a100:1
-#SBATCH --mem=80G
-#SBATCH --job-name=CRSLab-LLAMA-3-8B-INSTRUCT-CCD-v0
-#SBATCH --output=slurm_jobs/outputs/llama-3-8b-instruct/CRSLab-LLAMA-3-8B-INSTRUCT-CCD-v0.out
-#SBATCH --error=slurm_jobs/outputs/llama-3-8b-instruct/CRSLab-LLAMA-3-8B-INSTRUCT-CCD-v0.err
+#SBATCH --mem=60G
+#SBATCH --job-name=CRSLab-CRS-Mistral-INSTRUCT-CCD-v0
+#SBATCH --output=slurm_jobs/outputs/crs-mistral/log.out
+#SBATCH --error=slurm_jobs/outputs/crs-mistral/log.err
 #SBATCH --mail-user=eirsteir@stud.ntnu.no
 #SBATCH --mail-type=ALL
 
 cd ${SLURM_SUBMIT_DIR}
 
 module purge
-module load Python/3.9.6-GCCcore-11.2.0
+module load  Python/3.9.6-GCCcore-11.2.0
 
 python -m pip install --upgrade pip
 pip install virtualenv
@@ -32,4 +32,4 @@ HF_TOKEN=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
 
 nvidia-smi
 
-srun python run_crslab.py --config config/crs/huggingface/llama-3-8b-instruct.yaml --gpu 0 --tensorboard
+srun python run_crslab.py --config config/crs/huggingface/crs-mistral/ccd.yaml --gpu 0 --tensorboard

@@ -1,14 +1,14 @@
 #!/bin/sh
 #SBATCH --partition=GPUQ
 #SBATCH --account=ie-idi
-#SBATCH --time=8:00:00
+#SBATCH --time=15:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --gres=gpu:a100:1
-#SBATCH --mem=60G
-#SBATCH --job-name=CRSLab-CRS-LLAMA-3-8B-INSTRUCT-CCD-v0
-#SBATCH --output=slurm_jobs/outputs/ccd/CRSLab-CRS-LLAMA-3-8B-INSTRUCT-CCD-v0.out
-#SBATCH --error=slurm_jobs/outputs/ccd/CRSLab-CRS-LLAMA-3-8B-INSTRUCT-CCD-v0.err
+#SBATCH --mem=50G
+#SBATCH --job-name="CRSLab-INSPIRED-CCD-v0"
+#SBATCH --output=slurm_jobs/outputs/inspired/log.out
+#SBATCH --error=slurm_jobs/outputs/inspired/log.err
 #SBATCH --mail-user=eirsteir@stud.ntnu.no
 #SBATCH --mail-type=ALL
 
@@ -28,8 +28,6 @@ pip install -e .
 
 echo "Running Evaluation"
 
-HF_TOKEN=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
-
 nvidia-smi
 
-srun python run_crslab.py --config config/crs/huggingface/crs-llama-3-8b-instruct.yaml --gpu 0 --tensorboard
+srun python run_crslab.py --config config/crs/inspired/ccd.yaml --gpu 0 --tensorboard
