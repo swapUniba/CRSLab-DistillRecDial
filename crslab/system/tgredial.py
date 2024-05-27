@@ -160,7 +160,7 @@ class TGReDialSystem(BaseSystem):
                 self.evaluator.gen_metrics.add("ppl", PPLMetric(gen_loss))
             else:
                 # generate response in conv_model.step
-                gen_loss, pred = self.conv_model.forward(batch, mode="valid") # TODO
+                gen_loss, pred = self.conv_model.forward(batch, mode)  # TODO
                 gen_loss = gen_loss.sum().item()
                 self.conv_evaluate(pred, batch[-1])
                 self.evaluator.gen_metrics.add("ppl", PPLMetric(gen_loss))
