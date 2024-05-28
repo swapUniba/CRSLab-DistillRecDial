@@ -9,7 +9,7 @@ from transformers import (
     pipeline, AutoModelForCausalLM, AutoTokenizer,
 )
 from torch.nn import CrossEntropyLoss
-
+from loguru import logger
 from crslab.config import DATASET_PATH
 from crslab.model.base import BaseModel
 
@@ -116,6 +116,8 @@ class HuggingfaceModel(BaseModel):
                 self.tokenizer.eos_token_id,
                 self.tokenizer.convert_tokens_to_ids("<|eot_id|>"),
             ]
+        
+        logger.info(f"Model.generation_config: {self.model.generation_config}")
 
     def recommend(self, batch, mode="test"):
         messages = self._format_context_for_chat_input(batch)
