@@ -9,12 +9,13 @@ bf16: True
 max_target_length: 512  # TODO: can probably be lower
 # Generation parameters
 generation_config:
+  max_new_tokens: 512
+  temperature: 0.0
+  top_p: 1.0
+  do_sample: False
+  top_k: 0
+  num_beams: 1
 #  max_new_tokens: 512  # TODO: can probably be lower
-#  temperature: 0.0
-#  top_p: 1.0
-#  do_sample: False
-#  top_k: 0
-  max_new_tokens: 512  # TODO: can probably be lower
-  temperature: 0.6
-  top_p: 0.9
-  do_sample: True
+#  temperature: 0.6
+#  top_p: 0.9
+#  do_sample: True

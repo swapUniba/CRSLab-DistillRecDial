@@ -4,7 +4,7 @@
 #SBATCH --time=15:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --gres=gpu:a100:1
+#SBATCH --gres=gpu:1
 #SBATCH --mem=50G
 #SBATCH --job-name="CRSLab-INSPIRED-CCD-v0"
 #SBATCH --output=slurm_jobs/outputs/inspired/log.out
@@ -30,4 +30,4 @@ echo "Running Evaluation"
 
 nvidia-smi
 
-srun python run_crslab.py --config config/crs/inspired/ccd.yaml --gpu 0 --tensorboard
+srun python run_crslab.py --config config/crs/inspired/ccd.yaml --gpu 0 --tensorboard --save_system

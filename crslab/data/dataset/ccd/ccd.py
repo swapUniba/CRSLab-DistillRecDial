@@ -107,6 +107,12 @@ class CCDataset(BaseDataset):
         self.word2id = json.load(open(os.path.join(self.dpath, 'token2id.json'), 'r', encoding='utf-8'))
         self.n_word = max(self.word2id.values()) + 1
 
+        # print(os.listdir(os.path.join(self.dpath.replace("ccd", "inspired"))))
+
+        # self.word_kg = open(os.path.join(self.dpath.replace("ccd", "inspired"), 'concept_subkg.txt'), encoding='utf-8')
+        logger.debug(
+            f"[Load word dictionary and KG from {os.path.join(self.dpath, 'word2id.json')} and {os.path.join(self.dpath, 'hownet.txt')}]")
+
     def _data_preprocess(self, train_data, valid_data, test_data):
         processed_train_data = self._raw_data_process(train_data)
         logger.debug("[Finish train data process]")
@@ -191,13 +197,40 @@ class CCDataset(BaseDataset):
 
 
     def _side_data_process(self):
+        # entities = self.id2entity.values()
+        # processed_word_kg = self._word_kg_process()
         item_entity_ids = json.load(open(os.path.join(self.dpath, 'item_ids.json'), 'r', encoding='utf-8'))
         logger.debug('[Load topic entity ids]')
 
         side_data = {
+            # "entity_kg": {"entity": entities},
+            # "word_kg": processed_word_kg,
             "entity_kg": {},
             "word_kg": {},
             "item_entity_ids": item_entity_ids,
         }
         return side_data
 
+
+    def _word_kg_process(self):
+        edges = set()  # {(entity, entity)}
+        entities = set()
+        words_missing = 0
+        for line in self.word_kg:
+            triple = line.strip().split('\t')
+            entities.add(triple[0])
+            entities.add(triple[2])
+            try:
+                e0 = self.word2id[triple[0]]
+                e1 = self.word2id[triple[2]]
+                edges.add((e0, e1))
+                edges.add((e1, e0))
+            except KeyError:  # TODO: extend?
+                words_missing += 1
+                continue
+        # edge_set = [[co[0] for co in list(edges)], [co[1] for co in list(edges)]]
+        print(f"Words missing: {words_missing}")
+        return {
+            'edge': list(edges),
+            'entity': list(entities)
+        }

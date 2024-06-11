@@ -17,6 +17,7 @@ class HuggingfaceSystem(BaseSystem):
 
 
         self.batch_size = opt["batch_size"]
+        self.finished = False
 
     def step(self, batch, stage, mode):
         if mode != "test":
@@ -44,7 +45,28 @@ class HuggingfaceSystem(BaseSystem):
             self.evaluator.gen_evaluate(pred, [label])
 
     def interact(self):
-        pass
+        context = []
+        input_text = self.get_input()
+        while not self.finished:
+            context.append({'role': 'user', 'content': input_text})
+            response = self.model.generate(context)
+
+            print()
+            print(f"Response: {response}")
+            print()
+
+            context.append({'role': 'assistant', 'content': response})
+
+            input_text = self.get_input()
+
+    def get_input(self, **kwargs):
+        print("Enter [EXIT] if you want to quit.")
+
+        text = input(f"Enter Your Message: ")
+
+        if '[EXIT]' in text:
+            self.finished = True
+        return text
 
     def test_recommender(self):
         logger.info('[Test Recommendation]')

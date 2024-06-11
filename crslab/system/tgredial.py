@@ -12,6 +12,7 @@ import os
 import torch
 from loguru import logger
 from math import floor
+from transformers import GPT2Tokenizer
 
 from crslab.config import PRETRAIN_PATH
 from crslab.data import get_dataloader, dataset_language_map
@@ -75,6 +76,7 @@ class TGReDialSystem(BaseSystem):
             self.policy_batch_size = self.policy_optim_opt['batch_size']
 
         self.language = dataset_language_map[self.opt['dataset']]
+        self.gpt2_tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
 
     def rec_evaluate(self, rec_predict, item_label):
         rec_predict = rec_predict.cpu()
@@ -306,33 +308,38 @@ class TGReDialSystem(BaseSystem):
         input_text = self.get_input(self.language)
         while not self.finished:
             # rec
-            if hasattr(self, 'rec_model'):
-                rec_input = self.process_input(input_text, 'rec')
-                scores = self.rec_model.forward(rec_input, 'infer')
-
-                scores = scores.cpu()[0]
-                scores = scores[self.item_ids]
-                _, rank = torch.topk(scores, 10, dim=-1)
-                item_ids = []
-                for r in rank.tolist():
-                    item_ids.append(self.item_ids[r])
-                first_item_id = item_ids[:1]
-                self.update_context('rec', entity_ids=first_item_id, item_ids=first_item_id)
-
-                print(f"[Recommend]:")
-                for item_id in item_ids:
-                    if item_id in self.id2entity:
-                        print(self.id2entity[item_id])
+            # if hasattr(self, 'rec_model'):
+            #     rec_input = self.process_input(input_text, 'rec')
+            #     scores = self.rec_model.forward(rec_input, 'infer')
+            #
+            #     scores = scores.cpu()[0]
+            #     scores = scores[self.item_ids]
+            #     _, rank = torch.topk(scores, 10, dim=-1)
+            #     item_ids = []
+            #     for r in rank.tolist():
+            #         item_ids.append(self.item_ids[r])
+            #     first_item_id = item_ids[:1]
+            #     self.update_context('rec', entity_ids=first_item_id, item_ids=first_item_id)
+            #
+            #     print(f"[Recommend]:")
+            #     for item_id in item_ids:
+            #         if item_id in self.id2entity:
+            #             print(self.id2entity[item_id])
             # conv
             if hasattr(self, 'conv_model'):
                 conv_input = self.process_input(input_text, 'conv')
+                # print(self.conv_model.forward(conv_input, 'infer'))
                 preds = self.conv_model.forward(conv_input, 'infer').tolist()[0]
+                print(preds, self.end_token_idx)
                 p_str = ind2txt(preds, self.ind2tok, self.end_token_idx)
 
                 token_ids, entity_ids, movie_ids, word_ids = self.convert_to_id(p_str, 'conv')
                 self.update_context('conv', token_ids, entity_ids, movie_ids, word_ids)
 
-                print(f"[Response]:\n{p_str}")
+                print(self.gpt2_tokenizer.convert_tokens_to_string(p_str.split()))
+
+
+                print(f"[Response]: {p_str}")
             # input
             input_text = self.get_input(self.language)
 
@@ -363,18 +370,20 @@ class TGReDialSystem(BaseSystem):
         else:
             raise
 
-        entities = self.link(tokens, self.side_data[stage]['entity_kg']['entity'])
-        words = self.link(tokens, self.side_data[stage]['word_kg']['entity'])
+        # entities = self.link(tokens, self.side_data[stage]['entity_kg']['entity'])
+        # words = self.link(tokens, self.side_data[stage]['word_kg']['entity'])
 
         if self.opt['tokenize'][stage] in ('gpt2', 'bert'):
             language = dataset_language_map[self.opt['dataset']]
             path = os.path.join(PRETRAIN_PATH, self.opt['tokenize'][stage], language)
-            tokens = self.tokenize(text, 'bert', path)
+            tokens = self.tokenize(text, 'gpt2', path)
 
         token_ids = [self.vocab[stage]['tok2ind'].get(token, self.vocab[stage]['unk']) for token in tokens]
-        entity_ids = [self.vocab[stage]['entity2id'][entity] for entity in entities if
-                      entity in self.vocab[stage]['entity2id']]
-        movie_ids = [entity_id for entity_id in entity_ids if entity_id in self.item_ids]
-        word_ids = [self.vocab[stage]['word2id'][word] for word in words if word in self.vocab[stage]['word2id']]
+        # entity_ids = [self.vocab[stage]['entity2id'][entity] for entity in entities if
+        #               entity in self.vocab[stage]['entity2id']]
+        # movie_ids = [entity_id for entity_id in entity_ids if entity_id in self.item_ids]
+        # word_ids = [self.vocab[stage]['word2id'][word] for word in words if word in self.vocab[stage]['word2id']]
+
+        entity_ids = movie_ids = word_ids = None
 
         return token_ids, entity_ids, movie_ids, word_ids

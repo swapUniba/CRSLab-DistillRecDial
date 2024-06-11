@@ -36,9 +36,9 @@ resources = {
     'bert': {
         'version': '0.1',
         'file': DownloadableFile(
-            'https://studntnu-my.sharepoint.com/:u:/g/personal/eirsteir_ntnu_no/EX409RNUjwJCv7dSHFCQeIkBBTSBPcyrIZz_5W2173nZIA?download=1',
+            'https://studntnu-my.sharepoint.com/:u:/g/personal/eirsteir_ntnu_no/EUGe4xpHGt5CmK_td2zLuacBcPDvCzMRGTin3nFOe7cxRg?download=1',
             'ccd_bert.zip',
-            '029c3b08b0108905f55d8d1705bc91c5e365106da17d78932a5f277b056e079b'
+            'e6efd9b0961e7526a85639fd4ff38fefc0c2f7588d9f3aa0065b9a404b1fa68e'
         ),
         'special_token_idx': {
             'pad': 0,
@@ -54,9 +54,9 @@ resources = {
     'gpt2': {
         'version': '0.1',
         'file': DownloadableFile(
-            'https://studntnu-my.sharepoint.com/:u:/g/personal/eirsteir_ntnu_no/Eb9AM2f5qBVKhV2gQV3sHccBgEU7afCymeOMX4tALLEP4A?download=1',
+            'https://studntnu-my.sharepoint.com/:u:/g/personal/eirsteir_ntnu_no/EY7rhBuAXfxJknFtujgsm3MBMn4qKGH8R6EBcFPg0fgZAg?download=1',
             'ccd_gpt2.zip',
-            '45b2002f875bc69b98e9dbdfddddc8e5572ec6e5ee584e633e8053e47f4a271d'
+            '7a233f31cf07421e6411ad3d79e05d19b797e37f119105c5f09aeb1d96abafa3'
         ),
         'special_token_idx': {
             'pad': 0,

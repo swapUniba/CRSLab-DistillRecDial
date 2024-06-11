@@ -4,8 +4,8 @@ tokenize:
   rec: bert
   conv: gpt2
 # dataloader
-context_truncate: 256
-response_truncate: 30
+context_truncate: 512
+response_truncate: 256
 item_truncate: 100
 scale: 1
 # model

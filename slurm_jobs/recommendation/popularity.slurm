@@ -4,11 +4,11 @@
 #SBATCH --time=15:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --gres=gpu:1
-#SBATCH --mem=50G
-#SBATCH --job-name="CRSLab-TG-ReDial-CCD-v0"
-#SBATCH --output=slurm_jobs/outputs/tgredial/log.out
-#SBATCH --error=slurm_jobs/outputs/tgredial/log.err
+#SBATCH --gres=gpu:a100:1
+#SBATCH --mem=40G
+#SBATCH --job-name="CRSLab-popularity-CCD-v0"
+#SBATCH --output=slurm_jobs/outputs/popularity/log.out
+#SBATCH --error=slurm_jobs/outputs/popularity/log.err
 #SBATCH --mail-user=eirsteir@stud.ntnu.no
 #SBATCH --mail-type=ALL
 
@@ -18,7 +18,6 @@ module purge
 module load  Python/3.9.6-GCCcore-11.2.0
 
 python -m pip install --upgrade pip
-
 pip install virtualenv
 virtualenv env
 source env/bin/activate
@@ -31,4 +30,4 @@ echo "Running Evaluation"
 
 nvidia-smi
 
-srun python run_crslab.py --config config/crs/tgredial/ccd.yaml --gpu 0 --tensorboard --save_system
+srun python run_crslab.py --config config/recommendation/popularity/ccd.yaml --gpu 0

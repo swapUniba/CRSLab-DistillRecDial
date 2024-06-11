@@ -1,14 +1,14 @@
 #!/bin/sh
 #SBATCH --partition=GPUQ
 #SBATCH --account=ie-idi
-#SBATCH --time=15:00:00
+#SBATCH --time=10:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --gres=gpu:1
-#SBATCH --mem=50G
-#SBATCH --job-name="CRSLab-TG-ReDial-CCD-v0"
-#SBATCH --output=slurm_jobs/outputs/tgredial/log.out
-#SBATCH --error=slurm_jobs/outputs/tgredial/log.err
+#SBATCH --mem=40G
+#SBATCH --job-name="CRSLab-gpt2-CCD-v0"
+#SBATCH --output=slurm_jobs/outputs/gpt2/log.out
+#SBATCH --error=slurm_jobs/outputs/gpt2/log.err
 #SBATCH --mail-user=eirsteir@stud.ntnu.no
 #SBATCH --mail-type=ALL
 
@@ -18,7 +18,6 @@ module purge
 module load  Python/3.9.6-GCCcore-11.2.0
 
 python -m pip install --upgrade pip
-
 pip install virtualenv
 virtualenv env
 source env/bin/activate
@@ -31,4 +30,4 @@ echo "Running Evaluation"
 
 nvidia-smi
 
-srun python run_crslab.py --config config/crs/tgredial/ccd.yaml --gpu 0 --tensorboard --save_system
+srun python run_crslab.py --config config/conversation/gpt2/ccd.yaml --gpu 0 --save_system

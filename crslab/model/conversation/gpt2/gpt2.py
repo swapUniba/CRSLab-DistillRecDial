@@ -66,21 +66,21 @@ class GPT2Model(BaseModel):
 
     def forward(self, batch, mode):
         _, _, input_ids, context, _, _, y = batch
-        if mode != 'test':
-            # torch.tensor's shape = (bs, seq_len, v_s); tuple's length = 12
-            lm_logits = self.model(input_ids).logits
+        # if mode != 'test':
+        # torch.tensor's shape = (bs, seq_len, v_s); tuple's length = 12
+        lm_logits = self.model(input_ids).logits
 
-            # index from 1 to self.reponse_truncate is valid response
-            loss = self.calculate_loss(
-                lm_logits[:, -self.response_truncate:-1, :],
-                input_ids[:, -self.response_truncate + 1:])
+        # index from 1 to self.reponse_truncate is valid response
+        loss = self.calculate_loss(
+            lm_logits[:, -self.response_truncate:-1, :],
+            input_ids[:, -self.response_truncate + 1:])
 
-            pred = torch.max(lm_logits, dim=2)[1]  # [bs, seq_len]
-            pred = pred[:, -self.response_truncate:]
+        pred = torch.max(lm_logits, dim=2)[1]  # [bs, seq_len]
+        pred = pred[:, -self.response_truncate:]
 
-            return loss, pred
-        else:
-            return self.generate(context)
+        return loss, pred
+        # else:
+        #     return self.generate(context)
 
     def generate(self, context):
         """

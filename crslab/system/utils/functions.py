@@ -43,8 +43,8 @@ def ind2txt(inds, ind2tok, end_token_idx=None, unk_token='unk'):
     for ind in inds:
         if isinstance(ind, torch.Tensor):
             ind = ind.item()
-        if end_token_idx and ind == end_token_idx:
-            break
+        # if end_token_idx and ind == end_token_idx:
+        #     break
         sentence.append(ind2tok.get(ind, unk_token))
     return ' '.join(sentence)
 

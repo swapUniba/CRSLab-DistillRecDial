@@ -1,0 +1,20 @@
+# dataset
+dataset: CCD
+tokenize:
+  rec: bert
+# dataloader
+context_truncate: 512
+response_truncate: 256
+item_truncate: 100
+scale: 1
+# model
+rec_model: BERT
+# optim
+rec:
+  epoch: 5
+  batch_size: 8
+  optimizer:
+    name: AdamW
+    lr: !!float 1e-3
+    weight_decay: !!float 0.0000
+  lr_bert: !!float 1e-5

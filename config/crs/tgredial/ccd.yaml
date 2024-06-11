@@ -4,13 +4,14 @@ tokenize:
   rec: bert
   conv: gpt2
 # dataloader
-context_truncate: 256
-response_truncate: 30
+context_truncate: 512
+response_truncate: 256
 item_truncate: 100
 scale: 1
 # model
 rec_model: TGRec
 conv_model: TGConv
+#policy_model: TGPolicy
 hidden_dropout_prob: 0.2
 initializer_range: 0.02
 hidden_size: 50
@@ -21,7 +22,7 @@ hidden_act: gelu
 num_hidden_layers: 2
 # optim
 rec:
-  epoch: 50
+  epoch: 0 # 50
   batch_size: 8
   optimizer:
     name: AdamW
@@ -32,7 +33,7 @@ rec:
   impatience: 3
   stop_mode: max
 conv:
-  epoch: 50
+  epoch: 5
   batch_size: 8
   gradient_clip: 1.0
   update_freq: 1

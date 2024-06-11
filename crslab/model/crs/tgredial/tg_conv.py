@@ -65,7 +65,7 @@ class TGConvModel(BaseModel):
         self.loss = CrossEntropyLoss(ignore_index=self.pad_id)
 
     def forward(self, batch, mode):
-        if mode == 'infer':
+        if mode == 'infer':  # or mode == "test"
             enhanced_context = batch[1]
             return self.generate(enhanced_context)
         else:

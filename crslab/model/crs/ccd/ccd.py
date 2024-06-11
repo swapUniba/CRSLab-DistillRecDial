@@ -86,7 +86,6 @@ class HuggingfaceModel(BaseModel):
         self.all_items = list(self.id2entity.values())
 
         self.model_id = opt["model_id"]
-        self.max_target_length = opt["max_target_length"]
         self.torch_dtype = torch.bfloat16 if opt["bf16"] else torch.float32
 
         # Generation
@@ -117,7 +116,7 @@ class HuggingfaceModel(BaseModel):
                 self.tokenizer.convert_tokens_to_ids("<|eot_id|>"),
             ]
         
-        logger.info(f"Model.generation_config: {self.model.generation_config}")
+        logger.info(f"[LLM generation config]\n{json.dumps(self.generation_kwargs, indent=4)}")
 
     def recommend(self, batch, mode="test"):
         messages = self._format_context_for_chat_input(batch)
@@ -128,6 +127,8 @@ class HuggingfaceModel(BaseModel):
             generated_ids = self.model.generate(model_inputs, **self.generation_kwargs)
 
         responses = self.tokenizer.batch_decode(generated_ids[:, input_length:], skip_special_tokens=True)
+
+        logger.debug(f"[Response]\n{responses[0]}")
 
         all_predicted_recs = [parse_topics(response) for response in responses]
         all_predicted_recs = [match_topics(all_items=self.all_items, predicted_items=recs) for recs in all_predicted_recs]
@@ -152,6 +153,17 @@ class HuggingfaceModel(BaseModel):
         loss = self.compute_loss(responses)
 
         return loss, responses
+
+    def generate(self, context):
+        model_inputs = self._apply_chat_template_and_tokenize(context)
+        input_length = model_inputs.shape[1]
+
+        with torch.no_grad():
+            generated_ids = self.model.generate(model_inputs, **self.generation_kwargs)
+
+        responses = self.tokenizer.decode(generated_ids[0, input_length:], skip_special_tokens=True)
+
+        return responses
 
     def _apply_chat_template_and_tokenize(self, messages):
         # TODO: do i need to add return_attention_mask=True?
