@@ -1,12 +1,12 @@
 # dataset
-dataset: LLMSinDataset
+dataset: DistillRecDial
 tokenize:
   rec: bert
   conv: gpt2
 # dataloader
 context_truncate: 256
 response_truncate: 30
-item_truncate: 100
+item_truncate: 7
 scale: 1
 # model
 # rec
@@ -21,18 +21,18 @@ decoder_hidden_size: 256
 decoder_num_layers: 1
 # optim
 rec:
-  epoch: 0
-  batch_size: 32
+  epoch: 0 #30
+  batch_size: 64
   optimizer:
     name: AdamW
-    lr: !!float 1e-3
+    lr: !!float 1e-4
     weight_decay: !!float 0.0000
-  early_stop: true
-  stop_mode: max
-  impatience: 3
-  lr_bert: !!float 1e-5
+  early_stop: False
+  stop_mode: min
+  impatience: 10
+  lr_bert: !!float 1e-4
 conv:
-  epoch: 15
+  epoch: 30
   batch_size: 8
   optimizer:
     name: AdamW

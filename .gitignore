@@ -273,3 +273,5 @@ Temporary Items
 
 # Singularity
 *.sif
+
+*.slurm

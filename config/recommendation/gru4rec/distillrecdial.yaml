@@ -1,0 +1,29 @@
+# dataset
+dataset: DistillRecDial
+tokenize:
+  rec: bert
+# dataloader
+context_truncate: 64
+response_truncate: 30
+item_truncate: 7
+scale: 1
+# model
+rec_model: GRU4REC
+gru_hidden_size: 64
+num_layers: 5
+embedding_dim: 64
+dropout_input: 0.1
+dropout_hidden: 0.1
+hidden_size: 64
+# optim
+rec:
+  epoch: 50
+  batch_size: 64
+  optimizer:
+    name: AdamW
+    lr: !!float 1e-4
+    weight_decay: !!float 0.0000
+  lr_bert: !!float 1e-4
+  early_stop: true
+  impatience: 10
+  stop_mode: min

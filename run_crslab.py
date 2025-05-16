@@ -18,8 +18,8 @@ if __name__ == '__main__':
     # parse args
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--config', type=str,
-                        default='config/recommendation/bert/llmsindataset.yaml', help='config file(yaml) path')
-    parser.add_argument('-g', '--gpu', type=str, default='2',
+                        default='config/crs/redial/llmsindataset.yaml', help='config file(yaml) path')
+    parser.add_argument('-g', '--gpu', type=str, default='0',
                         help='specify GPU id(s) to use, we now support multiple GPUs. Defaults to CPU(-1).')
     parser.add_argument('-sd', '--save_data', action='store_true',
                         help='save processed dataset')

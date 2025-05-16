@@ -79,7 +79,7 @@ class TGReDialSystem(BaseSystem):
             self.policy_batch_size = self.policy_optim_opt['batch_size']
 
         self.language = dataset_language_map[self.opt['dataset']]
-        self.gpt2_tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+        self.gpt2_tokenizer = GPT2Tokenizer.from_pretrained(r"/leonardo_scratch/large/userexternal/apetruzz/ale_priv/base_models/gpt2")
         self.model_name = self.opt['model_name']
         self.predicted_target_senteces = []
         self.predicted_target_recommendations = []

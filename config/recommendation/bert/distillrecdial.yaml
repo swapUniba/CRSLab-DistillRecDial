@@ -1,5 +1,5 @@
 # dataset
-dataset: LLMSinDataset
+dataset: DistillRecDial
 tokenize:
   rec: bert
 # dataloader
@@ -8,19 +8,13 @@ response_truncate: 30
 item_truncate: 100
 scale: 1
 # model
-rec_model: GRU4REC
-gru_hidden_size: 50
-num_layers: 3
-embedding_dim: 50
-dropout_input: 0
-dropout_hidden: 0.0
-hidden_size: 50
+rec_model: BERT
 # optim
 rec:
   epoch: 30
   batch_size: 64
   optimizer:
     name: AdamW
-    lr: !!float 1e-2
+    lr: !!float 1e-3
     weight_decay: !!float 0.0000
   lr_bert: !!float 1e-5

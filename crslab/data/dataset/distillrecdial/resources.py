@@ -4,9 +4,9 @@ resources = {
     'bert': {
         'version': '0.1',
         'file': DownloadableFile(
-            'https://drive.usercontent.google.com/download?id=1veZT9n7oOuwQcSwN3ukPpR9KArUzRR2l&export=download&authuser=0&confirm=yes',
-            'llmsindataset_bert.zip',
-            '3DAF68EA3747AB39CC5BF3AC3202DED3151EE9DDEEF3F2512FDE1574B47739E9'
+            'https://drive.usercontent.google.com/download?id=1-s2cQ4pnHkh_zKaVIHSRqm0KCsE50yPi&export=download&authuser=0&confirm=yes',
+            'distillrecdial_bert.zip',
+            'FB723B20CC9DAA3B8C70025DF44EB17BAA2BA7C13AC02EB9A95C07765601D793'
         ),
         'special_token_idx': {
             'pad': 0,
@@ -22,9 +22,9 @@ resources = {
     'gpt2': {
         'version': '0.1',
         'file': DownloadableFile(
-            'https://drive.usercontent.google.com/download?id=14EB0vXh8N3dL8cgKbcR8jvqtu7QzRdIo&export=download&authuser=0&confirm=yes',
-            'llmsindataset_gpt2.zip',
-            '5A1B9464C07DE75A75B7632DA5F34C0F45F07382B688C65C8CB0065A21A80DBD'
+            'https://drive.usercontent.google.com/download?id=1JYP8y-V6iuB3CsyzD1Hp0oFFuIgAMhBW&export=download&authuser=0&confirm=yes',
+            'distillrecdial_gpt2.zip',
+            '4A2C4C3924B2CEBE03BF197176E221D50BDC573BF3C485F6D024D18AD62EBD4C'
         ),
         'special_token_idx': {
             'pad': 0,

@@ -30,7 +30,7 @@ dataset_register_table = {
     'OpenDialKG': OpenDialKGDataset,
     'Inspired': InspiredDataset,
     'DuRecDial': DuRecDialDataset,
-    "LLMSinDataset": LLMSinDataset,
+    "DistillRecDial": DistillRecDialDataset,
 }
 
 dataset_language_map = {
@@ -40,7 +40,7 @@ dataset_language_map = {
     'OpenDialKG': 'en',
     'Inspired': 'en',
     'DuRecDial': 'zh',
-    "LLMSinDataset": 'en',
+    "DistillRecDial": 'en',
 }
 
 dataloader_register_table = {

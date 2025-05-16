@@ -11,7 +11,7 @@ from crslab.config import DATASET_PATH
 from crslab.data.dataset.base import BaseDataset
 from .resources import resources
 
-class LLMSinDataset(BaseDataset):
+class DistillRecDialDataset(BaseDataset):
     """
     Attributes:
         train_data: train dataset.

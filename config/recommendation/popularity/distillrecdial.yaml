@@ -1,5 +1,5 @@
 # dataset
-dataset: LLMSinDataset
+dataset: DistillRecDial
 tokenize:
   rec: bert
 # dataloader
