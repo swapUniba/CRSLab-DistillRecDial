@@ -4,4 +4,3 @@ from .kgsf import *
 from .redial import *
 from .tgredial import *
 from .ntrd import *
-from .ccd import *

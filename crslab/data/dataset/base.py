@@ -8,6 +8,7 @@
 # @Email  : francis_kun_zhou@163.com, wxl1999@foxmail.com
 
 import os
+from typing import List
 import pickle as pkl
 from abc import ABC, abstractmethod
 
@@ -163,3 +164,13 @@ class BaseDataset(ABC):
         with open(save_path, 'wb') as f:
             pkl.dump(data, f)
         logger.info(f'[Save dataset to {file_name}]')
+
+    def get_item_name(self, item_id: int|str|List[str]) -> str:
+        if isinstance(item_id, list):
+            item_id = [int(i) for i in item_id]
+            return [self.id2entity[i] for i in item_id]
+        if isinstance(item_id, str):
+            item_id = int(item_id)
+        if not isinstance(item_id, int):
+            raise ValueError(f'item_id should be int or str, but got {type(item_id)}')
+        return self.id2entity[item_id]

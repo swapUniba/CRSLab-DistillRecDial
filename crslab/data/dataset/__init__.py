@@ -5,4 +5,4 @@ from .inspired import InspiredDataset
 from .opendialkg import OpenDialKGDataset
 from .redial import ReDialDataset
 from .tgredial import TGReDialDataset
-from .ccd import CCDataset
+from .llmsindataset import LLMSinDataset

@@ -30,7 +30,7 @@ dataset_register_table = {
     'OpenDialKG': OpenDialKGDataset,
     'Inspired': InspiredDataset,
     'DuRecDial': DuRecDialDataset,
-    "CCD": CCDataset,
+    "LLMSinDataset": LLMSinDataset,
 }
 
 dataset_language_map = {
@@ -40,7 +40,7 @@ dataset_language_map = {
     'OpenDialKG': 'en',
     'Inspired': 'en',
     'DuRecDial': 'zh',
-    "CCD": 'en',
+    "LLMSinDataset": 'en',
 }
 
 dataloader_register_table = {
@@ -69,7 +69,6 @@ dataloader_register_table = {
     'MGCG': TGReDialDataLoader,
     'PMI': TGReDialDataLoader,
     'NTRD': NTRDDataLoader,
-    "Huggingface": HugggingfaceDataLoader,
 }
 
 
@@ -93,7 +92,7 @@ def get_dataset(opt, tokenize, restore, save) -> BaseDataset:
         raise NotImplementedError(f'The dataloader [{dataset}] has not been implemented')
 
 
-def get_dataloader(opt, dataset, vocab) -> BaseDataLoader:
+def get_dataloader(opt, dataset, vocab, get_item_name=None) -> BaseDataLoader:
     """get dataloader to batchify dataset
 
     Args:
@@ -107,6 +106,6 @@ def get_dataloader(opt, dataset, vocab) -> BaseDataLoader:
     """
     model_name = opt['model_name']
     if model_name in dataloader_register_table:
-        return dataloader_register_table[model_name](opt, dataset, vocab)
+        return dataloader_register_table[model_name](opt, dataset, vocab, get_item_name)
     else:
         raise NotImplementedError(f'The dataloader [{model_name}] has not been implemented')

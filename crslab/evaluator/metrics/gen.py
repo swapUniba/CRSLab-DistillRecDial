@@ -16,7 +16,7 @@ from nltk import ngrams
 from nltk.translate.bleu_score import sentence_bleu
 from sklearn.metrics.pairwise import cosine_similarity
 from typing import List, Optional
-from rouge_score import rouge_scorer
+#from rouge_score import rouge_scorer
 
 from crslab.evaluator.metrics.base import AverageMetric, SumMetric
 

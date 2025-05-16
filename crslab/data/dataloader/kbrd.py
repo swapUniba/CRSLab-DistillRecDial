@@ -35,7 +35,7 @@ class KBRDDataLoader(BaseDataLoader):
 
     """
 
-    def __init__(self, opt, dataset, vocab):
+    def __init__(self, opt, dataset, vocab, get_item_name=None):
         """
 
         Args:
@@ -52,6 +52,7 @@ class KBRDDataLoader(BaseDataLoader):
         self.context_truncate = opt.get('context_truncate', None)
         self.response_truncate = opt.get('response_truncate', None)
         self.entity_truncate = opt.get('entity_truncate', None)
+        self.get_item_name = get_item_name
 
     def rec_process_fn(self):
         augment_dataset = []

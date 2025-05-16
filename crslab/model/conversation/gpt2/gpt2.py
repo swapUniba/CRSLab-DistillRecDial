@@ -57,7 +57,7 @@ class GPT2Model(BaseModel):
         language = dataset_language_map[opt['dataset']]
         resource = resources['gpt2'][language]
         dpath = os.path.join(PRETRAIN_PATH, "gpt2", language)
-        super(GPT2Model, self).__init__(opt, device, dpath, resource)
+        super(GPT2Model, self).__init__(opt, device, dpath, resource, vocab=vocab)
 
     def build_model(self):
         """build model"""

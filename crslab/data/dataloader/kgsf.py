@@ -41,7 +41,7 @@ class KGSFDataLoader(BaseDataLoader):
 
     """
 
-    def __init__(self, opt, dataset, vocab):
+    def __init__(self, opt, dataset, vocab, get_item_name=None):
         """
 
         Args:
@@ -61,6 +61,7 @@ class KGSFDataLoader(BaseDataLoader):
         self.response_truncate = opt.get('response_truncate', None)
         self.entity_truncate = opt.get('entity_truncate', None)
         self.word_truncate = opt.get('word_truncate', None)
+        self.get_item_name = get_item_name
 
     def get_pretrain_data(self, batch_size, shuffle=True):
         return self.get_data(self.pretrain_batchify, batch_size, shuffle, self.retain_recommender_target)

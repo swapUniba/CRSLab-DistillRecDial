@@ -12,6 +12,7 @@ import os
 import torch
 from loguru import logger
 
+from crslab.config import SAVE_PATH
 from crslab.evaluator.metrics.base import AverageMetric
 from crslab.evaluator.metrics.gen import PPLMetric
 from crslab.system.base import BaseSystem
@@ -49,29 +50,58 @@ class KGSFSystem(BaseSystem):
         self.rec_optim_opt = self.opt['rec']
         self.conv_optim_opt = self.opt['conv']
         self.pretrain_epoch = self.pretrain_optim_opt['epoch']
+        self.get_item_name = train_dataloader['rec'].get_item_name
         self.rec_epoch = self.rec_optim_opt['epoch']
         self.conv_epoch = self.conv_optim_opt['epoch']
         self.pretrain_batch_size = self.pretrain_optim_opt['batch_size']
         self.rec_batch_size = self.rec_optim_opt['batch_size']
         self.conv_batch_size = self.conv_optim_opt['batch_size']
+        self.model_name = self.opt['model_name']
+        self.predicted_target_senteces = []
+        self.predicted_target_recommendations = []
 
-    def rec_evaluate(self, rec_predict, item_label):
+    def rec_evaluate(self, rec_predict, item_label, save=False):
         rec_predict = rec_predict.cpu()
         rec_predict = rec_predict[:, self.item_ids]
-        _, rec_ranks = torch.topk(rec_predict, 50, dim=-1)
+        _, rec_ranks = torch.topk(rec_predict, 100, dim=-1)
         rec_ranks = rec_ranks.tolist()
         item_label = item_label.tolist()
+        items_labels = self.get_item_name(item_label)
+        items_ranks = [self.get_item_name(x) for x in rec_ranks]
         for rec_rank, item in zip(rec_ranks, item_label):
             item = self.item_ids.index(item)
             self.evaluator.rec_evaluate(rec_rank, item)
+        if save:
+            for rec_rank, item in zip(items_ranks, items_labels):
+                self.predicted_target_recommendations.append({
+                    'target': item,
+                    'predicted': rec_rank,
+                })
 
-    def conv_evaluate(self, prediction, response):
+    def save_response_file(self):
+        import json
+        os.makedirs(os.path.join(SAVE_PATH, self.model_name), exist_ok=True)
+        with open(os.path.join(SAVE_PATH, self.model_name, 'predicted_target_senteces.json'), 'w', encoding='utf-8') as f:
+            json.dump(self.predicted_target_senteces, f, ensure_ascii=False, indent=4)
+
+    def save_recommendation_file(self):
+        import json
+        os.makedirs(os.path.join(SAVE_PATH, self.model_name), exist_ok=True)
+        with open(os.path.join(SAVE_PATH, self.model_name, 'predicted_target_recommendations.json'), 'w', encoding='utf-8') as f:
+            json.dump(self.predicted_target_recommendations, f, ensure_ascii=False, indent=4)
+
+    def conv_evaluate(self, prediction, response, save=False):
         prediction = prediction.tolist()
         response = response.tolist()
         for p, r in zip(prediction, response):
             p_str = ind2txt(p, self.ind2tok, self.end_token_idx)
             r_str = ind2txt(r, self.ind2tok, self.end_token_idx)
             self.evaluator.gen_evaluate(p_str, [r_str])
+            if save:
+                self.predicted_target_senteces.append({
+                    'target': r_str,
+                    'predicted': p_str,
+                })
 
     def step(self, batch, stage, mode):
         batch = [ele.to(self.device) for ele in batch]
@@ -90,7 +120,7 @@ class KGSFSystem(BaseSystem):
             if mode == "train":
                 self.backward(loss.sum())
             else:
-                self.rec_evaluate(rec_predict, batch[-1])
+                self.rec_evaluate(rec_predict, batch[-1], save=mode == 'test')
             rec_loss = rec_loss.sum().item()
             self.evaluator.optim_metrics.add("rec_loss", AverageMetric(rec_loss))
             if info_loss:
@@ -108,7 +138,7 @@ class KGSFSystem(BaseSystem):
                 self.evaluator.gen_metrics.add("ppl", PPLMetric(gen_loss))
             else:
                 pred = self.model.forward(batch, stage, mode)
-                self.conv_evaluate(pred, batch[-1])
+                self.conv_evaluate(pred, batch[-1], save=True)
         else:
             raise
 
@@ -131,6 +161,7 @@ class KGSFSystem(BaseSystem):
             logger.info('[Train]')
             for batch in self.train_dataloader.get_rec_data(self.rec_batch_size, shuffle=False):
                 self.step(batch, stage='rec', mode='train')
+                break
             self.evaluator.report(epoch=epoch, mode='train')
             # val
             logger.info('[Valid]')
@@ -150,6 +181,8 @@ class KGSFSystem(BaseSystem):
             for batch in self.test_dataloader.get_rec_data(self.rec_batch_size, shuffle=False):
                 self.step(batch, stage='rec', mode='test')
             self.evaluator.report(mode='test')
+        # save
+        self.save_recommendation_file()
 
     def train_conversation(self):
         if os.environ["CUDA_VISIBLE_DEVICES"] == '-1':
@@ -164,6 +197,7 @@ class KGSFSystem(BaseSystem):
             logger.info('[Train]')
             for batch in self.train_dataloader.get_conv_data(batch_size=self.conv_batch_size, shuffle=False):
                 self.step(batch, stage='conv', mode='train')
+                break
             self.evaluator.report(epoch=epoch, mode='train')
             # val
             logger.info('[Valid]')
@@ -179,6 +213,8 @@ class KGSFSystem(BaseSystem):
             for batch in self.test_dataloader.get_conv_data(batch_size=self.conv_batch_size, shuffle=False):
                 self.step(batch, stage='conv', mode='test')
             self.evaluator.report(mode='test')
+        # save
+        self.save_response_file()
 
     def fit(self):
         self.pretrain()

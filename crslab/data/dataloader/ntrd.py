@@ -12,7 +12,7 @@ from crslab.data.dataloader.utils import add_start_end_token_idx, merge_utt_repl
 
 
 class NTRDDataLoader(BaseDataLoader):
-    def __init__(self, opt, dataset, vocab):
+    def __init__(self, opt, dataset, vocab, get_item_name=None):
         """
 
         Args:
@@ -33,6 +33,7 @@ class NTRDDataLoader(BaseDataLoader):
         self.entity_truncate = opt.get('entity_truncate', None)
         self.word_truncate = opt.get('word_truncate', None)
         self.replace_token = opt.get('replace_token',None)
+        self.get_item_name = get_item_name
         self.replace_token_idx = vocab[self.replace_token]
 
     def get_pretrain_data(self, batch_size, shuffle=True):

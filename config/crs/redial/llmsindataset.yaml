@@ -1,5 +1,5 @@
 # dataset
-dataset: ReDial
+dataset: LLMSinDataset
 tokenize:
   rec: gpt2
   conv: gpt2

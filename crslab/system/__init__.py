@@ -21,7 +21,6 @@ from .kgsf import KGSFSystem
 from .redial import ReDialSystem
 from .ntrd import NTRDSystem
 from .tgredial import TGReDialSystem
-from .ccd import HuggingfaceSystem
 
 system_register_table = {
     'ReDialRec_ReDialConv': ReDialSystem,
@@ -43,7 +42,6 @@ system_register_table = {
     'Popularity': TGReDialSystem,
     'TextCNN': TGReDialSystem,
     'NTRD': NTRDSystem,
-    'Huggingface': HuggingfaceSystem,
 }
 
 

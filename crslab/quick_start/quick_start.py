@@ -38,7 +38,7 @@ def run_crslab(config, save_data=False, restore_data=False, save_system=False, r
         side_data = CRS_dataset.side_data
         vocab = CRS_dataset.vocab
 
-        train_dataloader = get_dataloader(config, CRS_dataset.train_data, vocab)
+        train_dataloader = get_dataloader(config, CRS_dataset.train_data, vocab, CRS_dataset.get_item_name)
         valid_dataloader = get_dataloader(config, CRS_dataset.valid_data, vocab)
         test_dataloader = get_dataloader(config, CRS_dataset.test_data, vocab)
     else:
@@ -61,7 +61,7 @@ def run_crslab(config, save_data=False, restore_data=False, save_system=False, r
             side_data[task] = dataset.side_data
             vocab[task] = dataset.vocab
 
-            train_dataloader[task] = get_dataloader(config, train_data, vocab[task])
+            train_dataloader[task] = get_dataloader(config, train_data, vocab[task], dataset.get_item_name)
             valid_dataloader[task] = get_dataloader(config, valid_data, vocab[task])
             test_dataloader[task] = get_dataloader(config, test_data, vocab[task])
     # system

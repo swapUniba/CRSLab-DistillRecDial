@@ -52,7 +52,7 @@ class TGReDialDataLoader(BaseDataLoader):
 
     """
 
-    def __init__(self, opt, dataset, vocab):
+    def __init__(self, opt, dataset, vocab, get_item_name=None):
         """
 
         Args:
@@ -97,6 +97,7 @@ class TGReDialDataLoader(BaseDataLoader):
         self.entity_truncate = opt.get('entity_truncate', None)
         self.word_truncate = opt.get('word_truncate', None)
         self.item_truncate = opt.get('item_truncate', None)
+        self.get_item_name = get_item_name
 
     def rec_process_fn(self, *args, **kwargs):
         augment_dataset = []

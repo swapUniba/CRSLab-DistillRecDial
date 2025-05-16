@@ -17,10 +17,11 @@ from crslab.download import build
 class BaseModel(ABC, nn.Module):
     """Base class for all models"""
 
-    def __init__(self, opt, device, dpath=None, resource=None):
+    def __init__(self, opt, device, dpath=None, resource=None, *args, **kwargs):
         super(BaseModel, self).__init__()
         self.opt = opt
         self.device = device
+        self.vocab = kwargs.get('vocab', None)
 
         if resource is not None:
             self.dpath = dpath

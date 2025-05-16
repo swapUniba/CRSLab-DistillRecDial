@@ -44,7 +44,7 @@ class DownloadableFile:
     def __init__(self, url, file_name, hashcode, zipped=True, from_google=False):
         self.url = url
         self.file_name = file_name
-        self.hashcode = hashcode
+        self.hashcode = hashcode.lower()
         self.zipped = zipped
         self.from_google = from_google
 

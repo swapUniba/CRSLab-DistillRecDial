@@ -43,7 +43,7 @@ class ReDialDataLoader(BaseDataLoader):
 
     """
 
-    def __init__(self, opt, dataset, vocab):
+    def __init__(self, opt, dataset, vocab, get_item_name=None):
         """
 
         Args:
@@ -62,6 +62,7 @@ class ReDialDataLoader(BaseDataLoader):
         self.item_token_idx = vocab['vocab_size']
         self.conversation_truncate = self.opt.get('conversation_truncate', None)
         self.utterance_truncate = self.opt.get('utterance_truncate', None)
+        self.get_item_name = get_item_name
 
     def rec_process_fn(self, *args, **kwargs):
         dataset = []
