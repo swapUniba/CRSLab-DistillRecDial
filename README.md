@@ -251,8 +251,8 @@ To run experiments with the DistillRecDial dataset, follow these steps:
 
 1. Create a Python environment with Python 3.10 or later:
    ```bash
-   conda create -n crslab python=3.10
-   conda activate crslab
+   python -m venv .env 
+   source .env/bin/activate
    ```
 
 2. Install the required dependencies:
@@ -291,10 +291,34 @@ The configuration files for DistillRecDial are available in the repository. You 
 
 ```bash
 # For recommendation task
-python run_crslab.py --config config/crs/kgsf/distillrecdial.yaml
+python run_crslab.py --config config/crs/redial/distillrecdial.yaml
 
 # For conversation task
 python run_crslab.py --config config/conversation/gpt2/distillrecdial.yaml
 ```
 
-For more details about the dataset and available models, please check the documentation or contact the authors.
+### Evaluation on Recommendation, Conversation, and Conversational Recommendation
+
+**Table 1: Recommendation metrics for various models.**
+
+| Model                | Hit@1  | Hit@10 | Hit@50 | MRR@1  | MRR@10 | MRR@50 | NDCG@1 | NDCG@10 | NDCG@50 |
+| -------------------- | :----: | :----: | :----: | :----: | :----: | :----: | :-----: | :-----: | :-----: |
+| **Dialogue + Recommendation** |        |        |        |        |        |        |         |         |         |
+| ReDial               | 0      | 0.0075 | 0.0367 | 0      | 0.0013 | 0.0024 | 0      | 0.0027  | 0.0088  |
+| INSPIRED             | 0.0014 | 0.0090 | 0.0452 | 0.0014 | 0.0030 | 0.0045 | 0.0014 | 0.0043  | 0.0120  |
+| KBRD                 | 0.0009 | 0.0104 | 0.0382 | 0.0009 | 0.0026 | 0.0036 | 0.0009 | 0.0043  | 0.0100  |
+| **Recommendation Only** |        |        |        |        |        |        |         |         |         |
+| BERT                 | 0.0763 | 0.1728 | 0.2763 | 0.0763 | 0.1039 | 0.1086 | 0.0763 | 0.1202  | 0.1428  |
+| GRU4Rec              | 0      | 0.0013 | 0.0060 | 0      | 0.0001 | 0.0003 | 0      | 0.0004  | 0.0014  |
+| SASRec               | 0.0040 | 0.0195 | 0.0209 | 0.0676 | 0.0040 | 0.0077 | 0.0098 | 0.0104  | 0.0208  |
+
+**Table 2: Conversational (dialogue) metrics for various models. "--" indicates metric not reported.**
+
+| Model                | BLEU@1 | BLEU@2 | BLEU@3 | BLEU@4 | Dist@1 | Dist@2 | Dist@3 | Dist@4 | F1     | Perplexity |
+| -------------------- | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----- | :--------: |
+| **Dialogue + Recommendation** |        |        |        |        |        |        |        |        |        |            |
+| ReDial               | 0.2232 | 0.0576 | 0.0322 | 0.0218 | 0.0071 | 0.0596 | 0.2415 | 0.5373 | 0.2232 |    204.7   |
+| INSPIRED             | 0.7370 | 0.5788 | 0.4669 | 0.3825 | 0.0049 | 0.0760 | 0.4485 | 1.498  | 0.7495 |     2.198  |
+| KBRD                 | 0.2986 | 0.1131 | 0.0601 | 0.0386 | 0.0072 | 0.1014 | 0.5029 | 1.281  | 0.3277 |     --     |
+| **Dialogue Only** |        |        |        |        |        |        |        |        |        |            |
+| GPT2                 | 0.7297 | 0.5659 | 0.4519 | 0.3672 | 0.0060 | 0.0789 | 0.4675 | 1.604  | 0.7421 |     5.136  |
