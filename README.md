@@ -322,3 +322,20 @@ python run_crslab.py --config config/conversation/gpt2/distillrecdial.yaml
 | KBRD                 | 0.2986 | 0.1131 | 0.0601 | 0.0386 | 0.0072 | 0.1014 | 0.5029 | 1.281  | 0.3277 |     --     |
 | **Dialogue Only** |        |        |        |        |        |        |        |        |        |            |
 | GPT2                 | 0.7297 | 0.5659 | 0.4519 | 0.3672 | 0.0060 | 0.0789 | 0.4675 | 1.604  | 0.7421 |     5.136  |
+
+--- 
+If you use this version of CRSLab or these results, please cite
+```bibtex
+@inproceedings{Martina2025DistillRecDial,
+  author    = {Martina, Alessandro Francesco Maria and Petruzzelli, Alessandro and Musto, Cataldo and de Gemmis, Marco and Lops, Pasquale and Semeraro, Giovanni},
+  title     = {{DistillRecDial}: A Knowledge-Distilled Dataset Capturing User Diversity in Conversational Recommendation},
+  booktitle = {Proceedings of the Nineteenth ACM Conference on Recommender Systems (RecSys '25)},
+  year      = {2025},
+  month     = {September},
+  day       = {22--26},
+  address   = {Prague, Czech Republic},
+  publisher = {ACM},
+  doi       = {10.1145/3705328.3748161},
+  isbn      = {979-8-4007-1364-4/2025/09}
+}
+```
