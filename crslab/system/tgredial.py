@@ -79,15 +79,16 @@ class TGReDialSystem(BaseSystem):
             self.policy_batch_size = self.policy_optim_opt['batch_size']
 
         self.language = dataset_language_map[self.opt['dataset']]
-        self.gpt2_tokenizer = GPT2Tokenizer.from_pretrained(r"/leonardo_scratch/large/userexternal/apetruzz/ale_priv/base_models/gpt2")
+        self.gpt2_tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
         self.model_name = self.opt['model_name']
         self.predicted_target_senteces = []
         self.predicted_target_recommendations = []
 
     def rec_evaluate(self, rec_predict, item_label, save=False):
         rec_predict = rec_predict.cpu()
-        rec_predict = rec_predict[:, self.item_ids]
-        _, rec_ranks = torch.topk(rec_predict, 100, dim=-1)
+        rec_predict_new = rec_predict.new_full(rec_predict.size(), float('-inf'))
+        rec_predict_new[:, self.item_ids] = rec_predict[:, self.item_ids]
+        _, rec_ranks = torch.topk(rec_predict_new, 100, dim=-1)
         rec_ranks = rec_ranks.tolist()
         item_label = item_label.tolist()
         items_labels = self.get_item_name(item_label)

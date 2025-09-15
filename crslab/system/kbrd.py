@@ -59,8 +59,9 @@ class KBRDSystem(BaseSystem):
 
     def rec_evaluate(self, rec_predict, item_label, save=False):
         rec_predict = rec_predict.cpu()
-        rec_predict = rec_predict[:, self.item_ids]
-        _, rec_ranks = torch.topk(rec_predict, 100, dim=-1)
+        rec_predict_new = rec_predict.new_full(rec_predict.size(), float('-inf'))
+        rec_predict_new[:, self.item_ids] = rec_predict[:, self.item_ids]
+        _, rec_ranks = torch.topk(rec_predict_new, 100, dim=-1)
         rec_ranks = rec_ranks.tolist()
         item_label = item_label.tolist()
         items_labels = self.get_item_name(item_label)
