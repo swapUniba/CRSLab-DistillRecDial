@@ -4,16 +4,18 @@ import traceback
 from crslab.config import Config
 from crslab.quick_start import run_crslab
 
+dataset = 'redial'
+
 # List of configs to run
 config_list = [
-    "config/conversation/gpt2/distillrecdial.yaml",
-    "config/crs/redial/distillrecdial.yaml",
-    "config/crs/inspired/distillrecdial.yaml",
-    "config/crs/kbrd/distillrecdial.yaml",
-    "config/recommendation/bert/distillrecdial.yaml",
-    "config/recommendation/gru4rec/distillrecdial.yaml",
-    "config/recommendation/popularity/distillrecdial.yaml",
-    "config/recommendation/sasrec/distillrecdial.yaml",
+    f"config/conversation/gpt2/{dataset}.yaml",
+    f"config/crs/redial/{dataset}.yaml",
+    f"config/crs/inspired/{dataset}.yaml",
+    f"config/crs/kbrd/{dataset}.yaml",
+    f"config/recommendation/bert/{dataset}.yaml",
+    f"config/recommendation/gru4rec/{dataset}.yaml",
+    f"config/recommendation/popularity/{dataset}.yaml",
+    f"config/recommendation/sasrec/{dataset}.yaml",
 ]
 
 error_log_file = 'ERROR_LOG.TXT'
@@ -22,7 +24,7 @@ for config_path in config_list:
     print(f"\n=== Running config: {config_path} ===\n")
     try:
         # Simulate command-line args
-        gpu = '0'
+        gpu = '7'
         debug = False
 
         # Set up configuration

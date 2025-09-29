@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Target Comparator</title>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6; 
+            padding: 2em; 
+            max-width: 800px; 
+            margin: auto; 
+            background-color: #f4f7f9;
+            color: #333;
+        }
+        .container { 
+            background: #ffffff; 
+            padding: 2rem; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+        }
+        h1, h2, h3 { 
+            color: #1a253c;
+            border-bottom: 2px solid #eef2f5;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.1em;
+            border-bottom-style: dashed;
+        }
+        .input-grid { 
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5em; 
+            margin-bottom: 1.5em; 
+        }
+        label { 
+            display: block; 
+            margin-bottom: 0.5em; 
+            font-weight: bold; 
+        }
+        input[type="file"], input[type="text"] { 
+            width: 100%; 
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 0.8em;
+            font-size: 1.1em;
+            font-weight: bold;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover { 
+            background-color: #0056b3; 
+        }
+        #result { 
+            margin-top: 2em; 
+            padding: 1.5em; 
+            background-color: #eef2f5; 
+            border-left: 5px solid #007bff; 
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5em 0;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        code {
+            background-color: #e0e0e0;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JSON Target Comparator 🎯</h1>
+        <p>Upload two JSON files to compare their <code>target</code> fields. This tool treats the files as unordered sets and provides statistics on common and unique targets.</p>
+
+        <div class="input-grid">
+            <div>
+                <label for="name1">Name for File 1:</label>
+                <input type="text" id="name1" placeholder="e.g., Old Config">
+            </div>
+            <div>
+                <label for="name2">Name for File 2:</label>
+                <input type="text" id="name2" placeholder="e.g., New Config">
+            </div>
+            <div>
+                <label for="file1">JSON File 1:</label>
+                <input type="file" id="file1" accept=".json,application/json">
+            </div>
+            <div>
+                <label for="file2">JSON File 2:</label>
+                <input type="file" id="file2" accept=".json,application/json">
+            </div>
+        </div>
+
+        <button id="compareBtn">Compare Files</button>
+
+        <div id="result">
+            <p>Your comparison results will appear here.</p>
+        </div>
+    </div>
+
+    <script>
+        const fileInput1 = document.getElementById('file1');
+        const fileInput2 = document.getElementById('file2');
+        const nameInput1 = document.getElementById('name1');
+        const nameInput2 = document.getElementById('name2');
+        const compareBtn = document.getElementById('compareBtn');
+        const resultDiv = document.getElementById('result');
+
+        const cleanTarget = (target) => {
+            if (typeof target !== 'string') return '';
+            return target.replace(/\s*\[.*?\]\s*|\s*\(.*?\)\s*/g, '').trim();
+        };
+
+        const readFile = (file) => {
+            return new Promise((resolve, reject) => {
+                if (!file) return reject(new Error("No file selected."));
+                const reader = new FileReader();
+                reader.onload = (event) => resolve(event.target.result);
+                reader.onerror = (error) => reject(error);
+                reader.readAsText(file);
+            });
+        };
+
+        const handleComparison = async () => {
+            if (!fileInput1.files[0] || !fileInput2.files[0]) {
+                resultDiv.innerHTML = '<p style="color: red;">⚠️ Please select both JSON files before comparing.</p>';
+                return;
+            }
+
+            const configName1 = nameInput1.value.trim() || 'File 1';
+            const configName2 = nameInput2.value.trim() || 'File 2';
+
+            try {
+                const [content1, content2] = await Promise.all([
+                    readFile(fileInput1.files[0]),
+                    readFile(fileInput2.files[0])
+                ]);
+
+                const json1 = JSON.parse(content1);
+                const json2 = JSON.parse(content2);
+
+                if (!Array.isArray(json1) || !Array.isArray(json2)) {
+                    resultDiv.innerHTML = '<p style="color: red;">❌ Error: Both files must contain a JSON array at the root level.</p>';
+                    return;
+                }
+
+                // --- NEW UNORDERED LOGIC ---
+
+                // 1. Extract and clean all targets into Sets for efficient, unique storage.
+                const set1 = new Set(json1.map(item => cleanTarget(item?.target || '')));
+                const set2 = new Set(json2.map(item => cleanTarget(item?.target || '')));
+
+                // 2. Find the intersection (common targets)
+                const commonTargets = new Set();
+                for (const target of set1) {
+                    if (set2.has(target)) {
+                        commonTargets.add(target);
+                    }
+                }
+
+                // 3. Find unique targets for each set
+                const uniqueTo1 = new Set();
+                for (const target of set1) {
+                    if (!commonTargets.has(target)) {
+                        uniqueTo1.add(target);
+                    }
+                }
+
+                const uniqueTo2 = new Set();
+                for (const target of set2) {
+                    if (!commonTargets.has(target)) {
+                        uniqueTo2.add(target);
+                    }
+                }
+
+                // --- GENERATE NEW REPORT ---
+
+                const listToHtml = (targetSet) => {
+                    if (targetSet.size === 0) return '<ul><li>None</li></ul>';
+                    return `<ul>${[...targetSet].map(t => `<li>${t || '<em>(Empty Target)</em>'}</li>`).join('')}</ul>`;
+                };
+
+                let resultHTML = `
+                    <h2>Comparison Summary 📊</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>${configName1}</th>
+                                <th>${configName2}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Total Entries in File</td>
+                                <td>${json1.length}</td>
+                                <td>${json2.length}</td>
+                            </tr>
+                            <tr>
+                                <td>Unique Cleaned Targets</td>
+                                <td>${set1.size}</td>
+                                <td>${set2.size}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2>Analysis</h2>
+                    <p>Found <strong>${commonTargets.size}</strong> common target(s) between the two files.</p>
+                    
+                    <h3>Targets Only in ${configName1} (${uniqueTo1.size})</h3>
+                    ${listToHtml(uniqueTo1)}
+
+                    <h3>Targets Only in ${configName2} (${uniqueTo2.size})</h3>
+                    ${listToHtml(uniqueTo2)}
+                `;
+                
+                resultDiv.innerHTML = resultHTML;
+
+            } catch (error) {
+                if (error instanceof SyntaxError) {
+                    resultDiv.innerHTML = '<p style="color: red;">❌ <strong>Error:</strong> One or both files are not valid JSON. Please check their format.</p>';
+                } else {
+                    resultDiv.innerHTML = `<p style="color: red;">❌ An error occurred: ${error.message}</p>`;
+                }
+                console.error(error);
+            }
+        };
+
+        compareBtn.addEventListener('click', handleComparison);
+    </script>
+</body>
+</html>

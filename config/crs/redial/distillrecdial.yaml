@@ -16,7 +16,7 @@ autorec_g: sigmoid
 # conv
 conv_model: ReDialConv
 # embedding: word2vec
-embedding_dim: 300
+embedding_dim: 256
 utterance_encoder_hidden_size: 256
 dialog_encoder_hidden_size: 256
 dialog_encoder_num_layers: 1
@@ -29,16 +29,16 @@ rec:
   epoch: 200
   batch_size: 1024
   optimizer:
-    name: Adam
-    lr: !!float 1e-4
-  early_stop: False
+    name: AdamW
+    lr: !!float 5e-3
+  early_stop: true
   impatience: 15
-  stop_mode: max
+  stop_mode: min
 conv:
   epoch: 50
   batch_size: 128
   optimizer:
-    name: Adam
+    name: AdamW
     lr: !!float 1e-3
   early_stop: true
   impatience: 3
